@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Building type:</strong>
+  <%= @quote.building_type %>
+</p>
+
+<p>
+  <strong>Amount elevators:</strong>
+  <%= @quote.amount_elevators %>
+</p>
+
+<p>
+  <strong>Product line:</strong>
+  <%= @quote.product_line %>
+</p>
+
+<p>
+  <strong>Installation fees:</strong>
+  <%= @quote.installation_fees %>
+</p>
+
+<p>
+  <strong>Total cost:</strong>
+  <%= @quote.total_cost %>
+</p>
+
+<%= link_to 'Edit', edit_quote_path(@quote) %> |
+<%= link_to 'Back', quotes_path %>
