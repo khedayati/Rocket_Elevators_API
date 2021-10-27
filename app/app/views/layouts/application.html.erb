@@ -6,10 +6,26 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <%= render "layouts/header" %>
     <%= yield %>
+    <%= render "layouts/footer" %>
+    <script>var plugin_path = 'assets/';</script>
+    <script async defer src="//maps.googleapis.com/maps/api/js?key=AIzaSyAFLFIkZx3fXh_g3CwAqhEdeFk8H2eWrhk&callback"></script>
+    		<script>
+			function initMap() {} // now it IS a function and it is in global
+
+				$(() => {
+				initMap = function() {
+					// your code like...
+					var map = new google.maps.Map(document.getElementById('map'), {/*your code*/});
+					// and other stuff...
+				}
+				})
+		</script>
   </body>
 </html>
