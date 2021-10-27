@@ -46,3 +46,5 @@
 //=link scripts.js
 //=link_tre ../fonts
 //=link all.min.css
+//=link demo.layerslider_slider.js
+//=link demo.revolution_slider.js
