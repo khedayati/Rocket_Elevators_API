@@ -1,260 +1,139 @@
-
-    /**Building Type Variables */
-    let BType = document.getElementById("building-type");
-    let Qone = document.getElementById("number-of-apartments");
-    let Qtwo = document.getElementById("number-of-floors");
-    let Qthree = document.getElementById("number-of-basements");
-    let Qfour = document.getElementById("number-of-companies");
-    let Qfive = document.getElementById("number-of-elevators");
-    let Qsix = document.getElementById("number-of-corporations");
-    let Qseven = document.getElementById("number-of-parking-spots");
-    let Qeight = document.getElementById("maximum-occupancy");
-    let Qnine = document.getElementById("business-hours");
-
-    /**Radio button Variables */
-    var stnd = document.getElementById("inpStandard");
-    var prem = document.getElementById("inpPremium");
-    var exel = document.getElementById("inpExelium");
-
-    /**Stepper Variables */
-    var numApt = document.getElementById("inpNumApt");
-    var numFloors = document.getElementById("inpNumFloors");
-    var numBase = document.getElementById("inpNumBase");
-    var numComp = document.getElementById("inpNumComp");
-    var cge = document.getElementById("inpCageAmnt");
-    var numCorp = document.getElementById("inpNumCorp");
-    var numParking = document.getElementById("inpNumParking");
-    var maxOccu = document.getElementById("inpMaxOccu");
-    var bussHours = document.getElementById("inpBussHours");
-
-    /**Price Fields*/
-    var elvAmnt = document.getElementById("finalElvAmnt");
-    var elvPrice = document.getElementById("elvPrice");
-    var elvTotalPrice = document.getElementById("elvTPrice");
-    var elvinstallFee = document.getElementById("installFee");
-    var elvfinalPrice = document.getElementById("finalPrice");
-
-    /**Variables for calculations */
-    var fee = 0;
-    var standardFee = .1;
-    var premiumFee = .13;
-    var exeliumFee = .16;
-
-    //residential
-    const floorPerColumn = 20;
-    const aptsPerShaft = 6;
-    let amntShaft = 0;
-    let avgDPF = 0;
-    let column = 0;
-
-    //commercial / hybrid
-    var totalNumOccu = maxOccu.value * numFloors.value;
-    var elvsNeeded = totalNumOccu / 1000;
-    var columnsNeeded = numFloors.value + numBase.value;
-    var finalColumnsNeeded = columnsNeeded / 20;
-    var elvsPerColumn = elvsNeeded / finalColumnsNeeded;
-    var totalElvsNeeded = elvsPerColumn * finalColumnsNeeded;
-
-    //currency formatter
-    var formatter = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-    });
-
-    function showHideOptions() {
-
-        if(BType.value == 1) {
-            Qone.style.display = 'block';
-            Qtwo.style.display = 'block';
-            Qthree.style.display = 'block';
-            Qfour.style.display = 'none';
-            Qfive.style.display = 'none';
-            Qsix.style.display = 'none';
-            Qseven.style.display = 'none';
-            Qeight.style.display = 'none';
-            Qnine.style.display = 'none';
-        }
-
-        else if (BType.value == 2) {
-            Qfour.style.display = 'block';
-            Qtwo.style.display = 'block';
-            Qthree.style.display = 'block';
-            Qseven.style.display = 'block';
-            Qfive.style.display = 'block';
-            Qone.style.display = 'none';
-            Qsix.style.display = 'none';
-            Qeight.style.display = 'none';
-            Qnine.style.display = 'none';
-        }
-
-        else if (BType.value == 3) {
-            Qsix.style.display = 'block';
-            Qtwo.style.display = 'block';
-            Qthree.style.display = 'block';
-            Qseven.style.display = 'block';
-            Qeight.style.display = 'block';
-            Qone.style.display = 'none';
-            Qfour.style.display = 'none';
-            Qfive.style.display = 'none';
-            Qnine.style.display = 'none';
-        }
-
-        else if (BType.value == 4) {
-            Qtwo.style.display = 'block';
-            Qfour.style.display = 'block';
-            Qthree.style.display = 'block';
-            Qseven.style.display = 'block';
-            Qnine.style.display = 'block';
-            Qeight.style.display = 'block';
-            Qone.style.display = 'none';
-            Qfive.style.display = 'none';
-            Qsix.style.display = 'none';
-        }
-
-        else if (BType.value == "select-building") {
-            Qtwo.style.display = 'none';
-            Qfour.style.display = 'none';
-            Qthree.style.display = 'none';
-            Qseven.style.display = 'none';
-            Qnine.style.display = 'none';
-            Qeight.style.display = 'none';
-            Qone.style.display = 'none';
-            Qfive.style.display = 'none';
-            Qsix.style.display = 'none';
+var elevatorAmountCalculated = false
+var valueOfRadio
+var formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  });
+var totalShafts
+function isEmpty(str) {
+    return !str.trim().length;
+}
+var selection
+function selectChanged(){
+    elevatorAmountCalculated = false
+    var inputClasses = document.getElementsByClassName('input')
+    inputClasses.hidden = true
+    document.getElementsByName("elevator-amount")[0].value = 0
+    selection = document.getElementById('building-type').value
+    for(var i = 0 ; i < inputClasses.length; i++){
+        inputClasses[i].setAttribute("hidden", "true")
+    }
+    if(selection == "residential"){
+        document.getElementById('number-of-floors').removeAttribute('hidden')
+        document.getElementById('number-of-apartments').removeAttribute("hidden")
+        document.getElementById('number-of-basements')  .removeAttribute("hidden")
+        
+    }
+    else if (selection == "commercial"){
+        document.getElementById('number-of-floors').removeAttribute('hidden')
+        document.getElementById('number-of-basements').removeAttribute('hidden')
+        document.getElementById('number-of-companies').removeAttribute('hidden')
+        document.getElementById('number-of-parking-spots').removeAttribute('hidden')
+        document.getElementById('number-of-elevators').removeAttribute('hidden')
+    }
+    else if (selection == "corporate"){
+        document.getElementById('number-of-floors').removeAttribute('hidden')
+        document.getElementById('number-of-basements').removeAttribute('hidden')
+        document.getElementById('number-of-parking-spots').removeAttribute('hidden')
+        document.getElementById('number-of-corporations').removeAttribute('hidden')
+        document.getElementById('maximum-occupancy').removeAttribute('hidden')
+    }
+    else if (selection == "hybrid"){
+        document.getElementById('number-of-floors').removeAttribute('hidden')
+        document.getElementById('number-of-basements').removeAttribute('hidden')
+        document.getElementById('number-of-companies').removeAttribute('hidden')
+        document.getElementById('number-of-parking-spots').removeAttribute('hidden')
+        document.getElementById('maximum-occupancy').removeAttribute('hidden')
+        document.getElementById('business-hours').removeAttribute('hidden')
+    }
+}
+function calculateElevators(radio){
+    document.getElementById("price-calculation").setAttribute("hidden", "true")
+    elevatorAmountCalculated = false
+    selection = document.getElementById('building-type').value
+    if(selection == "commercial" && document.getElementsByName("number-of-elevators")[0].value > 0){
+        totalShafts = document.getElementsByName("number-of-elevators")[0].value
+        document.getElementsByName("elevator-amount")[0].value = document.getElementsByName("number-of-elevators")[0].value
+        elevatorAmountCalculated = true
+    }
+    else if(selection == "residential" && document.getElementsByName("number-of-apartments")[0].value > 0 && document.getElementsByName("number-of-floors")[0].value > 0){
+        var numberOfColumns = Math.ceil(parseInt(document.getElementsByName("number-of-floors")[0].value) / 20)
+        console.log("number of columns " + numberOfColumns )
+        var averageDoorsPerFloors = (parseInt(document.getElementsByName("number-of-apartments")[0].value) / parseInt(document.getElementsByName("number-of-floors")[0].value))
+        console.log("average doors per floor " + averageDoorsPerFloors )
+        var numberOfShaftsPerColumn = Math.ceil(averageDoorsPerFloors / 6)
+        console.log("shafts per column  " + numberOfShaftsPerColumn )
+        totalShafts = numberOfShaftsPerColumn * numberOfColumns
+        console.log("total shaftS" + totalShafts)
+        document.getElementsByName("elevator-amount")[0].value = totalShafts
+        elevatorAmountCalculated = true
+    }
+    else if (selection == "corporate" || selection == "hybrid"){
+        if(document.getElementsByName("number-of-floors")[0].value > 0 && document.getElementsByName("number-of-basements")[0].value > 0 && document.getElementsByName("maximum-occupancy")[0].value >0 ) {
+            var totalOccupants = (parseInt(document.getElementsByName("number-of-floors")[0].value) + parseInt(document.getElementsByName("number-of-basements")[0].value )) * document.getElementsByName("maximum-occupancy")[0].value // 32* 51 = 1632
+            console.log("occupancy total " + totalOccupants )
+            var totalElevators = totalOccupants / 1000 // 1632/1000 = 2
+            console.log("Total elevators " + totalElevators)
+            var numberOfColumn = Math.ceil((parseInt(document.getElementsByName("number-of-floors")[0].value) + parseInt(document.getElementsByName("number-of-basements")[0].value)) / 20) //2
+            console.log("number of columns" + numberOfColumn)
+            var elevatorsPerColumn = Math.ceil(totalElevators/numberOfColumn)//1
+            console.log("elevator per column" + elevatorsPerColumn)
+            totalShafts = elevatorsPerColumn * numberOfColumn
+            console.log("total Shaft" + totalShafts)
+            document.getElementsByName("elevator-amount")[0].value = totalShafts
+            elevatorAmountCalculated = true
         }
     }
-
-
-    /**Plan Selector */
-	function planSelect() {
-
-        if (stnd.checked == true) {
-            elvPrice.value = "7565";
-            console.log("Standard")
+    if(elevatorAmountCalculated == true && document.getElementsByName("elevator-amount")[0].value != 0){
+        document.getElementById("price-calculation").removeAttribute("hidden")
+        if(valueOfRadio != undefined){
+            calculatePrices()
         }
-        else if (prem.checked == true) {
-            elvPrice.value = "12345";
-            console.log("Premium")
-        }
-        else if (exel.checked == true) {
-            elvPrice.value = "15400";
-            console.log("Excelium")
-        }
-		
-        totalPrice()
-        installationFee()
-        finalPrice ()
-        cagesNeeded()
-
-       formatAll ()
-	}
-    
-    /**Elevators needed */
-    function cagesNeeded() {
-
-        //residential
-        avgDPF = numApt.value / numFloors.value; 
-        var resElvs = Math.ceil(Math.ceil(avgDPF) / 6);
-        var Shafts = Math.ceil(parseInt(numFloors.value) / 20); 
-        var resFinal = resElvs * Shafts;
-
-        //corporate/hybrid
-        totalNumOccu = Number(maxOccu.value) * Number(numFloors.value);
-        elvsNeeded = totalNumOccu / 1000;
-        columnsNeeded = Number(numFloors.value) + Number(numBase.value);
-        console.log("columns needed:", columnsNeeded, "floors",numFloors.value, "Basements", numBase.value)
-        finalColumnsNeeded = Math.round(columnsNeeded / 20);
-        console.log("final columns num:", finalColumnsNeeded)
-        elvsPerColumn = Math.ceil(elvsNeeded / finalColumnsNeeded);
-        console.log("elvs / columns", elvsPerColumn)
-        totalElvsNeeded = elvsPerColumn * finalColumnsNeeded;
-
-        //Amount of Elevators needed
-        //residential
-        if (BType.value == 1) {
-            elvAmnt.value = resFinal;
-            
-            console.log("res elvAmnt:", elvAmnt.value);
-        } 
-        //commercial
-        else if (BType.value == 2) {
-            elvAmnt.value = cge.value;
-        }
-
-        //corporate / hybrid
-        else if (BType.value == 3 || 4) {
-            elvAmnt.value = Math.round(totalElvsNeeded);
-        }
-
-    } 
-
-    function totalPrice() {
-        elvAmnt;
-        elvPrice;
-
-        elvTotalPrice.value = (elvAmnt.value * elvPrice.value);
-
-        console.log("total price:", elvTotalPrice.value);
-    }
-
-    function installationFee() {
-        fee;
-        standardFee;
-        premiumFee;
-        exeliumFee
-
-        //residential
-        if (stnd.checked == true) {
-            fee = (standardFee * Number(elvTotalPrice.value));
-            console.log ("fee vairables:", fee);
-        }
-        //commercial
-        else if (prem.checked == true) {
-            fee = (premiumFee * Number(elvTotalPrice.value));
-        } 
-        //corporate / hybrid
-        else if (exel.checked == true) {
-            fee = (exeliumFee * Number(elvTotalPrice.value));
-        }
-        elvinstallFee.value = fee;
-        console.log("fee's are:" , fee);
-    }
-
-    function finalPrice () {
-        elvfinalPrice.value = Number(elvTotalPrice.value) + Number(elvinstallFee.value);
-        console.log(elvTotalPrice.value, elvinstallFee.value)
-    }
-
-    function formatAll () {
-        formatter;
-        elvTotalPrice;
-        elvPrice;
-        elvinstallFee;
-        elvfinalPrice;
-
-        elvTotalPrice.value = formatter.format(elvTotalPrice.value);
-        elvPrice.value = formatter.format(elvPrice.value);
-        elvinstallFee.value = formatter.format(elvinstallFee.value);
-        elvfinalPrice.value = formatter.format(elvfinalPrice.value);
-    }
-
-    function clearFields() {
-        elvAmnt.value = "0"
-        elvTotalPrice.value = "$0"
-        elvPrice.value = "$0"
-        elvinstallFee.value = "$0"
-        elvfinalPrice.value = "$0"
-        numApt.value = "0"
-        numFloors.value = "0"
-        numBase.value = "0"
-        numComp.value = "0"
-        cge.value = "0"
-        numCorp.value = "0"
-        numParking.value = "0"
-        maxOccu.value= "0"
-        bussHours.value = "0"
-        stnd.checked = false;
-        prem.checked = false;
-        exel.checked = false;
     }
     
+    
+}
+function radioButtonClicked(radio){
+    if(radio.value == "standard"){
+        valueOfRadio = "standard"
+        document.getElementsByName("elevator-unit-price")[0].value = formatter.format("7565")
+    }
+    else if(radio.value == "premium"){
+        valueOfRadio = "premium"
+        document.getElementsByName("elevator-unit-price")[0].value = formatter.format("12345")
+    }
+    else{
+        valueOfRadio = "excelium"
+        document.getElementsByName("elevator-unit-price")[0].value = formatter.format("15400")
+    }
+    console.log(elevatorAmountCalculated)
+    if(elevatorAmountCalculated == true && document.getElementsByName("elevator-amount")[0].value != 0){
+        calculatePrices()
+    }
+}
+function calculatePrices(){
+    if(valueOfRadio == "standard"){
+        var totalElevatorPrice = totalShafts * 7565
+        document.getElementsByName("elevator-total-price")[0].value = formatter.format(totalElevatorPrice)
+        var installationFees = totalElevatorPrice /100 * 10
+        document.getElementsByName("installation-fees")[0].value = formatter.format(installationFees)
+        var finalPrice = totalElevatorPrice + installationFees
+        document.getElementsByName("final-price")[0].value = formatter.format(finalPrice)
+    }
+    else if(valueOfRadio == "premium"){
+        var totalElevatorPrice = totalShafts * 12345
+        document.getElementsByName("elevator-total-price")[0].value = formatter.format(totalElevatorPrice)
+        var installationFees = totalElevatorPrice / 100 * 13
+        document.getElementsByName("installation-fees")[0].value = formatter.format(installationFees)
+        var finalPrice = totalElevatorPrice + installationFees
+        document.getElementsByName("final-price")[0].value = formatter.format(finalPrice)
+    }
+    else{
+        var totalElevatorPrice = totalShafts * 15400
+        document.getElementsByName("elevator-total-price")[0].value = formatter.format(totalElevatorPrice)
+        var installationFees = totalElevatorPrice / 100 * 16
+        document.getElementsByName("installation-fees")[0].value = formatter.format(installationFees)
+        var finalPrice = totalElevatorPrice + installationFees
+        document.getElementsByName("final-price")[0].value = formatter.format(finalPrice)
+    }
+}
