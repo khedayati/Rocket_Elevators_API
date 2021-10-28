@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, 
          :recoverable, :rememberable, :validatable
 
-  has_many :employees, class_name: "employee", foreign_key: "employees_id"
+  has_many :employees, 
+  # class_name: "employee", foreign_key: "employees_id" i did remove this one it works with it though
 
 end
