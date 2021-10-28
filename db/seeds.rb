@@ -11,7 +11,12 @@ last_name = Array["Genest", "Fortier", "Chantal", "Houde", "Tibault", "Boutin", 
 function = Array["CEO", "Director", "Assistant Director", "Captain", "Captain", "Engineer", "Engineer", "Engineer", "Engineer", "Engineer", "Engineer", "Engineer", "Engineer", "Engineer", "Engineer", "Developer", "Developer", "Developer", "Developer", "Developer", "Developer"]
 email = Array["nicolas.genest@codeboxx.biz", "nadya.fortier@codeboxx.biz", "martin.chantal@codeboxx.biz", "mathieu.houde@codeboxx.biz", "patrick.thibault@codeboxx.biz", "david.boutin@codeboxx.biz", "mathieu.lortie@codeboxx.biz", "thomas.carrier@codeboxx.biz", "serge.savoie@codeboxx.biz", "francis.patry-jessop@codeboxx.biz", "mathieu.lefrancois@codeboxx.biz", "david.larochelle@codeboxx.biz", "nicolas.pineault@codeboxx.biz", "david.amyot@codeboxx.biz", "remi.gagnon@codeboxx.biz", "timothy.wever@codeboxx.biz", "kiril.kleinerman@codeboxx.biz", "emmanuela.derilus@codeboxx.biz", "abdul.akeeb@codeboxx.biz", "krista.sheely@codeboxx.biz", "jonathan.murray@codeboxx.biz"]
 
-for i in 0...first_name.length()
-    Employee.create(first_name:first_name[i], last_name:last_name[i], function:function[i], email:email[i])
+=begin for i in 0...first_name.length()
+    @user = User.create!(email: email[i], password: 'password', password_confirmation: 'password', first_name:first_name[i], last_name:last_name[i], function:function[i])
+    puts @user
+    Employee.create!(first_name:first_name[i], last_name:last_name[i], function:function[i], email:email[i])
 end
+=end
 
+@usert = User.create!(email: email[0], password: 'password', password_confirmation: 'password', first_name:first_name[0], last_name:last_name[0], function:function[0])
+Employee.create!(first_name:first_name[0], last_name:last_name[0], function:function[0], email:email[0], user_id:@usert.id)
