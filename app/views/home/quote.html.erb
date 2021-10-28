@@ -1,0 +1,88 @@
+<hr class="m-0" />
+
+            <form>
+                <div class="form-group">
+                    <label for="building-type">Building Type * </label>
+                    <select id="building-type" class="form-control" onchange = "selectChanged()">
+                        <option>Select</option>
+                        <option id="residential" value="residential">Residential</option>
+                        <option id="commercial" value="commercial">Commercial</option>
+                        <option id="corporate" value="corporate">Corporate</option>
+                        <option id="hybrid" value="hybrid">Hybrid</option>
+                    </select>
+                </div>
+                <div class="form-group input" id="number-of-floors" hidden>
+                    <label>Number of floors *</label>
+                    <input class="form-control" type="number" name="number-of-floors" oninput="calculateElevators()">
+                </div>
+                <div class="form-group input"  id="number-of-basements" hidden>
+                    <label>Number of basements *</label>
+                    <input class="form-control" type="number" name="number-of-basements" oninput="calculateElevators()">
+                </div>
+                <div class="form-group input"  id="number-of-parking-spots" hidden>
+                    <label>Number of parking spots *</label>
+                    <input class="form-control" type="number" name="number-of-parking-spots" oninput="calculateElevators()">
+                </div>
+                <div class="form-group input"  id="maximum-occupancy" hidden>
+                    <label>Maximum occupancy *</label>
+                    <input class="form-control" type="number" name="maximum-occupancy" oninput="calculateElevators()">
+                </div>
+                <div class="form-group input"  id="number-of-apartments" hidden>
+                    <label>Number of apartments *</label>
+                    <input class="form-control" type="number" name="number-of-apartments" oninput="calculateElevators()">
+                </div>
+                <div class="form-group input" id="number-of-companies" hidden>
+                    <label>Number of companies *</label>
+                    <input class="form-control" type="number" name="number-of-companies" oninput="calculateElevators()">
+                </div>
+                <div class="form-group input" id="number-of-elevators" hidden>
+                    <label>Number of elevators *</label>
+                    <input class="form-control" type="number" name="number-of-elevators" oninput="calculateElevators()">
+                </div>
+                <div class="form-group input"  id="number-of-corporations" hidden>
+                    <label>Number of corporations *</label>
+                    <input class="form-control" type="number" name="number-of-corporations" oninput="calculateElevators()">
+                </div>
+                <div class="form-group input"  id="business-hours" hidden>
+                    <label>Business hours *</label>
+                    <input class="form-control" type="number" max = "24" min = "0" name="business-hours" oninput="calculateElevators()">
+                </div>
+                
+                <div id="elevator-amount" class="form-group">
+                    <label>Number of elevators: </label>
+                    <input name="elevator-amount" class="form-control" readonly>
+                </div>
+                
+                <div id="price-calculation" hidden>
+                    <div id="radio" class="form-check">
+                        <label class="form-check-label">Please select your range of elevator:</label>
+                        <input class="form-check-input" type="radio" id="standard" name="elevator-quality" value="standard" onchange="radioButtonClicked(this)">
+                        <label class="form-check-label" for="standard">Standard</label><br>
+                        <input class="form-check-input" type="radio" id="premium" name="elevator-quality" value="premium" onchange="radioButtonClicked(this)">
+                        <label class="form-check-label" for="premium">Premium</label><br>
+                        <input class="form-check-input" type="radio" id="excelium" name="elevator-quality" value="excelium" onchange="radioButtonClicked(this)">
+                        <label class="form-check-label" for="excelium">Excelium</label>
+                    </div>
+                    <div id="elevator-unit-price" class="form-group">
+                        <label>Price of each unit: </label>
+                        <input name="elevator-unit-price" class="form-control" readonly>
+                    </div>
+                    <div id="elevator-total-price" class="form-group">
+                        <label>Price of all elevators: </label>
+                        <input name="elevator-total-price" class="form-control" readonly>
+                    </div>
+                    <div id="installation-fees" class="form-group">
+                        <label>Installation fees: </label>
+                        <input name="installation-fees" class="form-control" readonly>
+                    </div>
+                    <div id="final-price" class="form-group">
+                        <label>Final Price: </label>
+                        <input name="final-price" class="form-control" readonly>
+                    </div>
+                    
+                </div>
+                
+                
+
+            </form>
+            <hr class="m-0" />
