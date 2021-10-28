@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>App</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link href="//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+     <script>var plugin_path = "assets/plugins/";</script>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render "layouts/header" %>
+    <%= yield %>
+    <%= render "layouts/footer" %>
+    <script async defer src="//maps.googleapis.com/maps/api/js?key=***REMOVED***&callback"></script>
+    		<script>
+			function initMap() {} // now it IS a function and it is in global
+
+				$(() => {
+				initMap = function() {
+					// your code like...
+					var map = new google.maps.Map(document.getElementById('map'), {/*your code*/});
+					// and other stuff...
+				}
+				})
+		</script>
+  </body>
+</html>
