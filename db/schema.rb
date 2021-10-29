@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_28_212359) do
+ActiveRecord::Schema.define(version: 2021_10_29_155052) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "namespace"
@@ -37,7 +37,11 @@ ActiveRecord::Schema.define(version: 2021_10_28_212359) do
     t.index ["user_id"], name: "index_employees_on_user_id"
   end
 
+<<<<<<< HEAD
   create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+=======
+  create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+>>>>>>> origin/AddToQuote
     t.string "building_type"
     t.string "amount_elevators"
     t.string "product_line"
@@ -45,6 +49,14 @@ ActiveRecord::Schema.define(version: 2021_10_28_212359) do
     t.string "total_cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "amount_floors"
+    t.string "amount_basements"
+    t.string "amount_parking_spots"
+    t.string "maximum_occupancy"
+    t.string "amount_apartments"
+    t.string "amount_companies"
+    t.string "amount_corporations"
+    t.string "business_hours"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
