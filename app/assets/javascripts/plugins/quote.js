@@ -15,6 +15,7 @@ function selectChanged(){
     inputClasses.hidden = true
     document.getElementsByName("amount_elevators")[0].value = 0
     selection = document.getElementById('building_type').value
+
     for(var i = 0 ; i < inputClasses.length; i++){
         inputClasses[i].setAttribute("hidden", "true")
     }
@@ -51,6 +52,7 @@ function selectChanged(){
 function calculateElevators(radio){
     document.getElementById("price-calculation").setAttribute("hidden", "true")
     elevatorAmountCalculated = false
+
     selection = document.getElementById('building_type').value
     if(selection == "commercial" && document.getElementById("number-of-elevators-1").value > 0){
         totalShafts = document.getElementById("number-of-elevators-1").value
@@ -61,6 +63,7 @@ function calculateElevators(radio){
         var numberOfColumns = Math.ceil(parseInt(document.getElementById("number-of-floors-1").value) / 20)
         console.log("number of columns " + numberOfColumns )
         var averageDoorsPerFloors = (parseInt(document.getElementById("number-of-apartments-1").value) / parseInt(document.getElementById("number-of-floors-1").value))
+
         console.log("average doors per floor " + averageDoorsPerFloors )
         var numberOfShaftsPerColumn = Math.ceil(averageDoorsPerFloors / 6)
         console.log("shafts per column  " + numberOfShaftsPerColumn )
@@ -76,16 +79,19 @@ function calculateElevators(radio){
             var totalElevators = totalOccupants / 1000 // 1632/1000 = 2
             console.log("Total elevators " + totalElevators)
             var numberOfColumn = Math.ceil((parseInt(document.getElementById("number-of-floors-1").value) + parseInt(document.getElementById("number-of-basements-1").value)) / 20) //2
+
             console.log("number of columns" + numberOfColumn)
             var elevatorsPerColumn = Math.ceil(totalElevators/numberOfColumn)//1
             console.log("elevator per column" + elevatorsPerColumn)
             totalShafts = elevatorsPerColumn * numberOfColumn
             console.log("total Shaft" + totalShafts)
+
             document.getElementsByName("amount_elevators")[0].value = totalShafts
             elevatorAmountCalculated = true
         }
     }
     if(elevatorAmountCalculated == true && document.getElementsByName("amount_elevators")[0].value != 0){
+
         document.getElementById("price-calculation").removeAttribute("hidden")
         if(valueOfRadio != undefined){
             calculatePrices()
@@ -94,6 +100,7 @@ function calculateElevators(radio){
     
     
 }
+
 
 function radioButtonClicked(radio){
     if(radio.value == "standard"){
@@ -110,6 +117,7 @@ function radioButtonClicked(radio){
     }
     console.log(elevatorAmountCalculated)
     if(elevatorAmountCalculated == true && document.getElementsByName("amount_elevators")[0].value != 0){
+
         calculatePrices()
     }
 }
