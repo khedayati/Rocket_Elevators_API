@@ -1,5 +1,4 @@
 <hr class="m-0" />
-
             <form id="myForm" method = "post" action = "/create_quotes">
                 <div class="form-group">
                     <label for="building_type">Building Type * </label>
@@ -13,39 +12,39 @@
                 </div>
                 <div class="form-group input" id="number-of-floors" hidden>
                     <label>Number of floors *</label>
-                    <input class="form-control" type="number" id="number-of-floors-1" oninput="calculateElevators()">
+                    <input class="form-control" type="number" id="number-of-floors-1" name="amount_floors"  oninput="calculateElevators()">
                 </div>
                 <div class="form-group input"  id="number-of-basements" hidden>
                     <label>Number of basements *</label>
-                    <input class="form-control" type="number" id="number-of-basements-1" oninput="calculateElevators()">
+                    <input class="form-control" type="number" id="number-of-basements-1" name="amount_basements" oninput="calculateElevators()">
                 </div>
                 <div class="form-group input"  id="number-of-parking-spots" hidden>
                     <label>Number of parking spots *</label>
-                    <input class="form-control" type="number" id="number-of-parking-spots-1" oninput="calculateElevators()">
+                    <input class="form-control" type="number" id="number-of-parking-spots-1" name="amount_parking_spots" oninput="calculateElevators()">
                 </div>
                 <div class="form-group input"  id="maximum-occupancy" hidden>
                     <label>Maximum occupancy *</label>
-                    <input class="form-control" type="number" id="maximum-occupancy-1" oninput="calculateElevators()">
+                    <input class="form-control" type="number" id="maximum-occupancy-1" name="maximum_occupancy" oninput="calculateElevators()">
                 </div>
                 <div class="form-group input"  id="number-of-apartments" hidden>
                     <label>Number of apartments *</label>
-                    <input class="form-control" type="number" id="number-of-apartments-1" oninput="calculateElevators()">
+                    <input class="form-control" type="number" id="number-of-apartments-1" name="amount_apartments" oninput="calculateElevators()">
                 </div>
                 <div class="form-group input" id="number-of-companies" hidden>
                     <label>Number of companies *</label>
-                    <input class="form-control" type="number" id="number-of-companies-1" oninput="calculateElevators()">
+                    <input class="form-control" type="number" id="number-of-companies-1" name="amount_companies" oninput="calculateElevators()">
                 </div>
                 <div class="form-group input" id="number-of-elevators" hidden>
                     <label>Number of elevators *</label>
-                    <input class="form-control" type="number" id="number-of-elevators-1" oninput="calculateElevators()">
+                    <input class="form-control" type="number" id="number-of-elevators-1"  oninput="calculateElevators()">
                 </div>
                 <div class="form-group input"  id="number-of-corporations" hidden>
                     <label>Number of corporations *</label>
-                    <input class="form-control" type="number" id="number-of-corporations-1" oninput="calculateElevators()">
+                    <input class="form-control" type="number" id="number-of-corporations-1" name="amount_corporations" oninput="calculateElevators()">
                 </div>
                 <div class="form-group input"  id="business-hours" hidden>
                     <label>Business hours *</label>
-                    <input class="form-control" type="number" max = "24" min = "0" id="business-hours-1" oninput="calculateElevators()">
+                    <input class="form-control" type="number" max = "24" min = "0" id="business-hours-1" name="bussiness_hoursc" oninput="calculateElevators()">
                 </div>
                 
                 <div id="amount_elevators" class="form-group">
@@ -83,7 +82,6 @@
                 </div>
                  
                 
-
             </form>
             <form id="tempForm" action="/create_quotes" method="POST">
                 <input id="tempField1" type="hidden" name="q" value="a">
