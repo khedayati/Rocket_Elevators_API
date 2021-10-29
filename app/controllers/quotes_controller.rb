@@ -1,6 +1,6 @@
 class QuotesController < ApplicationController
   before_action :set_quote, only: %i[ show edit update destroy ]
-
+  protect_from_forgery except: :home
   # GET /quotes or /quotes.json
   def index
     @quotes = Quote.all
@@ -21,6 +21,7 @@ class QuotesController < ApplicationController
 
   # POST /quotes or /quotes.json
   def create
+    
     @quote = Quote.new(quote_params)
 
     respond_to do |format|
@@ -32,7 +33,7 @@ class QuotesController < ApplicationController
         format.json { render json: @quote.errors, status: :unprocessable_entity }
       end
     end
-  end
+  end 
 
   # PATCH/PUT /quotes/1 or /quotes/1.json
   def update
@@ -64,6 +65,7 @@ class QuotesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def quote_params
-      params.require(:quote).permit(:building_type, :amount_elevators, :product_line, :installation_fees, :total_cost)
+      params.permit(:building_type, :amount_elevators, :product_line, :installation_fees, :total_cost)
+      
     end
 end
