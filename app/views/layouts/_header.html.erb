@@ -61,11 +61,14 @@
 											CONTACT
 										</a>
 									</li>
-									<li><!-- LOGIN -->
-										<a href="/admin" id="admin-nav">
-											LOGIN
-										</a>
-									</li>
+									<% if user_signed_in?%> 
+										<%= link_to "LOGOUT", "/admin/logout"  %>
+										<%= link_to "CHANGE MY INFO", '/users/'+ current_user.id.to_s + '/edit' %>
+										
+									<% else %>
+										<%= link_to "LOGIN", "/admin"  %>	
+									<% end %>
+									
 								</ul>
 
 							</nav>
