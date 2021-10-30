@@ -1,6 +1,20 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
+  before_action :validate_access 
+  private 
+  def validate_access 
+    if current_user == nil
+      redirect_to '/'
+    elsif current_user.id.to_c != params[:id].to_c
+      flash.now[:alert] = 'Error while sending message!'
+      redirect_to '/'
+      
+    
+      
+    end 
 
+  end
+  public
   # GET /users or /users.json
   def index
     @users = User.all
@@ -8,6 +22,7 @@ class UsersController < ApplicationController
 
   # GET /users/1 or /users/1.json
   def show
+
   end
 
   # GET /users/new
@@ -65,5 +80,8 @@ class UsersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :password, :token)
+    end
+    def id_params
+      params.require(:user).permit(:id)
     end
 end
