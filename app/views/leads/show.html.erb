@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Full name:</strong>
+  <%= @lead.full_name %>
+</p>
+
+<p>
+  <strong>Company name:</strong>
+  <%= @lead.company_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @lead.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @lead.phone %>
+</p>
+
+<p>
+  <strong>Project name:</strong>
+  <%= @lead.project_name %>
+</p>
+
+<p>
+  <strong>Project description:</strong>
+  <%= @lead.project_description %>
+</p>
+
+<p>
+  <strong>Department in charge of the elevators:</strong>
+  <%= @lead.department_in_charge_of_the_elevators %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @lead.message %>
+</p>
+
+<p>
+  <strong>Date of the contact request:</strong>
+  <%= @lead.date_of_the_contact_request %>
+</p>
+
+<%= link_to 'Edit', edit_lead_path(@lead) %> |
+<%= link_to 'Back', leads_path %>
