@@ -1,4 +1,50 @@
-<div id="header" class="navbar-toggleable-md sticky header-md clearfix">
+		<body class=" enable-animation">
+
+		<!-- SLIDE TOP -->
+		<div id="slidetop">
+
+			<div class="container">
+				
+				<div class="row">
+
+					<div class="col-md-4">
+						<h6><i class="icon-heart"></i> WHY ROCKET ELEVATOR?</h6>
+						<p>We have the conviction that we create the most innovative and reliable products on the market. Contact us today for any questions you might have. </p>
+					</div>
+
+					<div class="col-md-4">
+						<h6><i class="fa-facheck"></i> RECENTLY VISITED</h6>
+						<ul class="list-unstyled">
+							<li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet</a></li>
+							<li><a href="#"><i class="fa fa-angle-right"></i> This is a very long text, very very very very very very very very very very very very </a></li>
+							<li><a href="#"><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet</a></li>
+							<li><a href="#"><i class="fa fa-angle-right"></i> Dolor sit amet,consectetur adipiscing elit amet</a></li>
+							<li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet,consectetur adipiscing elit</a></li>
+						</ul>
+					</div>
+
+					<div class="col-md-4">
+						<h6><i class="icon-envelope"></i> CONTACT INFO</h6>
+						<ul class="list-unstyled">
+							<li><b>Address:</b> 4468 Wellington St Suite 204, Verdun, <br /> Quebec H4G 1W5, Canada</li>
+							<li><b>Phone:</b> (418) 555-1234</li>
+							<li><b>Email:</b> <a href="mailto:info@***REMOVED***.biz">info@***REMOVED***.biz</a></li>
+						</ul>
+					</div>
+
+				</div>
+
+			</div>
+
+			<a class="slidetop-toggle" href="#"><!-- toggle button --></a>
+
+		</div>
+		<!-- /SLIDE TOP -->
+
+
+		<!-- wrapper -->
+		<div id="wrapper">
+	<div id="header" class="navbar-toggleable-md sticky header-md clearfix">
 
 				<!-- TOP NAV -->
 				<header id="topNav">
@@ -31,46 +77,49 @@
 								-->
 								<ul id="topMain" class="nav nav-pills nav-main nav-onepage">
 									<li class="active"><!-- HOME -->
-										<a href="index.html" id="home-nav">
+										<a href="/index#" id="home-nav">
 											HOME
 										</a>
 									</li>
 									<li><!-- SERVICES -->
-										<a href="index.html#services" id="services-nav">
+										<a href="/index#services" id="services-nav">
 											SERVICES
 										</a>
 									</li>
 									<li><!-- WORK -->
-										<a href="index.html#portfolio" id="portfolio-nav">
+										<a href="/index#portfolio" id="portfolio-nav">
 											PORTFOLIO
 										</a>
 									</li>
 									<li><!-- NEWS -->
-										<a href="index.html#news" id="news-nav">
+										<a href="/index#news" id="news-nav">
 											NEWS
 										</a>
 									</li>
 									<li><!-- CLIENTS -->
-										<a href="index.html#clients" id="clients-nav">
+										<a href="/index#clients" id="clients-nav">
 											CLIENTS
 										</a>
 									</li>	
 
 									<li><!-- CONTACT -->
-										<a href="index.html#contact" id="contact-nav">
+										<a href="/index#contact" id="contact-nav">
 											CONTACT
 										</a>
 									</li>
 									<% if user_signed_in?%> 
-										<li>
-											<div class="dropdown-menu">
-												<h6 class="dropdown-header">Manage account</h6>
-												<%= link_to "LOGOUT", "/admin/logout", :class => "dropdown-item"%>
-
+										<li class="nav-item dropdown">
+										<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          								MANAGE ACCOUNT
+        								</a>
+											<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+												<h6 class="dropdown-header">Manage your account</h6>
+												<%= link_to "Change my info", '/users/'+ current_user.id.to_s  ,:class => "dropdown-item"%>
+												<%= link_to "Show addresses", '/index', :class => "dropdown-item"%>
+												<div class="dropdown-divider"></div>
+												<%= link_to "Logout", "/admin/logout", :class => "dropdown-item"%>
+												
 											</div>
-										</li>
-										<li>
-											<%= link_to "CHANGE MY INFO", '/users/'+ current_user.id.to_s + '/edit' %>
 										</li>
 									<% else %>
 										<li>
