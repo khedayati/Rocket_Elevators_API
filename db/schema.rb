@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2021_11_01_161426) do
 
-  create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
     t.string "resource_type"
@@ -25,6 +28,7 @@ ActiveRecord::Schema.define(version: 2021_11_01_161426) do
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
   end
+
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "name", null: false
@@ -58,7 +62,7 @@ ActiveRecord::Schema.define(version: 2021_11_01_161426) do
     t.index ["user_id"], name: "index_employees_on_user_id"
   end
 
-  create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+  create_table "quotes", force: :cascade do |t|
     t.string "building_type"
     t.string "amount_elevators"
     t.string "product_line"
@@ -76,7 +80,7 @@ ActiveRecord::Schema.define(version: 2021_11_01_161426) do
     t.string "business_hours"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "email"

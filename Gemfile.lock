@@ -198,6 +198,7 @@ GEM
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    pg (1.2.3)
     popper_js (2.9.3)
     public_suffix (4.0.6)
     puma (3.12.6)
@@ -317,6 +318,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin
+  arbre
   bootsnap (>= 1.1.0)
   bootstrap
   byebug
@@ -338,6 +340,7 @@ DEPENDENCIES
   jquery-ui-rails
   listen (>= 3.0.5, < 3.2)
   mysql2 (>= 0.4.4, < 0.6.0)
+  pg
   puma (~> 3.11)
   pundit
   rails (~> 5.2.6)
