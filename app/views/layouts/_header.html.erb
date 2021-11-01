@@ -54,7 +54,7 @@
 										<a href="index.html#clients" id="clients-nav">
 											CLIENTS
 										</a>
-									</li>
+									</li>	
 
 									<li><!-- CONTACT -->
 										<a href="index.html#contact" id="contact-nav">
@@ -62,11 +62,20 @@
 										</a>
 									</li>
 									<% if user_signed_in?%> 
-										<%= link_to "LOGOUT", "/admin/logout"  %>
-										<%= link_to "CHANGE MY INFO", '/users/'+ current_user.id.to_s + '/edit' %>
-										
+										<li>
+											<div class="dropdown-menu">
+												<h6 class="dropdown-header">Manage account</h6>
+												<%= link_to "LOGOUT", "/admin/logout", :class => "dropdown-item"%>
+
+											</div>
+										</li>
+										<li>
+											<%= link_to "CHANGE MY INFO", '/users/'+ current_user.id.to_s + '/edit' %>
+										</li>
 									<% else %>
-										<%= link_to "LOGIN", "/admin"  %>	
+										<li>
+										<%= link_to "LOGIN", "/admin"  %>
+										</li>	
 									<% end %>
 									
 								</ul>
