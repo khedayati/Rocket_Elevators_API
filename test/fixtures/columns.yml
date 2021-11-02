@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  batterie: 
+  batterie: one
   type: 
   number_of_floors_served: 1
   status: MyString
@@ -9,7 +9,7 @@ one:
   notes: MyText
 
 two:
-  batterie: 
+  batterie: two
   type: 
   number_of_floors_served: 1
   status: MyString

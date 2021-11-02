@@ -17,7 +17,7 @@ class BuildingDetailsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create building_detail" do
     assert_difference('BuildingDetail.count') do
-      post building_details_url, params: { building_detail: { building: @building_detail.building, information_key: @building_detail.information_key, value: @building_detail.value } }
+      post building_details_url, params: { building_detail: { building_id: @building_detail.building_id, information_key: @building_detail.information_key, value: @building_detail.value } }
     end
 
     assert_redirected_to building_detail_url(BuildingDetail.last)
@@ -34,7 +34,7 @@ class BuildingDetailsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update building_detail" do
-    patch building_detail_url(@building_detail), params: { building_detail: { building: @building_detail.building, information_key: @building_detail.information_key, value: @building_detail.value } }
+    patch building_detail_url(@building_detail), params: { building_detail: { building_id: @building_detail.building_id, information_key: @building_detail.information_key, value: @building_detail.value } }
     assert_redirected_to building_detail_url(@building_detail)
   end
 

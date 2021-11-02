@@ -1,10 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  building: 
+  building: one
   type: 
   status: MyString
-  employee: 
+  employee: one
   Date_of_: MyString
   commissioning: 2021-11-02
   date_of_last_inspection: 2021-11-02
@@ -13,10 +13,10 @@ one:
   notes: MyText
 
 two:
-  building: 
+  building: two
   type: 
   status: MyString
-  employee: 
+  employee: two
   Date_of_: MyString
   commissioning: 2021-11-02
   date_of_last_inspection: 2021-11-02

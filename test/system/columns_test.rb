@@ -14,7 +14,7 @@ class ColumnsTest < ApplicationSystemTestCase
     visit columns_url
     click_on "New Column"
 
-    fill_in "Batterie", with: @column.batterie
+    fill_in "Batterie", with: @column.batterie_id
     fill_in "Information", with: @column.information
     fill_in "Notes", with: @column.notes
     fill_in "Number of floors served", with: @column.number_of_floors_served
@@ -30,7 +30,7 @@ class ColumnsTest < ApplicationSystemTestCase
     visit columns_url
     click_on "Edit", match: :first
 
-    fill_in "Batterie", with: @column.batterie
+    fill_in "Batterie", with: @column.batterie_id
     fill_in "Information", with: @column.information
     fill_in "Notes", with: @column.notes
     fill_in "Number of floors served", with: @column.number_of_floors_served

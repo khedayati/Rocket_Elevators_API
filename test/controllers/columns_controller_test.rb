@@ -17,7 +17,7 @@ class ColumnsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create column" do
     assert_difference('Column.count') do
-      post columns_url, params: { column: { batterie: @column.batterie, information: @column.information, notes: @column.notes, number_of_floors_served: @column.number_of_floors_served, status: @column.status, type: @column.type } }
+      post columns_url, params: { column: { batterie_id: @column.batterie_id, information: @column.information, notes: @column.notes, number_of_floors_served: @column.number_of_floors_served, status: @column.status, type: @column.type } }
     end
 
     assert_redirected_to column_url(Column.last)
@@ -34,7 +34,7 @@ class ColumnsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update column" do
-    patch column_url(@column), params: { column: { batterie: @column.batterie, information: @column.information, notes: @column.notes, number_of_floors_served: @column.number_of_floors_served, status: @column.status, type: @column.type } }
+    patch column_url(@column), params: { column: { batterie_id: @column.batterie_id, information: @column.information, notes: @column.notes, number_of_floors_served: @column.number_of_floors_served, status: @column.status, type: @column.type } }
     assert_redirected_to column_url(@column)
   end
 
