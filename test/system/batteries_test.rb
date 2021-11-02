@@ -15,11 +15,11 @@ class BatteriesTest < ApplicationSystemTestCase
     click_on "New Battery"
 
     fill_in "Date of ", with: @battery.Date_of_
-    fill_in "Building", with: @battery.building
+    fill_in "Building", with: @battery.building_id
     fill_in "Certificate of operations", with: @battery.certificate_of_operations
     fill_in "Commissioning", with: @battery.commissioning
     fill_in "Date of last inspection", with: @battery.date_of_last_inspection
-    fill_in "Employee", with: @battery.employee
+    fill_in "Employee", with: @battery.employee_id
     fill_in "Information", with: @battery.information
     fill_in "Notes", with: @battery.notes
     fill_in "Status", with: @battery.status
@@ -35,11 +35,11 @@ class BatteriesTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Date of ", with: @battery.Date_of_
-    fill_in "Building", with: @battery.building
+    fill_in "Building", with: @battery.building_id
     fill_in "Certificate of operations", with: @battery.certificate_of_operations
     fill_in "Commissioning", with: @battery.commissioning
     fill_in "Date of last inspection", with: @battery.date_of_last_inspection
-    fill_in "Employee", with: @battery.employee
+    fill_in "Employee", with: @battery.employee_id
     fill_in "Information", with: @battery.information
     fill_in "Notes", with: @battery.notes
     fill_in "Status", with: @battery.status

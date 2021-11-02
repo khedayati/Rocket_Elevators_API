@@ -15,7 +15,7 @@ class BuildingsTest < ApplicationSystemTestCase
     click_on "New Building"
 
     fill_in "Address of the building", with: @building.address_of_the_building
-    fill_in "Customer", with: @building.customer
+    fill_in "Customer", with: @building.customer_id
     fill_in "Database", with: @building.database
     fill_in "Development", with: @building.development
     fill_in "Email of the administrator of the building", with: @building.email_of_the_administrator_of_the_building
@@ -37,7 +37,7 @@ class BuildingsTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Address of the building", with: @building.address_of_the_building
-    fill_in "Customer", with: @building.customer
+    fill_in "Customer", with: @building.customer_id
     fill_in "Database", with: @building.database
     fill_in "Development", with: @building.development
     fill_in "Email of the administrator of the building", with: @building.email_of_the_administrator_of_the_building

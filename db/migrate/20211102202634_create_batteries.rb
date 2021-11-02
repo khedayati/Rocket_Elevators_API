@@ -1,10 +1,10 @@
 class CreateBatteries < ActiveRecord::Migration[5.2]
   def change
     create_table :batteries do |t|
-      t.reference :building
+      t.references :building, foreign_key: true
       t.string :type
       t.string :status
-      t.reference :employee
+      t.references :employee, foreign_key: true
       t.string :Date_of_
       t.date :commissioning
       t.date :date_of_last_inspection
