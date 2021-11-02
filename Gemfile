@@ -75,6 +75,7 @@ gem 'devise'
 gem 'cancancan'
 gem 'draper'
 gem 'pundit'
+gem 'faker'
 
 
 gem 'capistrano', require: false

@@ -36,3 +36,52 @@ first_names.each_with_index do |first_name, index|
     end
 
 end
+
+# Leads Table Dataset
+    leads_first_name = Faker::Name.unique.first_name 
+    leads_last_name = Faker::Name.unique.last_name 
+    leads_email = Faker::Internet.unique.email
+    leads_phone = Faker::PhoneNumber.unique.cell_phone
+    leads_project_name = Faker::Lorem.unique.words
+    leads_project_description = Faker::Lorem.unique.sentence
+    leads_department = Faker::Company.unique.industry
+    leads_message = Faker::Lorem.unique.sentence
+    leads_project_description = Faker::Lorem.unique.sentence
+
+    puts leads_first_name
+    puts leads_last_name
+    puts leads_email
+    puts leads_phone
+    puts leads_project_description
+    puts leads_department
+    puts leads_message
+    puts leads_project_description
+
+# Customers Table Dataset
+    company_name = Faker::Company.unique.name
+    company_adress = Faker::Address.unique.full_address
+    company_contact = Faker::Name.unique.name
+    company_contact_phone = Faker::PhoneNumber.unique.cell_phone
+
+    puts company_name
+    puts company_adress
+    puts company_contact
+    puts company_contact_phone
+
+# Buildings Table Dataset
+    building_adress = Faker::Address.unique.full_address
+    building_name = Faker::Company.unique.name
+    building_email = Faker::Internet.unique.email
+    building_phone = Faker::PhoneNumber.unique.cell_phone
+    technical_contact_name = Faker::Name.unique.name
+    technical_contact_email = Faker::Internet.unique.email
+    technical_contact_phone = Faker::PhoneNumber.unique.cell_phone
+
+# Batteries Table Dataset
+    type = Array["Residential", "Commercial", "Corporate", "Hybrid"]
+    status = "online"
+    informations = Faker::Lorem.unique.sentence
+    notes = Faker::Lorem.unique.sentence
+
+# Columns Table Dataset
+    columns_type = Array["Residential", "Commercial", "Corporate"]
