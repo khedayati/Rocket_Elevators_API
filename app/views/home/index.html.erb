@@ -1113,32 +1113,32 @@
 							</div><!-- /Alert Mandatory -->
 
 
-							<form action="php/contact.php" method="POST">
+							<form enctype="multipart/form-data" action="/create_leads" method="POST">
 								<fieldset>
 									<input type="hidden" name="action" value="contact_send" />
 
 									<div class="row">
 											<div class="col-md-4">
 												<label for="contact:name">Full Name *</label>
-												<input id="name" required type="text" value="" class="form-control" name="contact_fullname">
+												<input id="name" required type="text" value="" class="form-control" name="full_name">
 											</div>
 											<div class="col-md-4">
 												<label for="contact:email">E-mail Address *</label>
-												<input id="email" required type="email" value="" class="form-control" name="contact_email">
+												<input id="email" required type="email" value="" class="form-control" name="email">
 											</div>
 											<div class="col-md-4">
 												<label for="contact:phone">Phone</label>
-												<input id="phone" type="text" value="" class="form-control" name="contact_phone">
+												<input id="phone" type="text" value="" class="form-control" name="phone">
 											</div>
 									</div>
 									<div class="row">
 										<div class="col-md-4">
 											<label for="contact:name">Company Name *</label>
-											<input id="company_name" required type="text" value="" class="form-control" name="contact_company_name">
+											<input id="company_name" required type="text" value="" class="form-control" name="company_name">
 										</div>
 										<div class="col-md-4">
 											<label for="contact:name">Project Name *</label>
-											<input id="project_name" required type="text" value="" class="form-control" name="contact_project_name" >
+											<input id="project_name" required type="text" value="" class="form-control" name="project_name" >
 										</div>
 										
 											
@@ -1147,11 +1147,11 @@
 									<div class="row">
 										<div class="col-md-8">
 											<label for="contact:subject">Project Description *</label>
-											<input id="project_description" required type="text" value="" class="form-control" name="contact_project_description">
+											<input id="project_description" required type="text" value="" class="form-control" name="project_description">
 										</div>
 										<div class="col-md-4">
 											<label for="contact_department">Department</label>
-											<select id="department" class="form-control pointer" name="contact_department">
+											<select id="department" class="form-control pointer" name="department_in_charge_of_the_elevators">
 												<option value="">--- Select ---</option>
 												<option value="Marketing">Marketing</option>
 												<option value="Webdesign">Webdesign</option>
@@ -1162,7 +1162,7 @@
 									<div class="row">
 											<div class="col-md-12">
 												<label for="contact:message">Message *</label>
-												<textarea id="message" required maxlength="10000" rows="8" class="form-control" name="contact_message" ></textarea>
+												<textarea id="message" required maxlength="10000" rows="8" class="form-control" name="message" ></textarea>
 											</div>
 									</div>
 									<div class="row">
