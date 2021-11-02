@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddAmountFloorsToQuotes < ActiveRecord::Migration[5.2]
   def change
     add_column :quotes, :amount_floors, :string
