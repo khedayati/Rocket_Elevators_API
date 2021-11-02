@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  elevator: one
+  date_of_commisioning: MyString
+  building: one
+  building_city: MyString
+
+two:
+  elevator: two
+  date_of_commisioning: MyString
+  building: two
+  building_city: MyString
