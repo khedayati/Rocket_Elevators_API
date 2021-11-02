@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :elevators
+  resources :columns
+  resources :batteries
+  resources :building_details
+  resources :buildings
+  resources :customers
+  resources :addresses
   resources :leads
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
