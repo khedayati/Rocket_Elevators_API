@@ -28,7 +28,7 @@ class CustomersTest < ApplicationSystemTestCase
     fill_in "Service technical authority", with: @customer.service_technical_authority
     fill_in "Technical authority phone for", with: @customer.technical_authority_phone_for
     fill_in "Technical manager email for service", with: @customer.technical_manager_email_for_service
-    fill_in "User", with: @customer.user
+    fill_in "User", with: @customer.user_id
     click_on "Create Customer"
 
     assert_text "Customer was successfully created"
@@ -53,7 +53,7 @@ class CustomersTest < ApplicationSystemTestCase
     fill_in "Service technical authority", with: @customer.service_technical_authority
     fill_in "Technical authority phone for", with: @customer.technical_authority_phone_for
     fill_in "Technical manager email for service", with: @customer.technical_manager_email_for_service
-    fill_in "User", with: @customer.user
+    fill_in "User", with: @customer.user_id
     click_on "Update Customer"
 
     assert_text "Customer was successfully updated"
