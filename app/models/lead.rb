@@ -1,4 +1,8 @@
 class Lead < ApplicationRecord
+    has_one_attached :contact_attachment_file
+    def attachment_path
+        
+    end
     
-ActiveRecord::Base.connected_to(database:development_database ) do
+
 end
