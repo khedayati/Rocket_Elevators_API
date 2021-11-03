@@ -80,7 +80,7 @@ gem 'draper'
 gem 'faker'
 gem 'pundit'
 gem 'rubocop', require: false
-gem 'faker-bot'
+
 
 gem 'capistrano', require: false
 gem 'capistrano3-puma'

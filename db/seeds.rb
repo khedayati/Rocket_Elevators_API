@@ -43,53 +43,62 @@ end
 
 require "faker"
 
-10.times do
+$i = 0
+$num = 250
+
+
+
+while $i < $num do
+  if $i == 146
+    Faker::UniqueGenerator.clear
+  end
 # Leads Table Dataset
-  leads_first_name = Faker::Name.unique.first_name
-  leads_last_name = Faker::Name.unique.last_name
+  leads_full_name = Faker::Name.unique.name
+  leads_company_name = Faker::Company.unique.name
   leads_email = Faker::Internet.unique.email
   leads_phone = Faker::PhoneNumber.unique.cell_phone
   leads_project_name = Faker::Lorem.unique.words
   leads_project_description = Faker::Lorem.unique.sentence
   leads_department = Faker::Company.unique.industry
   leads_message = Faker::Lorem.unique.sentence
-  leads_project_description = Faker::Lorem.unique.sentence
+  leads_attachment = Faker::Avatar.unique.image
 
-  leads = leads.new
+  leads = Lead.new(
 
-# puts leads_first_name
-# puts leads_last_name
-# puts leads_email
-# puts leads_phone
-# puts leads_project_description
-# puts leads_department
-# puts leads_message
-# puts leads_project_description
-
+    full_name: leads_full_name,
+    company_name: leads_company_name,
+    email: leads_email,
+    phone: leads_phone,
+    project_name: leads_project_name,
+    project_description: leads_project_description,
+    department_in_charge_of_the_elevators: leads_department,
+    message: leads_message
+  )
+  $i += 1
+  leads.save
 end
-# Adress Table Dataset
+# address Table Dataset
 address_type = Array['Residential', 'Commercial', 'Corporate', 'Hybrid']
-street_number = Faker::Address.unique.full_address
 building_type = Array['Suite', 'Apartment']
 city = Faker::Address.city
 postal_code = Faker::Address.postcode
-country = Array["Canada", "United States"]
-adress_notes = Faker::Lorem.unique.sentence
+country = "United States"
+address_notes = Faker::Lorem.unique.sentence
 
 # Customers Table Dataset
 company_name = Faker::Company.unique.name
-company_adress = Faker::Address.unique.full_address
+company_address = Faker::Address.unique.full_address
 company_contact = Faker::Name.unique.name
 company_contact_phone = Faker::PhoneNumber.unique.cell_phone
 
 # puts company_name
 # puts company_name
-# puts company_adress
+# puts company_address
 # puts company_contact
 # puts company_contact_phone
 
 # Buildings Table Dataset
-building_adress = Faker::Address.unique.full_address
+building_address = Faker::Address.unique.full_address
 building_name = Faker::Company.unique.name
 building_email = Faker::Internet.unique.email
 building_phone = Faker::PhoneNumber.unique.cell_phone
