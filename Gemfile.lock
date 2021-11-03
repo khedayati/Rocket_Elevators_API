@@ -65,6 +65,7 @@ GEM
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
+    ast (2.4.2)
     autoprefixer-rails (10.3.3.0)
       execjs (~> 2)
     bcrypt (3.1.16)
@@ -129,11 +130,13 @@ GEM
       ruby2_keywords
     erubi (1.10.0)
     execjs (2.8.1)
+    faker (2.19.0)
+      i18n (>= 1.6, < 2)
     ffi (1.15.4)
     font-awesome-rails (4.7.0.7)
       railties (>= 3.2, < 7)
-    font-awesome-sass (4.4.0)
-      sass (>= 3.2)
+    font-awesome-sass (5.15.1)
+      sassc (>= 1.11)
     formtastic (4.0.0)
       actionpack (>= 5.2.0)
     formtastic_i18n (0.7.0)
@@ -161,6 +164,7 @@ GEM
       turbolinks
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
+    json (2.6.1)
     kaminari (1.2.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.1)
@@ -186,7 +190,6 @@ GEM
     matrix (0.4.2)
     method_source (1.0.0)
     mini_mime (1.1.2)
-    mini_portile2 (2.6.1)
     minitest (5.14.4)
     msgpack (1.4.2)
     mysql2 (0.5.3)
@@ -194,10 +197,12 @@ GEM
       net-ssh (>= 2.6.5, < 7.0.0)
     net-ssh (6.1.0)
     nio4r (2.5.8)
-    nokogiri (1.12.5)
-      mini_portile2 (~> 2.6.1)
+    nokogiri (1.12.5-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    parallel (1.21.0)
+    parser (3.0.2.0)
+      ast (~> 2.4.1)
     pg (1.2.3)
     popper_js (2.9.3)
     public_suffix (4.0.6)
@@ -232,6 +237,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.19.0, < 2.0)
+    rainbow (3.0.0)
     rake (13.0.6)
     ransack (2.4.2)
       activerecord (>= 5.2.4)
@@ -247,6 +253,18 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.5)
+    rubocop (1.22.3)
+      parallel (~> 1.10)
+      parser (>= 3.0.0.0)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.8, < 3.0)
+      rexml
+      rubocop-ast (>= 1.12.0, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 3.0)
+    rubocop-ast (1.12.0)
+      parser (>= 3.0.1.1)
+    ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.5)
     ruby_dep (1.5.0)
     rubyzip (2.3.2)
@@ -290,7 +308,7 @@ GEM
     sshkit (1.21.2)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
-    thor (1.1.0)
+    thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
     turbolinks (5.2.1)
@@ -300,6 +318,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
+    unicode-display_width (2.1.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (3.7.0)
@@ -314,7 +333,7 @@ GEM
       nokogiri (~> 1.8)
 
 PLATFORMS
-  ruby
+  x86_64-linux
 
 DEPENDENCIES
   activeadmin
@@ -332,18 +351,21 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   draper
+  faker
   font-awesome-rails
   font-awesome-sass
   jbuilder (~> 2.5)
   jquery-rails
   jquery-turbolinks
   jquery-ui-rails
+  json
   listen (>= 3.0.5, < 3.2)
   mysql2 (>= 0.4.4, < 0.6.0)
   pg
   puma (~> 3.11)
   pundit
   rails (~> 5.2.6)
+  rubocop
   rvm1-capistrano3
   sass-rails (~> 5.0)
   selenium-webdriver
