@@ -41,16 +41,21 @@ first_names.each_with_index do |first_name, index|
                    email: emails[index], user: @user)
 end
 
+require "faker"
+
+10.times do
 # Leads Table Dataset
-leads_first_name = Faker::Name.unique.first_name
-leads_last_name = Faker::Name.unique.last_name
-leads_email = Faker::Internet.unique.email
-leads_phone = Faker::PhoneNumber.unique.cell_phone
-leads_project_name = Faker::Lorem.unique.words
-leads_project_description = Faker::Lorem.unique.sentence
-leads_department = Faker::Company.unique.industry
-leads_message = Faker::Lorem.unique.sentence
-leads_project_description = Faker::Lorem.unique.sentence
+  leads_first_name = Faker::Name.unique.first_name
+  leads_last_name = Faker::Name.unique.last_name
+  leads_email = Faker::Internet.unique.email
+  leads_phone = Faker::PhoneNumber.unique.cell_phone
+  leads_project_name = Faker::Lorem.unique.words
+  leads_project_description = Faker::Lorem.unique.sentence
+  leads_department = Faker::Company.unique.industry
+  leads_message = Faker::Lorem.unique.sentence
+  leads_project_description = Faker::Lorem.unique.sentence
+
+  leads = leads.new
 
 # puts leads_first_name
 # puts leads_last_name
@@ -61,13 +66,14 @@ leads_project_description = Faker::Lorem.unique.sentence
 # puts leads_message
 # puts leads_project_description
 
+end
 # Adress Table Dataset
 address_type = Array['Residential', 'Commercial', 'Corporate', 'Hybrid']
 street_number = Faker::Address.unique.full_address
 building_type = Array['Suite', 'Apartment']
 city = Faker::Address.city
 postal_code = Faker::Address.postcode
-country = Faker::Address.country
+country = Array["Canada", "United States"]
 adress_notes = Faker::Lorem.unique.sentence
 
 # Customers Table Dataset
@@ -92,8 +98,13 @@ technical_contact_email = Faker::Internet.unique.email
 technical_contact_phone = Faker::PhoneNumber.unique.cell_phone
 
 # BuildingDetails Table Dataset
-information_key = Array[type: Array['Residential', 'Commercial', 'Corporate', 'Hybrid'], construction_year:"1999"]
+information_key = Array["Type", "Construction year"]
+values_type = Array["Residential", "Commercial", "Corporate"]
+values_construction_year =
+
 puts information_key
+puts values_type
+puts values_construction_year
 
 # Batteries Table Dataset
 batteries_type = Array['Residential', 'Commercial', 'Corporate', 'Hybrid']
