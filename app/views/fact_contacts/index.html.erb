@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Fact Contacts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fact_contacts.each do |fact_contact| %>
+      <tr>
+        <td><%= link_to 'Show', fact_contact %></td>
+        <td><%= link_to 'Edit', edit_fact_contact_path(fact_contact) %></td>
+        <td><%= link_to 'Destroy', fact_contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fact Contact', new_fact_contact_path %>
