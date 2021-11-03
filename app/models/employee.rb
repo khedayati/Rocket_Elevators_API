@@ -1,3 +1,7 @@
 class Employee < ApplicationRecord
-    belongs_to :user #, class_name: "user", foreign_key: "user"
+    belongs_to :user 
+    has_many :batteries
+
+
+
 end
