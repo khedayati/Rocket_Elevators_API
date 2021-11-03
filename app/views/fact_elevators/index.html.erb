@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Fact Elevators</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fact_elevators.each do |fact_elevator| %>
+      <tr>
+        <td><%= link_to 'Show', fact_elevator %></td>
+        <td><%= link_to 'Edit', edit_fact_elevator_path(fact_elevator) %></td>
+        <td><%= link_to 'Destroy', fact_elevator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fact Elevator', new_fact_elevator_path %>

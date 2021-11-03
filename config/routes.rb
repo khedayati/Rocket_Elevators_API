@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :dim_customers
+  resources :fact_elevators
+  resources :fact_contacts
+  resources :fact_quotes
   resources :elevators
   resources :columns
   resources :batteries
