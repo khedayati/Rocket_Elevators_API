@@ -75,20 +75,25 @@ namespace :wh do
             end
         end
         task elevator: :environment do
-            Building.all.each do |b|
-                b.Battery.all.each do |ba|
-
-                    Elevator.all.each do |elevator|
-                        # query = "insert into fact_contacts(contact_id, creation_date, company_name, email, project_name) values('#{contact.id}', '#{contact.created_at}', '#{contact.company_name}', '#{contact.email}', '#{contact.project_name}')"
-                        query = "insert into fact_contacts(serial_number, date_of_commissionnig, building_city, customer_id, building_id) values('#{elevator.id}', '#{elevator.created_at}', '#{elevator.building_city}', '#{elevator.email}', '#{elevator.project_name}')"
+            Building.all.each do |building|
+                building.batteries.all.each do |battery|
+                    battery.column.all.each do |column|
+                        column.elevators.all.each do |elevator|
+                            puts elevator.id
+                            # building.address_of_the_building
+                            query = "insert into fact_contacts(serial_number, date_of_commissionnig, building_city, customer_id, building_id) values('#{elevator.id}', '#{elevator.created_at}', '#{"foo"}', '#{"bar"}', '#{building.id}')"
+                            puts query
+                        end
                     end
                 end
             end
         end
         task customer: :environment do
-            Customer.all.each do |contact|
+            Customer.all.each do |cus|
                 # query = "insert into fact_contacts(contact_id, creation_date, company_name, email, project_name) values('#{contact.id}', '#{contact.created_at}', '#{contact.company_name}', '#{contact.email}', '#{contact.project_name}')"
-                query = "insert into fact_contacts(contact_id, creation_date, company_name, email, project_name) values('#{contact.id}', '#{contact.created_at}', '#{contact.company_name}', '#{contact.email}', '#{contact.project_name}')"
+                city = Adress.find(city: cus.company_headquarters_address.city)
+
+                query = "insert into fact_contacts(creation_date, company_name, full_name, email, nb_elevator, customer_city) values('#{cus.customer_creation_date}', '#{contact.company_name}', '#{contact.full_name_of}', '#{contact.email_of_the}', '#{city}')"
             end
         end
     end
