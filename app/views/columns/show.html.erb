@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Batterie:</strong>
+  <%= @column.batterie %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @column.type %>
+</p>
+
+<p>
+  <strong>Number of floors served:</strong>
+  <%= @column.number_of_floors_served %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @column.status %>
+</p>
+
+<p>
+  <strong>Information:</strong>
+  <%= @column.information %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @column.notes %>
+</p>
+
+<%= link_to 'Edit', edit_column_path(@column) %> |
+<%= link_to 'Back', columns_path %>

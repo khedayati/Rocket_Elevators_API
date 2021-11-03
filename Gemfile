@@ -5,6 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
 
+gem 'pg'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.6'
 # query ui
@@ -86,3 +87,6 @@ gem 'capistrano3-puma'
 gem 'capistrano-bundler', '>= 1.1.0'
 gem 'capistrano-rails', '~> 1.4', require: false
 gem 'rvm1-capistrano3', require: false
+
+gem 'arbre'
+
