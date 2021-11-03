@@ -80,6 +80,7 @@ gem 'draper'
 gem 'faker'
 gem 'pundit'
 gem 'rubocop', require: false
+gem "json"
 
 
 gem 'capistrano', require: false
