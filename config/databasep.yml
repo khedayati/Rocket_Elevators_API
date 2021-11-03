@@ -1,7 +1,0 @@
- 
- development:
-   adapter:  postgresql
-   encoding: utf8
-   database: secondary_postgresql
-   username: rafikhoceini
-   password: 
