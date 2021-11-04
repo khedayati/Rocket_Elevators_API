@@ -91,3 +91,5 @@ gem 'rvm1-capistrano3', require: false
 
 gem 'arbre'
 
+
+gem 'country_select', '~> 6.0'
