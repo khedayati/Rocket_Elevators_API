@@ -1,5 +1,8 @@
 {
   "name": "app",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "chartkick": "^4.1.0",
+    "highcharts": "^9.3.0"
+  }
 }
