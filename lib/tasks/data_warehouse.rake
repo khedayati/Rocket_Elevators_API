@@ -39,7 +39,7 @@ namespace :wh do
         puts "\e[0;32mOK\e[0m"
 
         connection.exec("DROP TABLE IF EXISTS public.fact_elevators")
-        connection.exec("CREATE TABLE public.fact_elevators (date_of_commissionnig date NULL,
+        connection.exec("CREATE TABLE public.fact_elevators (date_of_commissionig date NULL,
         building_city varchar NULL,
         customer_id serial NOT NULL,
         building_id serial NOT NULL,
@@ -72,27 +72,35 @@ namespace :wh do
             Lead.all.each do |contact|
                 # query = "insert into fact_contacts(contact_id, creation_date, company_name, email, project_name) values('#{contact.id}', '#{contact.created_at}', '#{contact.company_name}', '#{contact.email}', '#{contact.project_name}')"
                 query = "insert into fact_contacts(contact_id, creation_date, company_name, email, project_name) values('#{contact.id}', '#{contact.created_at}', '#{contact.company_name}', '#{contact.email}', '#{contact.project_name}')"
+                connection.exec(query)
             end
         end
         task elevator: :environment do
-            Building.all.each do |building|
-                building.batteries.all.each do |battery|
-                    battery.column.all.each do |column|
-                        column.elevators.all.each do |elevator|
-                            puts elevator.id
-                            # building.address_of_the_building
-                            query = "insert into fact_contacts(serial_number, date_of_commissionnig, building_city, customer_id, building_id) values('#{elevator.id}', '#{elevator.created_at}', '#{"foo"}', '#{"bar"}', '#{building.id}')"
-                            puts query
+            Address.all.each do |address|
+                if address.buildings.exist? && address.customers.exist?
+                    address.buildings.all.each do |building|
+                        building.batteries.all.each do |battery|
+                            battery.columns.all.each do |column|
+                                column.elevators.all.each do |elevator|
+                                    puts elevator.id
+                                    # building.address_of_the_building
+                                    query = "insert into fact_elevators(serial_number, date_of_commissionig, building_city, customer_id, building_id) values('#{elevator.id}', '#{elevator.date_of_commissionig}', '#{address.city}', '#{address.customers.ids}', '#{building.id}')"
+                                    connection.exec(query)
+                                end
+                            end
                         end
                     end
                 end
             end
         end
         task customer: :environment do
-            Customer.all.each do |cus|
-                # query = "insert into fact_contacts(contact_id, creation_date, company_name, email, project_name) values('#{contact.id}', '#{contact.created_at}', '#{contact.company_name}', '#{contact.email}', '#{contact.project_name}')"
-                city = Adress.find(city: cus.company_headquarters_address.city)
-                query = "insert into fact_contacts(creation_date, company_name, full_name, email, nb_elevator, customer_city) values('#{cus.customer_creation_date}', '#{contact.company_name}', '#{contact.full_name_of}', '#{contact.email_of_the}', '#{city}')"
+            Address.all.each do |address|
+                if address.customer.exists?
+                    city = address.city
+                    @customer = addresss.customer
+                    query = "insert into dim_customers(creation_date, company_name, full_name, email, nb_elevator, customer_city) values('#{@customer.customer_creation_date}', '#{@customer.company_name}', '#{@customer.full_name_of_the_company_contact}', '#{@customer.email_of_the_company_contact}', '#{address.city}')"
+                    connection.exec(query)
+                end
             end
         end
     end
