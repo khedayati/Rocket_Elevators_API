@@ -80,14 +80,14 @@
         end
         task elevator: :environment do
             Address.all.each do |address|
-                if address.buildings.exist? && address.customers.exist?
+                if address.buildings.exists?
                     address.buildings.all.each do |building|
                         building.batteries.all.each do |battery|
                             battery.columns.all.each do |column|
                                 column.elevators.all.each do |elevator|
                                     puts elevator.id
                                     # building.address_of_the_building
-                                    query = "insert into fact_elevators(serial_number, date_of_commissionig, building_city, customer_id, building_id) values('#{elevator.id}', '#{elevator.date_of_commissionig}', '#{address.city}', '#{address.customers.ids}', '#{building.id}')"
+                                    query = "insert into fact_elevators(serial_number, date_of_commissionig, building_city, customer_id, building_id) values('#{elevator.id}', '#{elevator.Date_of_commissioning}', '#{address.city}', '#{address.customers.ids[0]}', '#{building.id}')"
                                     connection.exec(query)
                                 end
                             end

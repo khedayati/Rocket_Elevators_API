@@ -2909,6 +2909,7 @@ while $i < $num do
   leads_department = Faker::Job.field
   leads_message = Faker::Lorem.unique.sentence
   leads_attachment = Faker::Avatar.unique.image
+  leads_date_of_creation = Faker::Date.between(from: 730.days.ago, to: Date.today)
 
   leads = Lead.new(
 
@@ -2919,7 +2920,8 @@ while $i < $num do
     project_name: leads_project_name,
     project_description: leads_project_description,
     department_in_charge_of_the_elevators: leads_department,
-    message: leads_message
+    message: leads_message,
+    date_of_creation: leads_date_of_creation
   )
   $i += 1
   leads.save
@@ -3003,7 +3005,7 @@ while $i < 100 do
             email_of_the_administrator_of_the_building: Faker::Internet.unique.email,
             full_name_of_the_technical_contact_for_the_building: Faker::Name.unique.name,
             technical_contact_phone_for_the_building: Faker::PhoneNumber.unique.cell_phone,
-            address_id: Faker::Number.between(from: 1, to: 249),
+            address_id: Faker::Number.unique.between(from: 1, to: 249),
             phone_number_of_the_building_administrator: Faker::PhoneNumber.unique.cell_phone,
             technical_contact_email_for_the_building: Faker::Internet.unique.email
             
@@ -3032,8 +3034,8 @@ while $i < 100 do
             random_column = rand(3..5)
             random_elevator = rand(2..5)
             $b = 1
-            $c = 1
             while $b <= random_column do
+                $c = 1
                 @columns = Column.create!(
                     battery: @batteries,
                     column_type: "Residential",
@@ -3061,6 +3063,7 @@ while $i < 100 do
                 end
 
 
+
                 $b += 1
 
             end
@@ -3069,11 +3072,12 @@ while $i < 100 do
         else
             random_batteries = rand(1..3)
             $a = 1
-            $b = 1
-            $c = 1
+
+
             random_column = rand(3..5)
             random_elevator = rand(2..5)
             while $a <= random_batteries do
+                $b = 1
                 @batteries = Battery.create!(
                     building: @buildings,
                     battery_type: values_type[random],
@@ -3089,6 +3093,7 @@ while $i < 100 do
                 
                 
                 while $b <= random_column do
+                    $c = 1
                     @columns = Column.create!(
                         battery: @batteries,
                         column_type: values_type[random],
