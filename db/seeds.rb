@@ -2869,8 +2869,8 @@ emails = Array['nicolas.genest@codeboxx.biz', 'nadya.fortier@codeboxx.biz', 'mar
 # end
 
 first_names.each_with_index do |first_name, index|
-  puts index
-  puts first_name
+#   puts index
+#   puts first_name
 
   @user = User.create(email: emails[index],
                       password: 'password',
@@ -2881,7 +2881,7 @@ first_names.each_with_index do |first_name, index|
 
   next unless @user&.valid?
 
-  puts 'will create employee'
+#   puts 'will create employee'
   Employee.create!(first_name: first_names[index], last_name: last_names[index], function: functions[index],
                    email: emails[index], user: @user)
 end
@@ -2965,6 +2965,8 @@ end
 $i = 0
 
 $j = 0
+values_type = Array["Residential", "Commercial", "Corporate", "Hybrid"]
+model = Array['Standard', 'Premium', 'Excelium']
 
 while $i < 100 do
 
@@ -2974,10 +2976,11 @@ while $i < 100 do
         email: Faker::Internet.unique.email,
         password: 'password'
     )
-    $i += 1;
+    
     
     @customers = Customer.create!(
         company_name: Faker::Company.unique.name,
+        customer_creation_date: Faker::Date.between(from: 730.days.ago, to: Date.today),
         company_headquarters_address: Faker::Address.unique.full_address,
         full_name_of_the_company_contact: Faker::Name.unique.name,
         company_contact_phone: Faker::PhoneNumber.unique.cell_phone,
@@ -2986,44 +2989,137 @@ while $i < 100 do
         full_name_of_service_technical_authority: Faker::Name.unique.name,
         technical_authority_phone_for_service: Faker::PhoneNumber.unique.cell_phone,
         technical_manager_email_for_service: Faker::Internet.unique.email, 
-        user: @users
-        address_id: Faker::Number.unique.between(from: 1, to: 250)
+        user: @users,
+        address_id: Faker::Number.unique.between(from: 1, to: 249)
+
     )
+    random = rand(1..2)
+    $j = 0
+    while $j < random do
+        @buildings = Building.create!(
+            customer: @customers,
+            full_name_of_the_building_administrator: Faker::Name.unique.name,
+            email_of_the_administrator_of_the_building: Faker::Internet.unique.email,
+            full_name_of_the_technical_contact_for_the_building: Faker::Name.unique.name,
+            technical_contact_phone_for_the_building: Faker::PhoneNumber.unique.cell_phone,
+            address_id: Faker::Number.between(from: 1, to: 249),
+            phone_number_of_the_building_administrator: Faker::PhoneNumber.unique.cell_phone,
+            technical_contact_email_for_the_building: Faker::Internet.unique.email
+            
+        )
+        random = rand(0..3)
+        @building_details = BuildingDetail.create!(
+            building: @buildings,
+            information_key: "Type",
+            value: values_type[random]
+        )
+        $j += 1
+        random_employee = rand(1..21)
+        random_floor = rand(10..20)
+        if values_type[random] == "Residential"
+            @batteries = Battery.create!(
+                building: @buildings,
+                battery_type: "Residential",
+                status: "online",
+                employee_id: random_employee,
+                date_of_last_inspection: Faker::Date.between(from: 365.days.ago, to: Date.today),
+                certificate_of_operations: Faker::Code.npi,
+                date_of_commissioning: Faker::Date.between(from: 730.days.ago, to: 365.days.ago),
+                information: Faker::Lorem.unique.sentence,
+                notes: Faker::Lorem.unique.sentence
+            )
+            random_column = rand(3..5)
+            random_elevator = rand(2..5)
+            $b = 1
+            $c = 1
+            while $b <= random_column do
+                @columns = Column.create!(
+                    battery: @batteries,
+                    column_type: "Residential",
+                    status: "Online",
+                    number_of_floors_served: random_floor,
+                    information: Faker::Lorem.unique.sentence,
+                    notes: Faker::Lorem.unique.sentence
+                )
+                random_model = rand(0..2)
+                while $c <= random_elevator do
+                    elevators = Elevator.create!(
+                        column: @columns,
+                        serial_number: Faker::Invoice.unique.creditor_reference,
+                        model: model[random_model],
+                        elevator_type: values_type[random],
+                        status: "Online",
+                        Date_of_commissioning: Faker::Date.between(from: 730.days.ago, to: 365.days.ago),
+                        date_of_last_inspection: Faker::Date.between(from: 365.days.ago, to: Date.today),
+                        certificate_of_inspection: Faker::Code.npi,
+                        information: Faker::Lorem.unique.sentence,
+                        notes: Faker::Lorem.unique.sentence
+                    )
+                    
+                    $c += 1
+                end
 
+                $b += 1
+
+            end
+
+            
+        else
+            random_batteries = rand(1..3)
+            $a = 1
+            $b = 1
+            $c = 1
+            random_column = rand(3..5)
+            random_elevator = rand(2..5)
+            while $a <= random_batteries do
+                @batteries = Battery.create!(
+                    building: @buildings,
+                    battery_type: values_type[random],
+                    status: "online",
+                    employee_id: random_employee,
+                    date_of_last_inspection: Faker::Date.between(from: 365.days.ago, to: Date.today),
+                    certificate_of_operations: Faker::Code.npi,
+                    date_of_commissioning: Faker::Date.between(from: 730.days.ago, to: 365.days.ago),
+                    information: Faker::Lorem.unique.sentence,
+                    notes: Faker::Lorem.unique.sentence
+                )
+                
+                
+                
+                while $b <= random_column do
+                    @columns = Column.create!(
+                        battery: @batteries,
+                        column_type: values_type[random],
+                        status: "Online",
+                        number_of_floors_served: random_floor,
+                        information: Faker::Lorem.unique.sentence,
+                        notes: Faker::Lorem.unique.sentence
+                    )
+                    random_model = rand(0..2)
+                    while $c <= random_elevator do
+                        elevators = Elevator.create!(
+                            column: @columns,
+                            serial_number: Faker::Invoice.unique.creditor_reference,
+                            model: model[random_model],
+                            elevator_type: values_type[random],
+                            status: "Online",
+                            Date_of_commissioning: Faker::Date.between(from: 730.days.ago, to: 365.days.ago),
+                            date_of_last_inspection: Faker::Date.between(from: 365.days.ago, to: Date.today),
+                            certificate_of_inspection: Faker::Code.npi,
+                            information: Faker::Lorem.unique.sentence,
+                            notes: Faker::Lorem.unique.sentence
+                        )
+                        
+                        $c += 1
+                    end
+                    $b += 1
+                end
+                $a += 1
+            end
+        end
+        
+    end
+    $i += 1;
 end
-
-company_address = Faker::Address.unique.full_address
-company_contact_phone = Faker::PhoneNumber.unique.cell_phone
-
-# Buildings Table Dataset
-building_address = Faker::Address.unique.full_address
-building_name = Faker::Company.unique.name
-building_email = Faker::Internet.unique.email
-building_phone = Faker::PhoneNumber.unique.cell_phone
-technical_contact_name = Faker::Name.unique.name
-technical_contact_email = Faker::Internet.unique.email
-technical_contact_phone = Faker::PhoneNumber.unique.cell_phone
-
-# BuildingDetails Table Dataset
-information_key = Array["Type", "Construction year"]
-values_type = Array["Residential", "Commercial", "Corporate"]
-values_construction_year =
-
-# Batteries Table Dataset
-batteries_type = Array['Residential', 'Commercial', 'Corporate', 'Hybrid']
-batteries_status = 'online'
-batteries_informations = Faker::Lorem.unique.sentence
-batteries_notes = Faker::Lorem.unique.sentence
-
-# Columns Table Dataset
-columns_type = Array['Residential', 'Commercial', 'Corporate']
-
-# Elevators Table Dataset
-serial_number = Faker::Device.unique.serial
-model = Array['Standard', 'Premium', 'Excelium']
-elevators_type = Array['Residential', 'Commercial', 'Corporate']
-elevators_status = 'online'
-elevators_information = Faker::Lorem.unique.sentence
-elevators_notes = Faker::Lorem.unique.sentence
 
 
