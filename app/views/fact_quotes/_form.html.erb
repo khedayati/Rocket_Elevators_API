@@ -1,0 +1,17 @@
+<%= form_with(model: fact_quote, local: true) do |form| %>
+  <% if fact_quote.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(fact_quote.errors.count, "error") %> prohibited this fact_quote from being saved:</h2>
+
+      <ul>
+      <% fact_quote.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
