@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_04_154003) do
+ActiveRecord::Schema.define(version: 2021_11_04_185842) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "namespace"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2021_11_04_154003) do
 
   create_table "batteries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "building_id"
-    t.string "type"
+    t.string "battery_type"
     t.string "status"
     t.bigint "employee_id"
     t.date "date_of_last_inspection"
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 2021_11_04_154003) do
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "date_of_commissionig"
+    t.date "date_of_commissioning"
     t.index ["building_id"], name: "index_batteries_on_building_id"
     t.index ["employee_id"], name: "index_batteries_on_employee_id"
   end
@@ -95,22 +95,22 @@ ActiveRecord::Schema.define(version: 2021_11_04_154003) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "address_id"
-    t.string "pnhone_number_of_the_building_administrator"
+    t.string "phone_number_of_the_building_administrator"
     t.string "technical_contact_email_for_the_building"
     t.index ["address_id"], name: "index_buildings_on_address_id"
     t.index ["customer_id"], name: "index_buildings_on_customer_id"
   end
 
   create_table "columns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "batterie_id"
-    t.string "type"
+    t.string "column_type"
     t.integer "number_of_floors_served"
     t.string "status"
     t.text "information"
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["batterie_id"], name: "index_columns_on_batterie_id"
+    t.bigint "battery_id"
+    t.index ["battery_id"], name: "index_columns_on_battery_id"
   end
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -136,7 +136,7 @@ ActiveRecord::Schema.define(version: 2021_11_04_154003) do
     t.bigint "column_id"
     t.string "serial_number"
     t.string "model"
-    t.string "type"
+    t.string "elevator_type"
     t.string "status"
     t.date "Date_of_commissioning"
     t.date "date_of_last_inspection"
@@ -170,6 +170,7 @@ ActiveRecord::Schema.define(version: 2021_11_04_154003) do
     t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "contact_date"
   end
 
   create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -213,7 +214,7 @@ ActiveRecord::Schema.define(version: 2021_11_04_154003) do
   add_foreign_key "building_details", "buildings"
   add_foreign_key "buildings", "addresses"
   add_foreign_key "buildings", "customers"
-  add_foreign_key "columns", "batteries", column: "batterie_id"
+  add_foreign_key "columns", "batteries"
   add_foreign_key "customers", "addresses"
   add_foreign_key "customers", "users"
   add_foreign_key "elevators", "columns"
