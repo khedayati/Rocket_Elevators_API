@@ -102,6 +102,7 @@ ActiveRecord::Schema.define(version: 2021_11_04_154003) do
   end
 
   create_table "columns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "batterie_id"
     t.string "type"
     t.integer "number_of_floors_served"
     t.string "status"
@@ -109,7 +110,7 @@ ActiveRecord::Schema.define(version: 2021_11_04_154003) do
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "battery_id"
+    t.index ["batterie_id"], name: "index_columns_on_batterie_id"
   end
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -212,6 +213,7 @@ ActiveRecord::Schema.define(version: 2021_11_04_154003) do
   add_foreign_key "building_details", "buildings"
   add_foreign_key "buildings", "addresses"
   add_foreign_key "buildings", "customers"
+  add_foreign_key "columns", "batteries", column: "batterie_id"
   add_foreign_key "customers", "addresses"
   add_foreign_key "customers", "users"
   add_foreign_key "elevators", "columns"
