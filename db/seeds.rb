@@ -2963,10 +2963,10 @@ end
 # Customers Table Dataset
 
 $i = 0
-$num = 249
+
 $j = 0
 
-while $i < $num do
+while $i < 100 do
 
     users = User.new(
         first_name: Faker::Name.unique.first_name,
@@ -2982,7 +2982,7 @@ while $i < $num do
             company_headquarters_address: Faker::Address.unique.full_address,
             full_name_of_the_company: Faker::Name.unique.name,
             company_contact_phone: Faker::PhoneNumber.unique.cell_phone,
-            
+
         )
     end
 
