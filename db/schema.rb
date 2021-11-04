@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_04_140516) do
+ActiveRecord::Schema.define(version: 2021_11_04_154003) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "namespace"
@@ -66,14 +66,13 @@ ActiveRecord::Schema.define(version: 2021_11_04_140516) do
     t.string "type"
     t.string "status"
     t.bigint "employee_id"
-    t.string "Date_of_"
-    t.date "commissioning"
     t.date "date_of_last_inspection"
     t.string "certificate_of_operations"
     t.text "information"
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "date_of_commissionig"
     t.index ["building_id"], name: "index_batteries_on_building_id"
     t.index ["employee_id"], name: "index_batteries_on_employee_id"
   end
@@ -91,17 +90,13 @@ ActiveRecord::Schema.define(version: 2021_11_04_140516) do
     t.bigint "customer_id"
     t.string "full_name_of_the_building_administrator"
     t.string "email_of_the_administrator_of_the_building"
-    t.string "phone_number_of_"
-    t.string "the_building_administrator"
     t.string "full_name_of_the_technical_contact_for_the_building"
-    t.string "technical_contact_email_for"
-    t.string "the_building"
     t.string "technical_contact_phone_for_the_building"
-    t.string "database"
-    t.string "development"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "address_id"
+    t.string "pnhone_number_of_the_building_administrator"
+    t.string "technical_contact_email_for_the_building"
     t.index ["address_id"], name: "index_buildings_on_address_id"
     t.index ["customer_id"], name: "index_buildings_on_customer_id"
   end
@@ -126,13 +121,12 @@ ActiveRecord::Schema.define(version: 2021_11_04_140516) do
     t.string "company_contact_phone"
     t.string "email_of_the_company_contact"
     t.text "company_description"
-    t.string "full_name_of"
-    t.string "service_technical_authority"
     t.string "technical_authority_phone_for_service"
     t.string "technical_manager_email_for_service"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "address_id"
+    t.string "full_name_of_service_technical_authority"
     t.index ["address_id"], name: "index_customers_on_address_id"
     t.index ["user_id"], name: "index_customers_on_user_id"
   end
