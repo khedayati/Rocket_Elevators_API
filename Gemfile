@@ -93,3 +93,7 @@ gem 'arbre'
 
 
 gem 'country_select', '~> 6.0'
+
+gem 'chartkick'
+
+gem 'groupdate'

@@ -320,7 +320,7 @@ address = {
       {
           "address1": "49548 Road 200",
           "address2": "",
-          "city": "O'Neals",
+          "city": "ONeals",
           "state": "CA",
           "postalCode": "93645",
           "coordinates": {
@@ -2901,7 +2901,7 @@ while $i < $num do
   end
 # Leads Table Dataset
   leads_full_name = Faker::Name.unique.name
-  leads_company_name = Faker::Company.unique.name
+  leads_company_name = Faker::App.name
   leads_email = Faker::Internet.unique.email
   leads_phone = Faker::PhoneNumber.unique.cell_phone
   leads_project_name = Faker::Lorem.sentence(word_count: 1)
@@ -2976,6 +2976,7 @@ while $i < 100 do
         email: Faker::Internet.unique.email,
         password: 'password'
     )
+
     
     
     @customers = Customer.create!(
@@ -3058,6 +3059,7 @@ while $i < 100 do
                     
                     $c += 1
                 end
+
 
                 $b += 1
 
