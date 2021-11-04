@@ -14,7 +14,7 @@ ActiveAdmin.register_page 'Dashboard' do
       ["Jefferson", "1801-03-03", "1809-03-03"]
     ]
     line_chart [{name: "Workout", data: {"2021-01-01" => 3, "2021-01-02" => 4}},{name: "Call parents", data: {"2021-01-01" => 5, "2021-01-02" => 3}}]
-
+    
     
     # Here is an example of a simple dashboard with columns and panels.
     #
