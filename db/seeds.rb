@@ -2968,23 +2968,27 @@ $j = 0
 
 while $i < 100 do
 
-    users = User.new(
+    @users = User.create!(
         first_name: Faker::Name.unique.first_name,
         last_name: Faker::Name.unique.last_name,
         email: Faker::Internet.unique.email,
         password: 'password'
     )
     $i += 1;
-    users.save
-    while $j < 249 do
-        customers = Customer.new(
-            company_name: Faker::Company.unique.name,
-            company_headquarters_address: Faker::Address.unique.full_address,
-            full_name_of_the_company: Faker::Name.unique.name,
-            company_contact_phone: Faker::PhoneNumber.unique.cell_phone,
-
-        )
-    end
+    
+    @customers = Customer.create!(
+        company_name: Faker::Company.unique.name,
+        company_headquarters_address: Faker::Address.unique.full_address,
+        full_name_of_the_company_contact: Faker::Name.unique.name,
+        company_contact_phone: Faker::PhoneNumber.unique.cell_phone,
+        email_of_the_company_contact: Faker::Internet.unique.email,
+        company_description: Faker::Lorem.unique.sentence,
+        full_name_of_service_technical_authority: Faker::Name.unique.name,
+        technical_authority_phone_for_service: Faker::PhoneNumber.unique.cell_phone,
+        technical_manager_email_for_service: Faker::Internet.unique.email, 
+        user: @users
+        address_id: Faker::Number.unique.between(from: 1, to: 250)
+    )
 
 end
 
@@ -3004,10 +3008,6 @@ technical_contact_phone = Faker::PhoneNumber.unique.cell_phone
 information_key = Array["Type", "Construction year"]
 values_type = Array["Residential", "Commercial", "Corporate"]
 values_construction_year =
-
-puts information_key
-puts values_type
-puts values_construction_year
 
 # Batteries Table Dataset
 batteries_type = Array['Residential', 'Commercial', 'Corporate', 'Hybrid']
