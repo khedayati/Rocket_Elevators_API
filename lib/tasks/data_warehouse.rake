@@ -92,7 +92,6 @@ namespace :wh do
             Customer.all.each do |cus|
                 # query = "insert into fact_contacts(contact_id, creation_date, company_name, email, project_name) values('#{contact.id}', '#{contact.created_at}', '#{contact.company_name}', '#{contact.email}', '#{contact.project_name}')"
                 city = Adress.find(city: cus.company_headquarters_address.city)
-
                 query = "insert into fact_contacts(creation_date, company_name, full_name, email, nb_elevator, customer_city) values('#{cus.customer_creation_date}', '#{contact.company_name}', '#{contact.full_name_of}', '#{contact.email_of_the}', '#{city}')"
             end
         end
