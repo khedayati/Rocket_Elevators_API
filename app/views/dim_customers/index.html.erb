@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dim Customers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dim_customers.each do |dim_customer| %>
+      <tr>
+        <td><%= link_to 'Show', dim_customer %></td>
+        <td><%= link_to 'Edit', edit_dim_customer_path(dim_customer) %></td>
+        <td><%= link_to 'Destroy', dim_customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dim Customer', new_dim_customer_path %>
