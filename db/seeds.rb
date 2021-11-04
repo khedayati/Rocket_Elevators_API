@@ -2961,9 +2961,34 @@ while $i < $num do
 end
 
 # Customers Table Dataset
-company_name = Faker::Company.unique.name
+
+$i = 0
+$num = 249
+$j = 0
+
+while $i < $num do
+
+    users = User.new(
+        first_name: Faker::Name.unique.first_name,
+        last_name: Faker::Name.unique.last_name,
+        email: Faker::Internet.unique.email,
+        password: 'password'
+    )
+    $i += 1;
+    users.save
+    while $j < 249 do
+        customers = Customer.new(
+            company_name: Faker::Company.unique.name,
+            company_headquarters_address: Faker::Address.unique.full_address,
+            full_name_of_the_company: Faker::Name.unique.name,
+            company_contact_phone: Faker::PhoneNumber.unique.cell_phone,
+            
+        )
+    end
+
+end
+
 company_address = Faker::Address.unique.full_address
-company_contact = Faker::Name.unique.name
 company_contact_phone = Faker::PhoneNumber.unique.cell_phone
 
 # Buildings Table Dataset
