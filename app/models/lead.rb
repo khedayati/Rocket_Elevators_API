@@ -3,6 +3,10 @@ class Lead < ApplicationRecord
     def attachment_path
         
     end
+
+    def to_s
+        "Lead #" + self.id.to_s
+    end
     
 
 end

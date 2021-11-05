@@ -14,5 +14,15 @@ ActiveAdmin.register Battery do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+  # form do |f|
+  #   inputs "details" do
+  #     input :building 
+  #   end
+  # end
+  # def display_name
+  #   buildling_id
+  # end
+
+  # f
   
 end
