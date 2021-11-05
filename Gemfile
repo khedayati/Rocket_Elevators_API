@@ -81,6 +81,7 @@ gem 'faker'
 gem 'pundit'
 gem 'rubocop', require: false
 gem "json"
+gem "highcharts-rails"
 
 
 gem 'capistrano', require: false
