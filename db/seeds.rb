@@ -3568,6 +3568,7 @@ while $j < 250 do
     fakeEmail = Faker::Internet.unique.email
     fakeCompanyName = Faker::Company.unique.name
     random_maximum_occupancy = rand(50..100)
+    quote_fake_date_of_creation = Faker::Date.between(from: 730.days.ago, to: Date.today)
     if random_building_type == "Residential"
         numberOfColumns = (random_amount_floors.to_f / 20).ceil
         averageDoorsPerFloors = (random_amount_apartments.to_f / random_amount_floors.to_f).ceil
@@ -3596,7 +3597,8 @@ while $j < 250 do
             installation_fees: installationFees,
             total_cost: finalPrice,
             email: fakeEmail,
-            company_name: fakeCompanyName
+            company_name: fakeCompanyName,
+            created_at: quote_fake_date_of_creation
             
         )
     elsif random_building_type == "Commercial"
@@ -3625,7 +3627,8 @@ while $j < 250 do
             amount_parking_spots: random_amount_parking_slots,
             amount_companies: random_amount_companies,
             installation_fees: installationFees,
-            total_cost: finalPrice
+            total_cost: finalPrice,
+            created_at: quote_fake_date_of_creation
         )
     elsif random_building_type == "Corporate"
         totalOccupants = (random_amount_floors + random_amount_basements) * random_maximum_occupancy
@@ -3658,7 +3661,8 @@ while $j < 250 do
             installation_fees: installationFees,
             total_cost: finalPrice,
             amount_corporations: random_amount_corporations,
-            amount_elevators: totalShafts
+            amount_elevators: totalShafts,
+            created_at: quote_fake_date_of_creation
             
         )
     else
@@ -3693,7 +3697,8 @@ while $j < 250 do
             maximum_occupancy: random_maximum_occupancy,
             installation_fees: installationFees,
             total_cost: finalPrice,
-            amount_elevators: totalShafts
+            amount_elevators: totalShafts,
+            created_at: quote_fake_date_of_creation
             
         )
     end
