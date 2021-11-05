@@ -3005,7 +3005,7 @@ while $i < 100 do
             email_of_the_administrator_of_the_building: Faker::Internet.unique.email,
             full_name_of_the_technical_contact_for_the_building: Faker::Name.unique.name,
             technical_contact_phone_for_the_building: Faker::PhoneNumber.unique.cell_phone,
-            address_id: Faker::Number.unique.between(from: 1, to: 249),
+            address_id: Faker::Number.between(from: 1, to: 249),
             phone_number_of_the_building_administrator: Faker::PhoneNumber.unique.cell_phone,
             technical_contact_email_for_the_building: Faker::Internet.unique.email
             
