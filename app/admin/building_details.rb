@@ -5,14 +5,14 @@ ActiveAdmin.register BuildingDetail do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :building_id, :information_key, :value
+  permit_params :building_id, :information_key, :value
   #
   # or
   #
-  permit_params do
-    permitted = [:building_id, :information_key, :value]
-    permitted << :other if params[:action] == 'create' && current_user.admin?
-    permitted
-  end
+  # permit_params do
+  #   permitted = [:building_id, :information_key, :value]
+  #   permitted << :other if params[:action] == 'create' && current_user.admin?
+  #   permitted
+  # end
   
 end
