@@ -1,14 +1,11 @@
+# frozen_string_literal: true
+
 class HomeController < ApplicationController
-    def index
-        
-    end
-    def commercial
+  def index; end
 
-    end
-    def residential
+  def commercial; end
 
-    end
-    def quote
+  def residential; end
 
-    end
+  def quote; end
 end
