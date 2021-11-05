@@ -1,3 +1,17 @@
+GIT
+  remote: https://github.com/gregbell/active_admin.git
+  revision: 4e53aced18f3f04848373fcb7ef70e23dee7c1f1
+  specs:
+    activeadmin (2.9.0)
+      arbre (~> 1.2, >= 1.2.1)
+      formtastic (>= 3.1, < 5.0)
+      formtastic_i18n (~> 0.4)
+      inherited_resources (~> 1.7)
+      jquery-rails (~> 4.2)
+      kaminari (~> 1.0, >= 1.2.1)
+      railties (>= 5.2, < 6.2)
+      ransack (~> 2.1, >= 2.1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -24,15 +38,6 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
-    activeadmin (2.9.0)
-      arbre (~> 1.2, >= 1.2.1)
-      formtastic (>= 3.1, < 5.0)
-      formtastic_i18n (~> 0.4)
-      inherited_resources (~> 1.7)
-      jquery-rails (~> 4.2)
-      kaminari (~> 1.0, >= 1.2.1)
-      railties (>= 5.2, < 6.2)
-      ransack (~> 2.1, >= 2.1.1)
     activejob (5.2.6)
       activesupport (= 5.2.6)
       globalid (>= 0.3.6)
@@ -355,7 +360,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  activeadmin
+  activeadmin!
   arbre
   bootsnap (>= 1.1.0)
   bootstrap
