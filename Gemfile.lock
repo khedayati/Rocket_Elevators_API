@@ -383,7 +383,9 @@ DEPENDENCIES
   font-awesome-rails
   font-awesome-sass
   groupdate
+  has_scope
   highcharts-rails
+  inherited_resources
   jbuilder (~> 2.5)
   jquery-rails
   jquery-turbolinks
@@ -395,6 +397,7 @@ DEPENDENCIES
   puma (~> 3.11)
   pundit
   rails (~> 5.2.6)
+  responders
   rubocop
   rvm1-capistrano3
   sass-rails (~> 5.0)
