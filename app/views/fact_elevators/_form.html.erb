@@ -1,0 +1,17 @@
+<%= form_with(model: fact_elevator, local: true) do |form| %>
+  <% if fact_elevator.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(fact_elevator.errors.count, "error") %> prohibited this fact_elevator from being saved:</h2>
+
+      <ul>
+      <% fact_elevator.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
