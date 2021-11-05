@@ -1,5 +1,14 @@
 <hr class="m-0" />
             <form id="myForm" method = "post" action = "/create_quotes">
+            
+                <div class="form-group" id="email-id">
+                    <label>Email *</label>
+                    <input class="form-control" type="text" id="email" name="email">
+                </div>
+                <div class="form-group" id="company_name-id">
+                    <label>Company name *</label>
+                    <input class="form-control" type="text" id="company_name" name="company_name">
+                </div>
                 <div class="form-group">
                     <label for="building_type">Building Type * </label>
                     <select id="building_type" name="building_type" class="form-control" onchange = "selectChanged()">
@@ -10,6 +19,7 @@
                         <option id="hybrid" value="hybrid">Hybrid</option>
                     </select>
                 </div>
+                
                 <div class="form-group input" id="number-of-floors" hidden>
                     <label>Number of floors *</label>
                     <input class="form-control" type="number" id="number-of-floors-1" name="amount_floors"  oninput="calculateElevators()">
@@ -54,7 +64,7 @@
                 
                 <div id="price-calculation" hidden>
                     <div id="radio" class="form-check">
-                        <label class="form-check-label">Please select your range of elevator:</label>
+                        <label class="form-check-label">Please select your range of elevator:</label><br>
                         <input class="form-check-input" type="radio" id="standard" name="product_line" value="standard" onchange="radioButtonClicked(this)">
                         <label class="form-check-label" for="standard">Standard</label><br>
                         <input class="form-check-input" type="radio" id="premium" name="product_line" value="premium" onchange="radioButtonClicked(this)">
@@ -78,16 +88,9 @@
                         <label>Final Price: </label>
                         <input name="total_cost" class="form-control" readonly>
                     </div>
-                        <input type="submit" >
+                        <input type="submit" class="btn btn-primary">
                 </div>
                  
                 
-            </form>
-            <form id="tempForm" action="/create_quotes" method="POST">
-                <input id="tempField1" type="hidden" name="q" value="a">
-                <input id="tempField2" type="hidden" name="q" value="a">
-                <input id="tempField3" type="hidden" name="q" value="a">
-                <input id="tempField4" type="hidden" name="q" value="a">
-                <input id="tempField5" type="hidden" name="q" value="a">
             </form>
             <hr class="m-0" />
