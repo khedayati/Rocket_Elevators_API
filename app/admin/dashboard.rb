@@ -9,14 +9,17 @@ end
 
 
 def make_data_gebp_graph(connection)
-  # @amount_of_elevator = connection.exec("SELECT * FROM fact_elevators").ntuples
-  @max = connection.exec("SELECT MAX(nb_elevator) FROM dim_customers").to_a[0]['max'].to_i
-  @min = connection.exec("SELECT MIN(nb_elevator) FROM dim_customers").to_a[0]['min'].to_i
+  @data = {}
+  @total = 0
   @amount_customers = connection.exec("SELECT * FROM dim_customers").count
-  @amount_of_elevator.times do |i|
-
+  i = 1
+  connection.exec("SELECT nb_elevator FROM dim_customers").each do |nb_elevator|
+    @data["customer#{i}"] = nb_elevator["nb_elevator"]
+    @total += nb_elevator["nb_elevator"].to_i
+    i += 1
   end
-
+  puts @total
+  return @data
 end
 
 ActiveAdmin.register_page 'Dashboard' do
@@ -26,7 +29,7 @@ ActiveAdmin.register_page 'Dashboard' do
 
     
     connection = PG::Connection.new(host:'localhost',port:'5432',dbname:'data_warehouse',user:'yen',password:'password')
-    test = column_chart [{name: "Contacts Requests", data: {
+    first_2_question = column_chart [{name: "Contacts Requests", data: {
       "January" => gapm(connection, 1, "fact_contacts"),
        "February" => gapm(connection, 2, "fact_contacts"),
         "March" => gapm(connection, 3, "fact_contacts"),
@@ -53,20 +56,14 @@ ActiveAdmin.register_page 'Dashboard' do
                   "November" => gapm(connection, 11, "fact_quotes"),
                     "December" => gapm(connection, 12, "fact_quotes")}}]
 
-    # line_chart [{name: "foo", data: {"test": 4}}]
-                    
-    # column_chart [{test: 1}, {test: 2}, {test: 3}]
-    
-    
-    # Here is an example of a simple dashboard with columns and panels.
-    
+
     "hello"
       columns do
-        panel "Info" do
-          test
+        panel "First and Second Question" do
+          first_2_question
         end
-        panel "Infoa" do
-          line_chart [{name: "foo", data: {"test": 4}}]
+        panel "Third Question" do
+          line_chart [{name: "Amount Of Elevator Per Customer", data: make_data_gebp_graph(connection)}]
         end
       end
     # end
