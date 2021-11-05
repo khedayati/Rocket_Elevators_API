@@ -3551,6 +3551,154 @@ require "faker"
 
 # file = File.read('./addresses.json')
 data_hash = JSON.parse(address.to_json, object_class: OpenStruct)
+address_type = Array['Residential', 'Commercial', 'Corporate', 'Hybrid']
+product_line = Array['Standard', 'Premium', 'Excelium']
+$j = 0
+while $j < 250 do
+    random_product_line = product_line[rand(0..2)]
+    random_building_type = address_type[rand(0..3)]
+    random_amount_floors = rand(10..50)
+    random_amount_basements = rand(1..5)
+    random_amount_apartments = rand(50..500)
+    random_amount_parking_slots = rand(100..500)
+    random_amount_companies = rand(50..200)
+    random_amount_elevators = rand(5..15)
+    random_amount_corporations = rand(5..15)
+    random_business_hours = rand(8..24)
+    fakeEmail = Faker::Internet.unique.email
+    fakeCompanyName = Faker::Company.unique.name
+    random_maximum_occupancy = rand(50..100)
+    if random_building_type == "Residential"
+        numberOfColumns = (random_amount_floors.to_f / 20).ceil
+        averageDoorsPerFloors = (random_amount_apartments.to_f / random_amount_floors.to_f).ceil
+        numberOfShaftsPerColumn = (averageDoorsPerFloors.to_f / 6).ceil
+        totalShafts = numberOfShaftsPerColumn * numberOfColumns
+        if random_product_line == "Standard"
+            totalElevatorPrice = totalShafts * 7565
+            installationFees = totalElevatorPrice / 100 * 10
+            finalPrice = totalElevatorPrice + installationFees
+        elsif random_product_line == "Premium"
+            totalElevatorPrice = totalShafts * 12345
+            installationFees = totalElevatorPrice / 100 * 13
+            finalPrice = totalElevatorPrice + installationFees
+        else
+            totalElevatorPrice = totalShafts * 15400
+            installationFees = totalElevatorPrice / 100 * 16
+            finalPrice = totalElevatorPrice + installationFees
+        end
+        quotes = Quote.create!(
+            building_type: "Residential",
+            amount_floors: random_amount_floors,
+            amount_basements: random_amount_basements,
+            amount_apartments: random_amount_apartments,
+            product_line: random_product_line,
+            amount_elevators: totalShafts,
+            installation_fees: installationFees,
+            total_cost: finalPrice,
+            email: fakeEmail,
+            company_name: fakeCompanyName
+            
+        )
+    elsif random_building_type == "Commercial"
+        totalShafts = random_amount_elevators
+        if random_product_line == "Standard"
+            totalElevatorPrice = totalShafts * 7565
+            installationFees = totalElevatorPrice / 100 * 10
+            finalPrice = totalElevatorPrice + installationFees
+        elsif random_product_line == "Premium"
+            totalElevatorPrice = totalShafts * 12345
+            installationFees = totalElevatorPrice / 100 * 13
+            finalPrice = totalElevatorPrice + installationFees
+        else
+            totalElevatorPrice = totalShafts * 15400
+            installationFees = totalElevatorPrice / 100 * 16
+            finalPrice = totalElevatorPrice + installationFees
+        end
+        quotes = Quote.create!(
+            building_type: "Commercial",
+            email: fakeEmail,
+            company_name: fakeCompanyName,
+            amount_floors: random_amount_floors,
+            amount_basements: random_amount_basements,
+            product_line: random_product_line,
+            amount_elevators: random_amount_elevators,
+            amount_parking_spots: random_amount_parking_slots,
+            amount_companies: random_amount_companies,
+            installation_fees: installationFees,
+            total_cost: finalPrice
+        )
+    elsif random_building_type == "Corporate"
+        totalOccupants = (random_amount_floors + random_amount_basements) * random_maximum_occupancy
+        totalElevators = (totalOccupants.to_f / 1000).ceil
+        numberOfColumns = ((random_amount_floors.to_f + random_amount_basements.to_f) / 20).ceil
+        elevatorsPerColumn = (totalElevators.to_f/numberOfColumns).ceil
+        totalShafts = elevatorsPerColumn * numberOfColumns
+        if random_product_line == "Standard"
+            totalElevatorPrice = totalShafts * 7565
+            installationFees = totalElevatorPrice / 100 * 10
+            finalPrice = totalElevatorPrice + installationFees
+        elsif random_product_line == "Premium"
+            totalElevatorPrice = totalShafts * 12345
+            installationFees = totalElevatorPrice / 100 * 13
+            finalPrice = totalElevatorPrice + installationFees
+        else
+            totalElevatorPrice = totalShafts * 15400
+            installationFees = totalElevatorPrice / 100 * 16
+            finalPrice = totalElevatorPrice + installationFees
+        end
+        quotes = Quote.create!(
+            email: fakeEmail,
+            company_name: fakeCompanyName,
+            building_type: "Corporate",
+            amount_floors: random_amount_floors,
+            amount_basements: random_amount_basements,
+            product_line: random_product_line,
+            amount_parking_spots: random_amount_parking_slots,
+            maximum_occupancy: random_maximum_occupancy,
+            installation_fees: installationFees,
+            total_cost: finalPrice,
+            amount_corporations: random_amount_corporations,
+            amount_elevators: totalShafts
+            
+        )
+    else
+        totalOccupants = (random_amount_floors + random_amount_basements) * random_maximum_occupancy
+        totalElevators = (totalOccupants.to_f / 1000).ceil
+        numberOfColumns = ((random_amount_floors.to_f + random_amount_basements.to_f) / 20).ceil
+        elevatorsPerColumn = (totalElevators.to_f/numberOfColumns.to_f).ceil
+        totalShafts = elevatorsPerColumn * numberOfColumns
+        if random_product_line == "Standard"
+            totalElevatorPrice = totalShafts * 7565
+            installationFees = totalElevatorPrice / 100 * 10
+            finalPrice = totalElevatorPrice + installationFees
+        elsif random_product_line == "Premium"
+            totalElevatorPrice = totalShafts * 12345
+            installationFees = totalElevatorPrice / 100 * 13
+            finalPrice = totalElevatorPrice + installationFees
+        else
+            totalElevatorPrice = totalShafts * 15400
+            installationFees = totalElevatorPrice / 100 * 16
+            finalPrice = totalElevatorPrice + installationFees
+        end
+        quotes = Quote.create!(
+            email: fakeEmail,
+            company_name: fakeCompanyName,
+            building_type: "Hybrid",
+            amount_floors: random_amount_floors,
+            amount_basements: random_amount_basements,
+            product_line: random_product_line,
+            amount_parking_spots: random_amount_parking_slots,
+            amount_companies: random_amount_companies,
+            business_hours: random_business_hours,
+            maximum_occupancy: random_maximum_occupancy,
+            installation_fees: installationFees,
+            total_cost: finalPrice,
+            amount_elevators: totalShafts
+            
+        )
+    end
+    $j += 1
+end
 
 $i = 0
 $num = 250
@@ -3570,7 +3718,7 @@ while $i < $num do
   leads_message = Faker::Lorem.unique.sentence
   leads_attachment = Faker::Avatar.unique.image
   leads_date_of_creation = Faker::Date.between(from: 730.days.ago, to: Date.today)
-  
+
 
   leads = Lead.new(
 
@@ -3592,7 +3740,7 @@ end
 $i = 0
 $num = 249
 
-address_type = Array['Residential', 'Commercial', 'Corporate', 'Hybrid']
+
 address_status = Array["Active", "Inactive"]
 entity = Array["Operational Building", "Billing Address", "Home Address"]
 country = "United States"
