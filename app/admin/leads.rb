@@ -5,14 +5,14 @@ ActiveAdmin.register Lead do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :full_name, :company_name, :email, :phone, :project_name, :project_description, :department_in_charge_of_the_elevators, :message, :contact_date, :date_of_creation
+  permit_params :full_name, :company_name, :email, :phone, :project_name, :project_description, :department_in_charge_of_the_elevators, :message, :contact_date, :date_of_creation
   #
   # or
   
-  permit_params do
-    permitted = [:full_name, :company_name, :email, :phone, :project_name, :project_description, :department_in_charge_of_the_elevators, :message, :contact_date, :date_of_creation]
-    permitted << :other if params[:action] == 'create' && current_user.admin?
-    permitted
-  end
+  # permit_params do
+  #   permitted = [:full_name, :company_name, :email, :phone, :project_name, :project_description, :department_in_charge_of_the_elevators, :message, :contact_date, :date_of_creation]
+  #   permitted << :other if params[:action] == 'create' && current_user.admin?
+  #   permitted
+  # end
   
 end
