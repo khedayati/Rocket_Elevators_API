@@ -1,7 +1,7 @@
 require File.expand_path(File.dirname(__FILE__) + '/../../config/environment.rb')
 require 'pg'
 
-connection = PG::Connection.new(host:'localhost',port:'5432',dbname:'data_warehouse',user:'yen',password:'password')
+connection = PG::Connection.new(host:'localhost',port:'5432',dbname:'data_warehouse',user:'longnguyen',password:'')
 
 puts "\e[0;36mCurrently connected to:\e[0m '" + ActiveRecord::Base.connection.current_database + "'"
 puts "\e[0;36mCurrently connected for PG to:\e[0m '" + connection.db + "'"
