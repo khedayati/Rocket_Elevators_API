@@ -2743,7 +2743,667 @@ address = {
               "lat": 32.113199,
               "lng": -81.148934
           }
-      }
+      },
+      {
+        "address1": "8595 West 81st Drive",
+        "address2": "",
+        "city": "Arvada",
+        "state": "CO",
+        "postalCode": "80005",
+        "coordinates": {
+            "lat": 39.8449341,
+            "lng": -105.0937351
+        }
+    },
+    {
+        "address1": "4296 North Blossom Court",
+        "address2": "",
+        "city": "Fayetteville",
+        "state": "AR",
+        "postalCode": "72703",
+        "coordinates": {
+            "lat": 36.1288759,
+            "lng": -94.1239252
+        }
+    },
+    {
+        "address1": "1738 Annabellas Drive",
+        "address2": "",
+        "city": "Panama City Beach",
+        "state": "FL",
+        "postalCode": "32407",
+        "coordinates": {
+            "lat": 30.1877596,
+            "lng": -85.7782311
+        }
+    },
+    {
+        "address1": "3215 Madsen Street",
+        "address2": "",
+        "city": "Hayward",
+        "state": "CA",
+        "postalCode": "94541",
+        "coordinates": {
+            "lat": 37.6618825,
+            "lng": -122.0904612
+        }
+    },
+    {
+        "address1": "4 Village Lake Drive",
+        "address2": "#4",
+        "city": "Fayetteville",
+        "state": "AR",
+        "postalCode": "72703",
+        "coordinates": {
+            "lat": 36.0994717,
+            "lng": -94.1570279
+        }
+    },
+    {
+        "address1": "86 Russell Street",
+        "address2": "",
+        "city": "Manchester",
+        "state": "CT",
+        "postalCode": "06040",
+        "coordinates": {
+            "lat": 41.77985700000001,
+            "lng": -72.525724
+        }
+    },
+    {
+        "address1": "570 Broadway",
+        "address2": "",
+        "city": "Lynnfield",
+        "state": "MA",
+        "postalCode": "01940",
+        "coordinates": {
+            "lat": 42.517525,
+            "lng": -71.00125799999999
+        }
+    },
+    {
+        "address1": "1405 Monroe Street Northeast",
+        "address2": "",
+        "city": "Washington",
+        "state": "DC",
+        "postalCode": "20017",
+        "coordinates": {
+            "lat": 38.93258,
+            "lng": -76.98579699999999
+        }
+    },
+    {
+        "address1": "900 North Leverett Avenue",
+        "address2": "#126",
+        "city": "Fayetteville",
+        "state": "AR",
+        "postalCode": "72701",
+        "coordinates": {
+            "lat": 36.0754825,
+            "lng": -94.1696884
+        }
+    },
+    {
+        "address1": "222 Quince Street",
+        "address2": "#2-B",
+        "city": "San Diego",
+        "state": "CA",
+        "postalCode": "92103",
+        "coordinates": {
+            "lat": 32.7368499,
+            "lng": -117.162443
+        }
+    },
+    {
+        "address1": "370 Wallace Road",
+        "address2": "#D-28",
+        "city": "Nashville",
+        "state": "TN",
+        "postalCode": "37211",
+        "coordinates": {
+            "lat": 36.078257,
+            "lng": -86.724182
+        }
+    },
+    {
+        "address1": "6672 Urban Court",
+        "address2": "",
+        "city": "Arvada",
+        "state": "CO",
+        "postalCode": "80004",
+        "coordinates": {
+            "lat": 39.817946,
+            "lng": -105.13477
+        }
+    },
+    {
+        "address1": "516 Southwest 60th Terrace",
+        "address2": "",
+        "city": "Oklahoma City",
+        "state": "OK",
+        "postalCode": "73139",
+        "coordinates": {
+            "lat": 35.4051605,
+            "lng": -97.5223633
+        }
+    },
+    {
+        "address1": "1513 Southeast 9th Street",
+        "address2": "",
+        "city": "Moore",
+        "state": "OK",
+        "postalCode": "73160",
+        "coordinates": {
+            "lat": 35.329431,
+            "lng": -97.465397
+        }
+    },
+    {
+        "address1": "154 Byrd Drive",
+        "address2": "",
+        "city": "Panama City",
+        "state": "FL",
+        "postalCode": "32404",
+        "coordinates": {
+            "lat": 30.161691,
+            "lng": -85.59920199999999
+        }
+    },
+    {
+        "address1": "1106 Homer Avenue",
+        "address2": "",
+        "city": "Savannah",
+        "state": "GA",
+        "postalCode": "31405",
+        "coordinates": {
+            "lat": 32.0453896,
+            "lng": -81.12456809999999
+        }
+    },
+    {
+        "address1": "1010 M Street Northwest",
+        "address2": "",
+        "city": "Washington",
+        "state": "DC",
+        "postalCode": "20001",
+        "coordinates": {
+            "lat": 38.9054822,
+            "lng": -77.0265494
+        }
+    },
+    {
+        "address1": "5420 Allison Street",
+        "address2": "#202",
+        "city": "Arvada",
+        "state": "CO",
+        "postalCode": "80002",
+        "coordinates": {
+            "lat": 39.7958727,
+            "lng": -105.0858231
+        }
+    },
+    {
+        "address1": "20 Hacker Street",
+        "address2": "#3",
+        "city": "Worcester",
+        "state": "MA",
+        "postalCode": "01603",
+        "coordinates": {
+            "lat": 42.244896,
+            "lng": -71.8175172
+        }
+    },
+    {
+        "address1": "732 Kevin Court",
+        "address2": "",
+        "city": "Oakland",
+        "state": "CA",
+        "postalCode": "94621",
+        "coordinates": {
+            "lat": 37.757904,
+            "lng": -122.206479
+        }
+    },
+    {
+        "address1": "509 Franklin Street Northeast",
+        "address2": "",
+        "city": "Washington",
+        "state": "DC",
+        "postalCode": "20017",
+        "coordinates": {
+            "lat": 38.9255849,
+            "lng": -76.9990895
+        }
+    },
+    {
+        "address1": "23 Whitcomb Street",
+        "address2": "",
+        "city": "Springfield",
+        "state": "VT",
+        "postalCode": "05156",
+        "coordinates": {
+            "lat": 43.2987361,
+            "lng": -72.4880749
+        }
+    },
+    {
+        "address1": "3377 Sandstone Court",
+        "address2": "",
+        "city": "Pleasanton",
+        "state": "CA",
+        "postalCode": "94588",
+        "coordinates": {
+            "lat": 37.680463,
+            "lng": -121.860128
+        }
+    },
+    {
+        "address1": "14 Huntington Street",
+        "address2": "",
+        "city": "Manchester",
+        "state": "CT",
+        "postalCode": "06040",
+        "coordinates": {
+            "lat": 41.7772379,
+            "lng": -72.518456
+        }
+    },
+    {
+        "address1": "2802 US Highway 98",
+        "address2": "BLDG F",
+        "city": "Mexico Beach",
+        "state": "FL",
+        "postalCode": "32456",
+        "coordinates": {
+            "lat": 29.9474344,
+            "lng": -85.4170788
+        }
+    },
+    {
+        "address1": "412 Virginia Avenue",
+        "address2": "",
+        "city": "Louisville",
+        "state": "KY",
+        "postalCode": "40222",
+        "coordinates": {
+            "lat": 38.2538807,
+            "lng": -85.6152334
+        }
+    },
+    {
+        "address1": "1644 New Jersey Avenue Northwest",
+        "address2": "",
+        "city": "Washington",
+        "state": "DC",
+        "postalCode": "20001",
+        "coordinates": {
+            "lat": 38.91233,
+            "lng": -77.017736
+        }
+    },
+    {
+        "address1": "832 51st Street Northeast",
+        "address2": "",
+        "city": "Washington",
+        "state": "DC",
+        "postalCode": "20019",
+        "coordinates": {
+            "lat": 38.9008832,
+            "lng": -76.9273381
+        }
+    },
+    {
+        "address1": "894 Windmill Park Lane",
+        "address2": "",
+        "city": "Mountain View",
+        "state": "CA",
+        "postalCode": "94043",
+        "coordinates": {
+            "lat": 37.399505,
+            "lng": -122.077478
+        }
+    },
+    {
+        "address1": "9636 Morar Road",
+        "address2": "",
+        "city": "Panama City",
+        "state": "FL",
+        "postalCode": "32409",
+        "coordinates": {
+            "lat": 30.324968,
+            "lng": -85.620589
+        }
+    },
+    {
+        "address1": "9472 Noble Way",
+        "address2": "",
+        "city": "Arvada",
+        "state": "CO",
+        "postalCode": "80007",
+        "coordinates": {
+            "lat": 39.8690661,
+            "lng": -105.1784169
+        }
+    },
+    {
+        "address1": "618 Staley Avenue",
+        "address2": "",
+        "city": "Hayward",
+        "state": "CA",
+        "postalCode": "94541",
+        "coordinates": {
+            "lat": 37.6629263,
+            "lng": -122.091801
+        }
+    },
+    {
+        "address1": "8704 Bayberry Place",
+        "address2": "",
+        "city": "Plantation",
+        "state": "KY",
+        "postalCode": "40242",
+        "coordinates": {
+            "lat": 38.2814983,
+            "lng": -85.5918425
+        }
+    },
+    {
+        "address1": "2506 West Madison Street",
+        "address2": "",
+        "city": "Louisville",
+        "state": "KY",
+        "postalCode": "40211",
+        "coordinates": {
+            "lat": 38.253755,
+            "lng": -85.7933322
+        }
+    },
+    {
+        "address1": "840 Inglewood Drive",
+        "address2": "",
+        "city": "West Sacramento",
+        "state": "CA",
+        "postalCode": "95605",
+        "coordinates": {
+            "lat": 38.591235,
+            "lng": -121.524984
+        }
+    },
+    {
+        "address1": "10 Dalry Lane",
+        "address2": "",
+        "city": "Savannah",
+        "state": "GA",
+        "postalCode": "31419",
+        "coordinates": {
+            "lat": 31.941447,
+            "lng": -81.160151
+        }
+    },
+    {
+        "address1": "3301 Nora Lane",
+        "address2": "",
+        "city": "Louisville",
+        "state": "KY",
+        "postalCode": "40220",
+        "coordinates": {
+            "lat": 38.199844,
+            "lng": -85.61509
+        }
+    },
+    {
+        "address1": "8304 Glaser Lane",
+        "address2": "",
+        "city": "Louisville",
+        "state": "KY",
+        "postalCode": "40291",
+        "coordinates": {
+            "lat": 38.1437892,
+            "lng": -85.6080724
+        }
+    },
+    {
+        "address1": "3720 West 86th Avenue",
+        "address2": "APT F",
+        "city": "Anchorage",
+        "state": "AK",
+        "postalCode": "99502",
+        "coordinates": {
+            "lat": 61.142615,
+            "lng": -149.949251
+        }
+    },
+    {
+        "address1": "3298 Chestnut Street Northwest",
+        "address2": "",
+        "city": "Washington",
+        "state": "DC",
+        "postalCode": "20015",
+        "coordinates": {
+            "lat": 38.979577,
+            "lng": -77.061088
+        }
+    },
+    {
+        "address1": "82 Fairfield Street",
+        "address2": "",
+        "city": "Manchester",
+        "state": "CT",
+        "postalCode": "06040",
+        "coordinates": {
+            "lat": 41.7673619,
+            "lng": -72.53831
+        }
+    },
+    {
+        "address1": "3138 P Street Northwest",
+        "address2": "",
+        "city": "Washington",
+        "state": "DC",
+        "postalCode": "20007",
+        "coordinates": {
+            "lat": 38.9091118,
+            "lng": -77.0629963
+        }
+    },
+    {
+        "address1": "80 Locust Avenue",
+        "address2": "#110",
+        "city": "Worcester",
+        "state": "MA",
+        "postalCode": "01604",
+        "coordinates": {
+            "lat": 42.266896,
+            "lng": -71.762913
+        }
+    },
+    {
+        "address1": "2715 Thornbrook Court",
+        "address2": "",
+        "city": "Odenton",
+        "state": "MD",
+        "postalCode": "21113",
+        "coordinates": {
+            "lat": 39.06450299999999,
+            "lng": -76.727459
+        }
+    },
+    {
+        "address1": "3579 2nd Avenue",
+        "address2": "",
+        "city": "Edgewater",
+        "state": "MD",
+        "postalCode": "21037",
+        "coordinates": {
+            "lat": 38.91283200000001,
+            "lng": -76.5224099
+        }
+    },
+    {
+        "address1": "6739 Taft Court",
+        "address2": "",
+        "city": "Arvada",
+        "state": "CO",
+        "postalCode": "80004",
+        "coordinates": {
+            "lat": 39.8189901,
+            "lng": -105.1325295
+        }
+    },
+    {
+        "address1": "1528 Stafford Avenue",
+        "address2": "",
+        "city": "Hayward",
+        "state": "CA",
+        "postalCode": "94541",
+        "coordinates": {
+            "lat": 37.680081,
+            "lng": -122.074569
+        }
+    },
+    {
+        "address1": "2024 Merrily Drive",
+        "address2": "",
+        "city": "Montgomery",
+        "state": "AL",
+        "postalCode": "36111",
+        "coordinates": {
+            "lat": 32.3328739,
+            "lng": -86.28072999999999
+        }
+    },
+    {
+        "address1": "2034 Fairfax Road",
+        "address2": "",
+        "city": "Annapolis",
+        "state": "MD",
+        "postalCode": "21401",
+        "coordinates": {
+            "lat": 38.9734343,
+            "lng": -76.5357427
+        }
+    },
+    {
+        "address1": "1430 East Audubon Road",
+        "address2": "",
+        "city": "Montgomery",
+        "state": "AL",
+        "postalCode": "36111",
+        "coordinates": {
+            "lat": 32.328226,
+            "lng": -86.28300399999999
+        }
+    },
+    {
+        "address1": "3652 East Blue Stone Drive",
+        "address2": "",
+        "city": "Fayetteville",
+        "state": "AR",
+        "postalCode": "72764",
+        "coordinates": {
+            "lat": 36.139309,
+            "lng": -94.1078069
+        }
+    },
+    {
+        "address1": "3302 Woodland Park Drive",
+        "address2": "#APT 000001",
+        "city": "Anchorage",
+        "state": "AK",
+        "postalCode": "99517",
+        "coordinates": {
+            "lat": 61.190512,
+            "lng": -149.927286
+        }
+    },
+    {
+        "address1": "1771 Daisey Court",
+        "address2": "",
+        "city": "Millersville",
+        "state": "MD",
+        "postalCode": "21108",
+        "coordinates": {
+            "lat": 39.044662,
+            "lng": -76.64797399999999
+        }
+    },
+    {
+        "address1": "406 East Waldburg Street",
+        "address2": "",
+        "city": "Savannah",
+        "state": "GA",
+        "postalCode": "31401",
+        "coordinates": {
+            "lat": 32.064691,
+            "lng": -81.092321
+        }
+    },
+    {
+        "address1": "11843 North 60th Avenue",
+        "address2": "",
+        "city": "Glendale",
+        "state": "AZ",
+        "postalCode": "85304",
+        "coordinates": {
+            "lat": 33.594584,
+            "lng": -112.188319
+        }
+    },
+    {
+        "address1": "9515 West 74th Avenue",
+        "address2": "",
+        "city": "Arvada",
+        "state": "CO",
+        "postalCode": "80005",
+        "coordinates": {
+            "lat": 39.831067,
+            "lng": -105.103952
+        }
+    },
+    {
+        "address1": "119 Antioch Pike",
+        "address2": "",
+        "city": "Nashville",
+        "state": "TN",
+        "postalCode": "37211",
+        "coordinates": {
+            "lat": 36.10072,
+            "lng": -86.72331
+        }
+    },
+    {
+        "address1": "1157 1st Street Northwest",
+        "address2": "",
+        "city": "Washington",
+        "state": "DC",
+        "postalCode": "20001",
+        "coordinates": {
+            "lat": 38.90538280000001,
+            "lng": -77.0121662
+        }
+    },
+    {
+        "address1": "3578 Galindo Street",
+        "address2": "",
+        "city": "Oakland",
+        "state": "CA",
+        "postalCode": "94601",
+        "coordinates": {
+            "lat": 37.783471,
+            "lng": -122.2149729
+        }
+    },
+    {
+        "address1": "12800 Saunders Road",
+        "address2": "",
+        "city": "Anchorage",
+        "state": "AK",
+        "postalCode": "99516",
+        "coordinates": {
+            "lat": 61.10499799999999,
+            "lng": -149.746856
+        }
+    }
   ],
   "attribution": [
       "City of Haddam (CT)",
@@ -2910,6 +3570,7 @@ while $i < $num do
   leads_message = Faker::Lorem.unique.sentence
   leads_attachment = Faker::Avatar.unique.image
   leads_date_of_creation = Faker::Date.between(from: 730.days.ago, to: Date.today)
+  
 
   leads = Lead.new(
 
@@ -2938,7 +3599,7 @@ country = "United States"
 address_notes = Faker::Lorem.unique.sentence
 
 
-while $i < $num do
+while $i < 300 do
   random_num = rand(0..3)
   random_num_status = rand(0..1)
   random_num_entity = rand(0..2)
@@ -2993,7 +3654,7 @@ while $i < 100 do
         technical_authority_phone_for_service: Faker::PhoneNumber.unique.cell_phone,
         technical_manager_email_for_service: Faker::Internet.unique.email, 
         user: @users,
-        address_id: Faker::Number.unique.between(from: 1, to: 249)
+        address_id: Faker::Number.unique.between(from: 1, to: 300)
 
     )
     random = rand(1..2)
@@ -3005,7 +3666,7 @@ while $i < 100 do
             email_of_the_administrator_of_the_building: Faker::Internet.unique.email,
             full_name_of_the_technical_contact_for_the_building: Faker::Name.unique.name,
             technical_contact_phone_for_the_building: Faker::PhoneNumber.unique.cell_phone,
-            address_id: Faker::Number.unique.between(from: 1, to: 249),
+            address_id: Faker::Number.unique.between(from: 1, to: 300),
             phone_number_of_the_building_administrator: Faker::PhoneNumber.unique.cell_phone,
             technical_contact_email_for_the_building: Faker::Internet.unique.email
             
