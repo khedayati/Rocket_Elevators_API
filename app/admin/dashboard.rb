@@ -58,14 +58,15 @@ ActiveAdmin.register_page 'Dashboard' do
 
 
     "hello"
-      columns do
+      
+
         panel "First and Second Question" do
           first_2_question
         end
         panel "Third Question" do
           line_chart [{name: "Amount Of Elevator Per Customer", data: make_data_gebp_graph(connection)}]
         end
-      end
+      # end
     # end
   end
 end
