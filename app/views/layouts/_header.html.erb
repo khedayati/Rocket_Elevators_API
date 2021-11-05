@@ -1,44 +1,7 @@
 		<body class=" enable-animation">
 
 		<!-- SLIDE TOP -->
-		<div id="slidetop">
-
-			<div class="container">
-				
-				<div class="row">
-
-					<div class="col-md-4">
-						<h6><i class="icon-heart"></i> WHY ROCKET ELEVATOR?</h6>
-						<p>We have the conviction that we create the most innovative and reliable products on the market. Contact us today for any questions you might have. </p>
-					</div>
-
-					<div class="col-md-4">
-						<h6><i class="fa-facheck"></i> RECENTLY VISITED</h6>
-						<ul class="list-unstyled">
-							<li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet</a></li>
-							<li><a href="#"><i class="fa fa-angle-right"></i> This is a very long text, very very very very very very very very very very very very </a></li>
-							<li><a href="#"><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet</a></li>
-							<li><a href="#"><i class="fa fa-angle-right"></i> Dolor sit amet,consectetur adipiscing elit amet</a></li>
-							<li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet,consectetur adipiscing elit</a></li>
-						</ul>
-					</div>
-
-					<div class="col-md-4">
-						<h6><i class="icon-envelope"></i> CONTACT INFO</h6>
-						<ul class="list-unstyled">
-							<li><b>Address:</b> 4468 Wellington St Suite 204, Verdun, <br /> Quebec H4G 1W5, Canada</li>
-							<li><b>Phone:</b> (418) 555-1234</li>
-							<li><b>Email:</b> <a href="mailto:info@***REMOVED***.biz">info@***REMOVED***.biz</a></li>
-						</ul>
-					</div>
-
-				</div>
-
-			</div>
-
-			<a class="slidetop-toggle" href="#"><!-- toggle button --></a>
-
-		</div>
+		
 		<!-- /SLIDE TOP -->
 
 
@@ -113,9 +76,7 @@
           								MANAGE ACCOUNT
         								</a>
 											<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-												<h6 class="dropdown-header">Manage your account</h6>
 												<%= link_to "Change my info", '/users/'+ current_user.id.to_s  ,:class => "dropdown-item"%>
-												<%= link_to "Show addresses", '/index', :class => "dropdown-item"%>
 												<div class="dropdown-divider"></div>
 												<%= link_to "Logout", "/admin/logout", :class => "dropdown-item"%>
 												
