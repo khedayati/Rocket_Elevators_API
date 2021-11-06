@@ -1,6 +1,7 @@
 require File.expand_path(File.dirname(__FILE__) + '/../../config/environment.rb')
 require 'pg'
 
+
 connection = PG::Connection.new(host:'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com',port:'5432',dbname:'LEVY_POSTGRES',user:'codeboxx',password:'Codeboxx1!')
 
 puts "\e[0;36mCurrently connected to:\e[0m '" + ActiveRecord::Base.connection.current_database + "'"
