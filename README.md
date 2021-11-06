@@ -1,24 +1,11 @@
-# README
+# COMMAND
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+rake wh:make_table  => drop if exist and create tables in psql database
 
-Things you may want to cover:
+rake wh:populate:* => populate psql tables with data from mysql database 
 
-* Ruby version
+* = quote, elevator, contact, customer
 
-* System dependencies
+rake wh:reset => Does all the previous rake command in order
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+rake final:setup  => does rake db:reset and rake final:setup
