@@ -39,10 +39,7 @@
   <strong>Message:</strong>
   <%= @lead.message %>
 </p>
-<p>
-  <strong>file attachment:</strong>
-  <%= link_to 'Download', @lead.contact_attachment_file, download: '' %>
-</p>
+
 
 <%= link_to 'Edit', edit_lead_path(@lead) %> |
 <%= link_to 'Back', leads_path %>
