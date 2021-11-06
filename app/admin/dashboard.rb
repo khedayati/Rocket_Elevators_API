@@ -28,8 +28,9 @@ ActiveAdmin.register_page 'Dashboard' do
   content title: proc { I18n.t('active_admin.dashboard') } do
 
     
+
     connection = PG::Connection.new(host:'***REMOVED***',port:'5432',dbname:'***REMOVED***',user:'***REMOVED***',password:'***REMOVED***')
-    first_2_question = column_chart [{name: "Contacts Requests", data: {
+   first_2_question = column_chart [{name: "Contacts Requests", data: {
       "January" => gapm(connection, 1, "fact_contacts"),
        "February" => gapm(connection, 2, "fact_contacts"),
         "March" => gapm(connection, 3, "fact_contacts"),
