@@ -7,6 +7,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+#Real address array
 address = {
   "addresses": [
       {
@@ -3512,13 +3514,16 @@ address = {
       "City of Honolulu (HI)"
   ]
 }
-
+#Array of all employees first name
 first_names = Array['Nicolas', 'Nadya', 'Martin', 'Mathieu', 'Patrick', 'David', 'Mathieu', 'Thomas', 'Serge',
                     'Francis', 'Mathieu', 'David', 'Nicolas', 'David', 'Remi', 'Timothy', 'Kiril', 'Emmanuela', 'Abdul', 'Krista', 'Jonathan']
+#Array of all last names
 last_names = Array['Genest', 'Fortier', 'Chantal', 'Houde', 'Tibault', 'Boutin', 'Lortie', 'Carrier', 'Savoie',
                    'Patry-Jessop', 'Lefrancois', 'Larochelle', 'Pineault', 'Amyot', 'Gagnon', 'Wever', 'Kleinerman', 'Derilus', 'Akeeb', 'Sheely', 'Murray']
+#Array of all employees' function
 functions = Array['CEO', 'Director', 'Assistant Director', 'Captain', 'Captain', 'Engineer', 'Engineer', 'Engineer',
                   'Engineer', 'Engineer', 'Engineer', 'Engineer', 'Engineer', 'Engineer', 'Engineer', 'Developer', 'Developer', 'Developer', 'Developer', 'Developer', 'Developer']
+#Array of all employees' email
 emails = Array['nicolas.genest@codeboxx.biz', 'nadya.fortier@codeboxx.biz', 'martin.chantal@codeboxx.biz',
                'mathieu.houde@codeboxx.biz', 'patrick.thibault@codeboxx.biz', 'david.boutin@codeboxx.biz', 'mathieu.lortie@codeboxx.biz', 'thomas.carrier@codeboxx.biz', 'serge.savoie@codeboxx.biz', 'francis.patry-jessop@codeboxx.biz', 'mathieu.lefrancois@codeboxx.biz', 'david.larochelle@codeboxx.biz', 'nicolas.pineault@codeboxx.biz', 'david.amyot@codeboxx.biz', 'remi.gagnon@codeboxx.biz', 'timothy.wever@codeboxx.biz', 'kiril.kleinerman@codeboxx.biz', 'emmanuela.derilus@codeboxx.biz', 'abdul.akeeb@codeboxx.biz', 'krista.sheely@codeboxx.biz', 'jonathan.murray@codeboxx.biz']
 
@@ -3527,7 +3532,7 @@ emails = Array['nicolas.genest@codeboxx.biz', 'nadya.fortier@codeboxx.biz', 'mar
 #     puts @user
 #     Employee.create!(first_name:first_name[i], last_name:last_name[i], function:function[i], email:email[i])
 # end
-
+#loop to create all employees/users
 first_names.each_with_index do |first_name, index|
 #   puts index
 #   puts first_name
@@ -3550,10 +3555,14 @@ require "json"
 require "faker"
 
 # file = File.read('./addresses.json')
+#parsing the json to get real address
 data_hash = JSON.parse(address.to_json, object_class: OpenStruct)
+#Choices array for type of address as well as product line
 address_type = Array['Residential', 'Commercial', 'Corporate', 'Hybrid']
 product_line = Array['Standard', 'Premium', 'Excelium']
 $j = 0
+#loop to create 250 fake quotes. Normal data is generated randomly. 
+#normal data are generated randomly, however, the price and the elevator shafts are calculated.
 while $j < 250 do
     puts "Making quote #{$j}"
     random_product_line = product_line[rand(0..2)]
@@ -3708,12 +3717,11 @@ end
 
 $i = 0
 $num = 250
-
+#for loop to generate leads
 while $i < $num do
   if $i == 146
     Faker::UniqueGenerator.clear  
   end
-# Leads Table Dataset
   leads_full_name = Faker::Name.unique.name
   leads_company_name = Faker::App.name
   leads_email = Faker::Internet.unique.email
@@ -3742,17 +3750,15 @@ while $i < $num do
   leads.save
 end
 
-# Address Table Dataset
+
 $i = 0
 $num = 249
 
-
+#array for options for address status and type of entity
 address_status = Array["Active", "Inactive"]
 entity = Array["Operational Building", "Billing Address", "Home Address"]
-country = "United States"
-address_notes = Faker::Lorem.unique.sentence
 
-
+#while loop to create addresses based on the array given.
 while $i < 300 do
   random_num = rand(0..3)
   random_num_status = rand(0..1)
@@ -3767,8 +3773,8 @@ while $i < 300 do
     suite_or_apartment: data_hash.addresses[$i].address2,
     city: data_hash.addresses[$i].city,
     postal_code: data_hash.addresses[$i].postalCode,
-    country: country,
-    notes: address_notes
+    country: "United States",
+    notes: Faker::Lorem.unique.sentence
 
   )
 
@@ -3777,14 +3783,12 @@ while $i < 300 do
 
 end
 
-# Customers Table Dataset
-
 $i = 0
-
 $j = 0
+#Arrays for options of value types and models
 values_type = Array["Residential", "Commercial", "Corporate", "Hybrid"]
 model = Array['Standard', 'Premium', 'Excelium']
-
+#while loop to create user using fake data
 while $i < 100 do
     puts "working on shit #{$i}"
     @users = User.create!(
@@ -3793,9 +3797,7 @@ while $i < 100 do
         email: Faker::Internet.unique.email,
         password: 'password'
     )
-
-    
-    
+    #create a customer based on the user just created
     @customers = Customer.create!(
         company_name: Faker::Company.unique.name,
         customer_creation_date: Faker::Date.between(from: 730.days.ago, to: Date.today),
@@ -3813,6 +3815,7 @@ while $i < 100 do
     )
     random = rand(1..2)
     $j = 0
+    #create a while loop to create buildings using fake data for customers, a customer can have 1 or 2 building
     while $j < random do
         @buildings = Building.create!(
             customer: @customers,
@@ -3825,6 +3828,7 @@ while $i < 100 do
             technical_contact_email_for_the_building: Faker::Internet.unique.email
             
         )
+        #create building details for each building
         random = rand(0..3)
         @building_details = BuildingDetail.create!(
             building: @buildings,
@@ -3834,7 +3838,9 @@ while $i < 100 do
         $j += 1
         random_employee = rand(1..21)
         random_floor = rand(10..20)
+        #check if the building is a residential/commercial/hybrid/corporate
         if values_type[random] == "Residential"
+            #create one battery if the building is residential
             @batteries = Battery.create!(
                 building: @buildings,
                 battery_type: "Residential",
@@ -3849,6 +3855,7 @@ while $i < 100 do
             random_column = rand(3..5)
             random_elevator = rand(2..5)
             $b = 1
+            #create 3 to 5 columns for the batteries
             while $b <= random_column do
                 $c = 1
                 @columns = Column.create!(
@@ -3860,6 +3867,7 @@ while $i < 100 do
                     notes: Faker::Lorem.unique.sentence
                 )
                 random_model = rand(0..2)
+                #create 2 to 5 elevator for each column
                 while $c <= random_elevator do
                     elevators = Elevator.create!(
                         column: @columns,
@@ -3885,12 +3893,13 @@ while $i < 100 do
 
             
         else
+            #if building is residential then the building can have more than one batteries
             random_batteries = rand(1..3)
             $a = 1
-
-
             random_column = rand(3..5)
             random_elevator = rand(2..5)
+            #generate random number of column, batteries and elevator
+            #create 1 to 3 batteries
             while $a <= random_batteries do
                 $b = 1
                 @batteries = Battery.create!(
@@ -3906,7 +3915,7 @@ while $i < 100 do
                 )
                 
                 
-                
+                #create 3 to 5 columns
                 while $b <= random_column do
                     $c = 1
                     @columns = Column.create!(
@@ -3918,6 +3927,7 @@ while $i < 100 do
                         notes: Faker::Lorem.unique.sentence
                     )
                     random_model = rand(0..2)
+                    #create 2 to 5 elevators
                     while $c <= random_elevator do
                         elevators = Elevator.create!(
                             column: @columns,
