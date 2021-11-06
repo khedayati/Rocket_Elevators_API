@@ -1092,7 +1092,7 @@
 											</div>
 											<div class="col-md-4">
 												<label for="contact:phone">Phone</label>
-												<input id="phone" type="tel" value="" class="form-control" name="phone" maxlength="10">
+												<input id="phone" pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im" type="tel" value="" class="form-control" name="phone" maxlength="10">
 											</div>
 									</div>
 									<div class="row">
