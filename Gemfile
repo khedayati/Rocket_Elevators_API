@@ -98,3 +98,7 @@ gem 'country_select', '~> 6.0'
 gem 'chartkick'
 
 gem 'groupdate'
+
+gem 'inherited_resources'
+gem 'has_scope'
+gem 'responders'

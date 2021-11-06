@@ -3555,6 +3555,7 @@ address_type = Array['Residential', 'Commercial', 'Corporate', 'Hybrid']
 product_line = Array['Standard', 'Premium', 'Excelium']
 $j = 0
 while $j < 250 do
+    puts "Making quote #{$j}"
     random_product_line = product_line[rand(0..2)]
     random_building_type = address_type[rand(0..3)]
     random_amount_floors = rand(10..50)
@@ -3785,7 +3786,7 @@ values_type = Array["Residential", "Commercial", "Corporate", "Hybrid"]
 model = Array['Standard', 'Premium', 'Excelium']
 
 while $i < 100 do
-
+    puts "working on shit #{$i}"
     @users = User.create!(
         first_name: Faker::Name.unique.first_name,
         last_name: Faker::Name.unique.last_name,
