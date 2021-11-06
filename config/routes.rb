@@ -1,18 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :dim_customers
-  resources :fact_elevators
-  resources :fact_contacts
-  resources :fact_quotes
-  resources :elevators
-  resources :columns
-  resources :batteries
-  resources :building_details
-  resources :buildings
-  resources :customers
-  resources :addresses
-  resources :leads
+
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root 'home#index'
