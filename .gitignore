@@ -27,3 +27,5 @@
 /config/master.key
 
 /config/database.yml
+sendgrid.env
+sendgrid.env
