@@ -104,3 +104,4 @@ gem 'has_scope'
 gem 'responders'
 
 gem 'dropbox_api'
+gem 'ibm_watson'
