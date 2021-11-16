@@ -105,4 +105,4 @@ gem 'responders'
 
 gem 'dropbox_api'
 gem 'ibm_watson'
-gem 'ibm_watson'
+
