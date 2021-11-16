@@ -5,7 +5,7 @@ ActiveAdmin.register Lead do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :full_name, :company_name, :email, :phone, :project_name, :project_description, :department_in_charge_of_the_elevators, :message, :contact_date, :date_of_creation, :contact_attachment_file
+  permit_params :full_name, :company_name, :email, :phone, :project_name, :project_description, :department_in_charge_of_the_elevators, :message, :contact_attachment_file, :contact_date, :date_of_creation 
   #
   # or
   
