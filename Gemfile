@@ -102,3 +102,5 @@ gem 'groupdate'
 gem 'inherited_resources'
 gem 'has_scope'
 gem 'responders'
+
+gem 'ibm_watson'
