@@ -150,7 +150,6 @@ GEM
     execjs (2.8.1)
     faker (2.19.0)
       i18n (>= 1.6, < 2)
-<<<<<<< HEAD
     faraday (1.8.0)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
@@ -170,11 +169,6 @@ GEM
     faraday-net_http_persistent (1.2.0)
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
-=======
-    faye-websocket (0.11.1)
-      eventmachine (>= 0.12.0)
-      websocket-driver (>= 0.5.1)
->>>>>>> Update
     ffi (1.15.4)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
@@ -195,9 +189,6 @@ GEM
       activesupport (>= 5.2)
     highcharts-rails (6.0.3)
       railties (>= 3.1)
-<<<<<<< HEAD
-    i18n (1.8.11)
-=======
     http (4.4.1)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
@@ -209,7 +200,6 @@ GEM
     http-parser (1.2.3)
       ffi-compiler (>= 1.0, < 2.0)
     i18n (1.8.10)
->>>>>>> Update
       concurrent-ruby (~> 1.0)
     i18n_data (0.13.0)
     ibm_cloud_sdk_core (1.1.3)
