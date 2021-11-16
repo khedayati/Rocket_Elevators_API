@@ -1,8 +1,6 @@
 class LeadsController < ApplicationController
   before_action :set_lead, only: %i[ show edit update destroy ]
   protect_from_forgery except: :home
-  require 'sendgrid-ruby'
-  include SendGrid
 
   # GET /leads or /leads.json
   def index
@@ -35,19 +33,6 @@ class LeadsController < ApplicationController
         format.json { render json: @lead.errors, status: :unprocessable_entity }
       end
     end
-
-
-    from = Email.new(email: 'test@example.com')
-    to = Email.new(email: 'test@example.com')
-    subject = 'Sending with SendGrid is Fun'
-    content = Content.new(type: 'text/plain', value: 'and easy to do anywhere, even with Ruby')
-    mail = Mail.new(from, subject, to, content)
-
-    sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
-    response = sg.client.mail._('send').post(request_body: mail.to_json)
-    puts response.status_code
-    puts response.body
-    puts response.headers
   end
 
   # PATCH/PUT /leads/1 or /leads/1.json
