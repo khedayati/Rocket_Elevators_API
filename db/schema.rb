@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_15_201822) do
+ActiveRecord::Schema.define(version: 2021_11_16_031617) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "namespace"
@@ -169,7 +169,10 @@ ActiveRecord::Schema.define(version: 2021_11_15_201822) do
     t.datetime "updated_at", null: false
     t.date "date_of_creation"
     t.bigint "customer_id"
+    t.bigint "file_id"
+    t.string "file"
     t.index ["customer_id"], name: "index_leads_on_customer_id"
+    t.index ["file_id"], name: "index_leads_on_file_id"
   end
 
   create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
