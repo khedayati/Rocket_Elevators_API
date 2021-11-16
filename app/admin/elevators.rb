@@ -2,21 +2,19 @@ require 'net/http'
 require 'uri'
 require 'json'
 
-def make_slack_api_url
+def send_slack_notification(message)
   uri = URI.parse("https://slack.com/api/chat.postMessage")
 
-  headers = {'Content_type' => 'application/json','Authorization' => "Bearer ***REMOVED***"}
-  body = {'channel' => 'testingbot', 'text' => "Sent from code"}
+  # Might have to change the bearer token since they get outdated fast
+  headers = {'Content-type' => 'application/json','Authorization' => "Bearer ***REMOVED***"}
+  # Need to change the channel to something that fit what the coatch want
+  body = {'channel' => 'testingbot', 'text' => "#{message}"}
 
   http = Net::HTTP.new(uri.host, uri.port)
   request = Net::HTTP::Post.new(uri.request_uri, headers)
   request.body = body.to_json
   http.use_ssl = (uri.scheme == "https")
   response = http.request(request)
-  puts "JSON BODY : #{body.to_json}"
-  puts ""
-  puts "RESPONSE: #{ response.to_json}"
-  puts ""
 end
 
 ActiveAdmin.register Elevator do
@@ -34,7 +32,6 @@ ActiveAdmin.register Elevator do
       object = resource
       
       elevator_status_before_update = object.status
-      make_slack_api_url
 
       if update_resource(object, resource_params)
         puts options[:location] ||=smart_resource_url
@@ -42,10 +39,10 @@ ActiveAdmin.register Elevator do
       end
 
       if elevator_status_before_update != object.status
-        
+        message = "The Elevator #{object.id} with Serial Number #{object.serial_number} has changed status from #{elevator_status_before_update} to #{object.status}."
+
+        send_slack_notification(message)
       end
-
-
 
       respond_with_dual_blocks(object, options, &block)
     end
