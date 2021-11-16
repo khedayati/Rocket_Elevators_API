@@ -6,7 +6,7 @@ require "ibm_watson/text_to_speech_v1"
 include IBMWatson
 
 authenticator = Authenticators::IamAuthenticator.new(
-  apikey: "0dOsyBpI4ES0krYxqy0obUkqd2dNc9f4J5T_n1NEAy6K"
+  apikey: ENV['IBM_API_KEY']
 )
 text_to_speech = TextToSpeechV1.new(
   authenticator: authenticator
