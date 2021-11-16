@@ -290,6 +290,7 @@ GEM
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.5)
     ruby_dep (1.5.0)
+    ruby_http_client (3.5.2)
     rubyzip (2.3.2)
     rvm1-capistrano3 (1.4.0)
       capistrano (~> 3.0)
@@ -317,6 +318,8 @@ GEM
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
+    sendgrid-ruby (6.6.0)
+      ruby_http_client (~> 3.4)
     sixarm_ruby_unaccent (1.2.0)
     sort_alphabetical (1.1.0)
       unicode_utils (>= 1.2.2)
@@ -405,6 +408,7 @@ DEPENDENCIES
   rvm1-capistrano3
   sass-rails (~> 5.0)
   selenium-webdriver
+  sendgrid-ruby
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
