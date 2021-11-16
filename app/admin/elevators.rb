@@ -6,9 +6,9 @@ def send_slack_notification(message)
   uri = URI.parse("https://slack.com/api/chat.postMessage")
 
   # Might have to change the bearer token since they get outdated fast
-  headers = {'Content-type' => 'application/json','Authorization' => "Bearer ***REMOVED***"}
+  headers = {'Content-type' => 'application/json','Authorization' => "Bearer #{ENV['SLACK_API_TOKEN']}"}
   # Need to change the channel to something that fit what the coatch want
-  body = {'channel' => 'testingbot', 'text' => "#{message}"}
+  body = {'channel' => '***REMOVED***', 'text' => "#{message}"}
 
   http = Net::HTTP.new(uri.host, uri.port)
   request = Net::HTTP::Post.new(uri.request_uri, headers)
