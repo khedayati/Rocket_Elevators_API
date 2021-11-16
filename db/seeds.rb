@@ -3744,7 +3744,8 @@ while $i < $num do
     project_description: leads_project_description,
     department_in_charge_of_the_elevators: leads_department,
     message: leads_message,
-    date_of_creation: leads_date_of_creation
+    date_of_creation: leads_date_of_creation,
+    contact_attachment_file: leads_attachment
   )
   $i += 1
   leads.save
