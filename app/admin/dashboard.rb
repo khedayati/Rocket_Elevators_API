@@ -1,19 +1,19 @@
 # frozen_string_literal: true
 #= require chartkick
 
-require "ibm_watson/authenticators"
-require "ibm_watson/text_to_speech_v1"
-include IBMWatson
+# require "ibm_watson/authenticators"
+# require "ibm_watson/text_to_speech_v1"
+# include IBMWatson
 
-authenticator = Authenticators::IamAuthenticator.new(
-  apikey: ENV['IBM_API_TOKEN']
-)
-text_to_speech = TextToSpeechV1.new(
-  authenticator: authenticator
-)
-text_to_speech.service_url = "***REMOVED***"
+# authenticator = Authenticators::IamAuthenticator.new(
+#   apikey: ENV['IBM_API_TOKEN']
+# )
+# text_to_speech = TextToSpeechV1.new(
+#   authenticator: authenticator
+# )
+# text_to_speech.service_url = "***REMOVED***"
 
-text_to_speech.configure_http_client(disable_ssl_verification: true)
+# text_to_speech.configure_http_client(disable_ssl_verification: true)
 
 
 
@@ -73,14 +73,14 @@ ActiveAdmin.register_page 'Dashboard' do
   content title: proc { I18n.t('active_admin.dashboard') } do
 
 
-  File.open("public/dashboard_audio.wav", "wb") do |audio_file|
-    response = text_to_speech.synthesize(
-      text: get_text_to_speech_text,
-      accept: "audio/wav",
-      voice: "en-US_HenryV3Voice"
-    )
-    audio_file.write(response.result)
-  end
+  # File.open("public/dashboard_audio.wav", "wb") do |audio_file|
+  #   response = text_to_speech.synthesize(
+  #     text: get_text_to_speech_text,
+  #     accept: "audio/wav",
+  #     voice: "en-US_HenryV3Voice"
+  #   )
+  #   audio_file.write(response.result)
+  # end
     
 
   connection = PG::Connection.new(host:'***REMOVED***',port:'5432',dbname:'LEVY_POSTGRES',user:'***REMOVED***',password:'***REMOVED***')
