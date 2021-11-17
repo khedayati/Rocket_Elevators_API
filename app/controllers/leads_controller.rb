@@ -54,8 +54,6 @@ class LeadsController < ApplicationController
     response = sg.client.mail._('send').post(request_body: mail.to_json)
   end
 
-  def sendgrid(lead)
-  end
 
   # PATCH/PUT /leads/1 or /leads/1.json
   def update
