@@ -32,7 +32,7 @@ class LeadsController < ApplicationController
     ZendeskAPI::Ticket.create!(@client,
       :subject => "#{@lead.full_name} from #{@lead.company_name}",
       :requester => {"name": @lead.email},
-      :type => { "question"  },
+      #:type => { "question"  },
       :comment => { :value =>
       "The contact #{@lead.full_name} from company #{@lead.company_name} can be reached at email #{@lead.email} and at phone number #{@lead.phone}. #{@lead.department_in_charge_of_the_elevators} has a project named #{@lead.project_name} which would require contribution from Rocket Elevators.
         #{@lead.project_description}
