@@ -15,5 +15,4 @@ class Lead < ApplicationRecord
     def send_email
         Sendgrid.new(self).call
     end
-
 end
