@@ -13,7 +13,7 @@
    
   </head>
   <body>
-    <h3>My Google Maps Demo</h3>
+    <h3>My Google Maps</h3>
     <!--The div element for the map -->
     <div id="map"></div>
 
@@ -25,6 +25,9 @@
      <script>
       // Initialize and add the map
       function initMap() {
+        
+        let num = 250
+
         // The location of United States
         const usa = { lat: 37.090240, lng: -95.712891 };
         // The map, centered at United States
@@ -32,11 +35,17 @@
           zoom: 4,
           center: usa,
         });
-        // The marker, positioned at Uluru
-        const marker = new google.maps.Marker({
+        // The marker of the address
+        for (let i = 0; i < num; i++) { 
+          const marker = new google.maps.Marker({
           position: usa,
           map: map,
-        });
+
+          });
+
+          console.log('hi')
+        }
+
       }
     </script>
   </body>
