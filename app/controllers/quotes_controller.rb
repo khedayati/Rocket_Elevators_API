@@ -32,6 +32,16 @@ class QuotesController < ApplicationController
         format.json { render json: @quote.errors, status: :unprocessable_entity }
       end
     end
+
+    ZendeskAPI::Ticket.create!(@client,
+      #:subject => "#{@quote.full_name} from #{@lead.company_name}",
+      :subject => nil,
+      :requester => {"name": @quote.email},
+      :comment => { :value =>
+      "building type: #{@quote.building_type} | amount of floors: #{@quote.amount_floors} | amount of basements: #{@quote.amount_basements}.
+        "},
+      :type => "task",
+      :priority => "urgent")
   end
 
   # PATCH/PUT /quotes/1 or /quotes/1.json
