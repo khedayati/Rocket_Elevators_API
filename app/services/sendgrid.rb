@@ -1,5 +1,5 @@
 require 'sendgrid-ruby'
-include SendGrid
+# include SendGrid
 
 class Sendgrid 
   attr_accessor :lead
@@ -9,7 +9,7 @@ class Sendgrid
   end
 
   def call 
-    puts 'sendgrid'
+    # puts 'sendgrid'
 
     mail = Mail.new
     mail.from = Email.new(email: 'rocketelevators.team@gmail.com')
