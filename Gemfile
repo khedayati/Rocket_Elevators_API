@@ -103,5 +103,5 @@ gem 'inherited_resources'
 gem 'has_scope'
 gem 'responders'
 
-gem 'figaro'
 gem 'sendgrid-ruby'
+gem 'dotenv-rails', groups: [:development, :test]

@@ -35,3 +35,6 @@ sendgrid.env
 sendgrid.env
 sendgrid.env
 sendgrid.env
+
+#dotenv
+.env.local
