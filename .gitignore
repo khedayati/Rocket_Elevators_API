@@ -27,6 +27,12 @@
 /config/master.key
 
 /config/database.yml
-/config/local_env.yml
-.env.local
 
+
+# Ignore application configuration
+/config/application.yml
+
+
+#dotenv
+.env.local
+/config/local_env.yml
