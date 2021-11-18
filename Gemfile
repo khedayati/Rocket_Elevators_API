@@ -108,3 +108,5 @@ gem 'ibm_watson'
 
 
 gem 'twilio-ruby'
+
+gem 'gmaps4rails'
