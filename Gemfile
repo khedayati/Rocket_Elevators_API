@@ -109,3 +109,4 @@ gem 'ibm_watson'
 
 
 gem 'twilio-ruby'
+gem 'zendesk_api'
