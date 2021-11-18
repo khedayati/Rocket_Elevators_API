@@ -28,3 +28,4 @@
 
 /config/database.yml
 .env.local
+sendgrid.env
