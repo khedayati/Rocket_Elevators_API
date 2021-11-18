@@ -1,0 +1,42 @@
+<head>
+    <title>Add Map</title>
+
+    <style type="text/css">
+      /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px;
+        /* The height is 400 pixels */
+        width: 100%;
+        /* The width is the width of the web page */
+      }
+    </style>
+   
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFLFIkZx3fXh_g3CwAqhEdeFk8H2eWrhk&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+     <script>
+      // Initialize and add the map
+      function initMap() {
+        // The location of United States
+        const usa = { lat: 37.090240, lng: -95.712891 };
+        // The map, centered at United States
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 4,
+          center: usa,
+        });
+        // The marker, positioned at Uluru
+        const marker = new google.maps.Marker({
+          position: usa,
+          map: map,
+        });
+      }
+    </script>
+  </body>
