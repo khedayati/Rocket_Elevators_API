@@ -20,8 +20,8 @@ class LeadsController < ApplicationController
   def edit
   end
 
-  require 'sendgrid-ruby'
-  include SendGrid
+  # require 'sendgrid-ruby'
+  # include SendGrid
 
   # POST /leads or /leads.json
   def create
@@ -37,21 +37,21 @@ class LeadsController < ApplicationController
       end
     end
 
-    puts 'sendgrid'
+    # puts 'sendgrid'
 
-    mail = Mail.new
-    mail.from = Email.new(email: '***REMOVED***')
-    custom = Personalization.new
-    custom.add_to(Email.new(email: @lead.email))
-    custom.add_dynamic_template_data({
-        "fullName" => @lead.full_name,
-        "projectName" => @lead.project_name
-    })
-    mail.add_personalization(custom)
-    mail.template_id = '***REMOVED***'
+    # mail = Mail.new
+    # mail.from = Email.new(email: '***REMOVED***')
+    # custom = Personalization.new
+    # custom.add_to(Email.new(email: @lead.email))
+    # custom.add_dynamic_template_data({
+    #     "fullName" => @lead.full_name,
+    #     "projectName" => @lead.project_name
+    # })
+    # mail.add_personalization(custom)
+    # mail.template_id = '***REMOVED***'
 
-    sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
-    response = sg.client.mail._('send').post(request_body: mail.to_json)
+    # sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
+    # response = sg.client.mail._('send').post(request_body: mail.to_json)
   end
 
 
