@@ -16,6 +16,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def user_params
+    params.require(:user).permit(:name, :email, :login)
+  end
+
   public
 
   # GET /users or /users.json
@@ -37,6 +41,14 @@ class UsersController < ApplicationController
   # POST /users or /users.json
   def create
     @user = User.new(user_params)
+
+    if @user.save
+      # Deliver the signup email
+      UserNotifierMailer.send_signup_email(@user).deliver
+      redirect_to(@user, :notice => 'User created')
+    else
+      render :action => 'new'
+    end
 
     respond_to do |format|
       if @user.save

@@ -25,6 +25,9 @@ class LeadsController < ApplicationController
   def edit
   end
 
+  # require 'sendgrid-ruby'
+  # include SendGrid
+
   # POST /leads or /leads.json
   def create
     @lead = Lead.new(lead_params)
@@ -39,6 +42,7 @@ class LeadsController < ApplicationController
       end
     end
   end
+
 
   # PATCH/PUT /leads/1 or /leads/1.json
   def update
@@ -74,3 +78,4 @@ class LeadsController < ApplicationController
     params.permit(:full_name, :company_name, :email, :phone, :project_name, :project_description, :department_in_charge_of_the_elevators, :message, :contact_attachment_file)
   end
 end
+
