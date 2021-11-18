@@ -27,16 +27,15 @@
 /config/master.key
 
 /config/database.yml
-sendgrid.env
-sendgrid.env
+
 
 # Ignore application configuration
 /config/application.yml
-sendgrid.env
 
 
 #dotenv
 .env.local
 
 #Sendgrid env
+sendgrid.env
 sendgrid.env

@@ -5,7 +5,7 @@ require 'sendgrid-ruby'
 include SendGrid
 
 from = Email.new(email: 'rocketelevators.team@gmail.com')
-to = Email.new(email: 'jotalico@icloud.com')
+to = Email.new(email: 'rocketelevators.team@gmail.com')
 subject = 'Sending with SendGrid is Fun'
 content = Content.new(type: 'text/plain', value: 'and easy to do anywhere, even with Ruby')
 mail = Mail.new(from, subject, to, content)
