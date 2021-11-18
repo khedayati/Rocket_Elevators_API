@@ -28,7 +28,7 @@ ActiveAdmin.register_page "Dashboard" do
       audio_file.write(response.result)
     end
 
-    connection = PG::Connection.new(host: ENV['POSTGRESQL_DATABASE_HOST'], port: "5432", dbname: ENV['POSTGRESQL_DATABASE_NAME'], user: ENV['POSTGRESQL_DATABASE_USER'], password: ENV['POSTGRESQL_DATABASE_PASSWORD'])
+    connection = PG::Connection.new(host: ENV['POSTGRESQL_DATABASE_HOST'], port: "5432", dbname: ENV['POSTGRESQL_DATABASE_DBNAME'], user: ENV['POSTGRESQL_DATABASE_USER'], password: ENV['POSTGRESQL_DATABASE_PASSWORD'])
     first_2_question = column_chart [{ name: "Contacts Requests", data: {
                                       "January" => gapm(connection, 1, "fact_contacts"),
                                       "February" => gapm(connection, 2, "fact_contacts"),
