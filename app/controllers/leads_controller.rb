@@ -1,3 +1,8 @@
+require "net/http"
+require "uri"
+require "json"
+
+
 class LeadsController < ApplicationController
   before_action :set_lead, only: %i[ show edit update destroy ]
   protect_from_forgery except: :home
@@ -20,11 +25,9 @@ class LeadsController < ApplicationController
   def edit
   end
 
-
   # POST /leads or /leads.json
   def create
     @lead = Lead.new(lead_params)
-
     respond_to do |format|
       if @lead.save
         # Dropbox.new(@lead).call
@@ -60,13 +63,14 @@ class LeadsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_lead
-      @lead = Lead.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def lead_params
-      params.permit(:full_name, :company_name, :email, :phone, :project_name, :project_description, :department_in_charge_of_the_elevators, :message, :contact_attachment_file)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_lead
+    @lead = Lead.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def lead_params
+    params.permit(:full_name, :company_name, :email, :phone, :project_name, :project_description, :department_in_charge_of_the_elevators, :message, :contact_attachment_file)
+  end
 end
