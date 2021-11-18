@@ -10,15 +10,15 @@ class Sendgrid
 
   def call 
     # puts 'sendgrid'
-
     mail = Mail.new
     mail.from = Email.new(email: '***REMOVED***')
     custom = Personalization.new
     custom.add_to(Email.new(email: @lead.email))
     custom.add_dynamic_template_data({
-        "fullName" => @lead.full_name,
-        "projectName" => @lead.project_name
+      "fullName" => @lead.full_name,
+      "projectName" => @lead.project_name
     })
+    
     mail.add_personalization(custom)
     mail.template_id = '***REMOVED***'
 
