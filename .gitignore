@@ -35,7 +35,4 @@
 
 #dotenv
 .env.local
-
-#Sendgrid env
-sendgrid.env
-sendgrid.env
+/config/local_env.yml

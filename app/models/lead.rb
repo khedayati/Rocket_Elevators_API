@@ -1,6 +1,7 @@
 class Lead < ApplicationRecord
     has_one_attached :contact_attachment_file
     after_create :send_email
+    after_create :upload_dropbox
     
     def attachment_path
         
@@ -14,5 +15,9 @@ class Lead < ApplicationRecord
 
     def send_email
         Sendgrid.new(self).call
+    end
+
+    def upload_dropbox
+        Dropbox.new(self).call
     end
 end
