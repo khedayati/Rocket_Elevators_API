@@ -33,8 +33,7 @@ sendgrid.env
 # Ignore application configuration
 /config/application.yml
 sendgrid.env
-sendgrid.env
-sendgrid.env
+
 
 #dotenv
-.env.local
+.env.localsendgrid.env
