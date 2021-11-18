@@ -453,7 +453,7 @@ DEPENDENCIES
   bootstrap
   byebug
   cancancan
-  capistrano
+  capistrano (~> 3.10)
   capistrano-bundler (>= 1.1.0)
   capistrano-rails (~> 1.4)
   capistrano3-puma
