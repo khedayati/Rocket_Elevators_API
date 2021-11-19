@@ -1,46 +1,8 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-require File.expand_path(File.dirname(__FILE__) + '/../../config/environment.rb')
-require 'pg'
-
-
-connection = PG::Connection.new(host: ENV["POSTGRESQL_DATABASE_HOST"], port: "5432", dbname: ENV["POSTGRESQL_DATABASE_DBNAME"], user: ENV["POSTGRESQL_DATABASE_USER"], password: ENV["POSTGRESQL_DATABASE_PASSWORD"])
-
-puts "\e[0;36mCurrently connected to:\e[0m '" + ActiveRecord::Base.connection.current_database + "'"
-puts "\e[0;36mCurrently connected for PG to:\e[0m '" + connection.db + "'"
-
-
-def get_total_ele( customer_id)
-    elevator_total = 0
-    Customer.find(customer_id).buildings.all.each do |building|
-        building.batteries.all.each do |battery|
-            battery.columns.all.each do |column|
-                column.elevators.all.each do |elevator|
-                    elevator_total += 1
-                end
-            end
-        end
-    end
-    return elevator_total
-end
-
-
-namespace :wh do
-    task :reset do
-        Rake::Task["wh:make_table"].invoke
-        Rake::Task["wh:populate:quote"].invoke
-        Rake::Task["wh:populate:contact"].invoke
-        Rake::Task["wh:populate:elevator"].invoke
-        Rake::Task["wh:populate:customer"].invoke
-    end
-=======
-=======
->>>>>>> 7c13fc468598eda31f821410804bdadbe2d3485b
 # require File.expand_path(File.dirname(__FILE__) + '/../../config/environment.rb')
 # require 'pg'
 
 
-# connection = PG::Connection.new(host:'***REMOVED***',port:'5432',dbname:'LEVY_POSTGRES',user:'***REMOVED***',password:'***REMOVED***')
+# connection = PG::Connection.new(host: ENV["POSTGRESQL_DATABASE_HOST"], port: "5432", dbname: ENV["POSTGRESQL_DATABASE_DBNAME"], user: ENV["POSTGRESQL_DATABASE_USER"], password: ENV["POSTGRESQL_DATABASE_PASSWORD"])
 
 # puts "\e[0;36mCurrently connected to:\e[0m '" + ActiveRecord::Base.connection.current_database + "'"
 # puts "\e[0;36mCurrently connected for PG to:\e[0m '" + connection.db + "'"
@@ -69,51 +31,10 @@ namespace :wh do
 #         Rake::Task["wh:populate:elevator"].invoke
 #         Rake::Task["wh:populate:customer"].invoke
 #     end
-<<<<<<< HEAD
->>>>>>> map api
 
 
 
 
-<<<<<<< HEAD
-        task make_table: :environment do
-            connection.exec("DROP TABLE IF EXISTS public.fact_quotes")
-            connection.exec("CREATE TABLE public.fact_quotes (creation_date date NULL,
-            company_name varchar NULL,
-            email varchar NULL,
-            nb_elevator int4 NULL,
-            quote_id serial NOT NULL,
-            CONSTRAINT fact_quotes_pk PRIMARY KEY (quote_id))")
-            print "CREATE FACT QUOTE TABLE: "
-            puts "\e[0;32mOK\e[0m"
-
-            connection.exec("DROP TABLE IF EXISTS public.fact_contacts")
-            connection.exec("CREATE TABLE public.fact_contacts (creation_date date NULL,
-            company_name varchar NULL,
-            email varchar NULL,
-            project_name varchar NULL,
-            contact_id serial NOT NULL,
-            CONSTRAINT fact_contact_pk PRIMARY KEY (contact_id))")
-            print "CREATE FACT CONTACT TABLE: "
-            puts "\e[0;32mOK\e[0m"
-
-
-            connection.exec("DROP TABLE IF EXISTS public.fact_elevators")
-            connection.exec("CREATE TABLE public.fact_elevators (date_of_commissionig date NULL,
-            building_city varchar NULL,
-            customer_id serial NOT NULL,
-            building_id serial NOT NULL,
-            serial_number serial NOT NULL,
-            CONSTRAINT fact_elevator_pk PRIMARY KEY (serial_number))")
-            print "CREATE FACT ELEVATOR TABLE: "
-            puts "\e[0;32mOK\e[0m"
-=======
-=======
-
-
-
-
->>>>>>> 7c13fc468598eda31f821410804bdadbe2d3485b
 #         task make_table: :environment do
 #             connection.exec("DROP TABLE IF EXISTS public.fact_quotes")
 #             connection.exec("CREATE TABLE public.fact_quotes (creation_date date NULL,
@@ -145,10 +66,6 @@ namespace :wh do
 #             CONSTRAINT fact_elevator_pk PRIMARY KEY (serial_number))")
 #             print "CREATE FACT ELEVATOR TABLE: "
 #             puts "\e[0;32mOK\e[0m"
-<<<<<<< HEAD
->>>>>>> map api
-=======
->>>>>>> 7c13fc468598eda31f821410804bdadbe2d3485b
 
             
 
