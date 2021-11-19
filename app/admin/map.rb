@@ -1,7 +1,7 @@
-ActiveAdmin.register_page "map" do
-    content do
-      panel "google map" do
-        render 'map'
-      end
-    end  
-  end
+ActiveAdmin.register_page "Map" do
+  content do
+    panel "Google Map" do
+      render "map"
+    end
+  end  
+end
