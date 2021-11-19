@@ -1,3 +1,8 @@
+require "net/http"
+require "uri"
+require "json"
+
+
 class LeadsController < ApplicationController
   before_action :set_lead, only: %i[ show edit update destroy ]
   protect_from_forgery except: :home
@@ -15,13 +20,13 @@ class LeadsController < ApplicationController
   # GET /leads/1/edit
   def edit
   end
-  # require 'sendgrid-ruby'
-  # include SendGrid
+
   # POST /leads or /leads.json
   def create
     @lead = Lead.new(lead_params)
     respond_to do |format|
       if @lead.save
+        # Dropbox.new(@lead).call
         format.html { redirect_to root_path, notice: "Lead was successfully created." }
         format.json { render :show, status: :created, location: @lead }
       else
@@ -39,19 +44,8 @@ class LeadsController < ApplicationController
         Attached Message: #{@lead.message}"},
       :type => "question",
       :priority => "urgent")
-    # mail = Mail.new
-    # mail.from = Email.new(email: 'rocketelevators.team@gmail.com')
-    # custom = Personalization.new
-    # custom.add_to(Email.new(email: @lead.email))
-    # custom.add_dynamic_template_data({
-    #     "fullName" => @lead.full_name,
-    #     "projectName" => @lead.project_name
-    # })
-    # mail.add_personalization(custom)
-    # mail.template_id = 'd-a139386f69394a49ab3cf9c478b80768'
-    # sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
-    # response = sg.client.mail._('send').post(request_body: mail.to_json)
   end
+
   # PATCH/PUT /leads/1 or /leads/1.json
   def update
     respond_to do |format|
@@ -73,6 +67,7 @@ class LeadsController < ApplicationController
     end
   end
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_lead
       @lead = Lead.find(params[:id])
@@ -82,3 +77,4 @@ class LeadsController < ApplicationController
       params.permit(:full_name, :company_name, :email, :phone, :project_name, :project_description, :department_in_charge_of_the_elevators, :message, :contact_attachment_file)
     end
 end
+

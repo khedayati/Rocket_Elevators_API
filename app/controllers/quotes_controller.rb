@@ -33,25 +33,17 @@ class QuotesController < ApplicationController
       end
     end
 
-    ZendeskAPI::Task.create!(@client,
-      #:subject => "#{@quote.full_name} from #{@lead.company_name}",
-      :subject => nil,
-      :requester => {"name": @quote.email},
-      :comment => { :value =>
-      "building type: #{@quote.building_type} | amount of floors: #{@quote.amount_floors} | amount of basements: #{@quote.amount_basements}.
-        "},
-      :type => "task",
-      :priority => "urgent")
+    ZendeskAPI::Ticket.create!(@client,
+    :subject => "#{@quote.company_name}",
+    :comment => { :value =>
+      "The company #{@quote.company_name} has made a quote for a building of type #{@quote.building_type} and wants the #{@quote.product_line} service.
+      Quote Information:
+      amount of elevators: #{@quote.amount_elevators}
+      installation fees: #{@quote.installation_fees}
+      total: #{@quote.total_cost}" },
+    :type => "task",
+    :priority => "urgent")
 
-#    ZendeskAPI::Ticket.create!(@client,
-      #:subject => "#{@quote.full_name} from #{@lead.company_name}",
-#      :subject => nil,
-#      :requester => {"name": @quote.email},
-#      :comment => { :value =>
-#      "building type: #{@quote.building_type} | amount of floors: #{@quote.amount_floors} | amount of basements: #{@quote.amount_basements}.
-#        "},
-#      :type => "task",
-#      :priority => "urgent")
   end
 
   # PATCH/PUT /quotes/1 or /quotes/1.json
