@@ -11,7 +11,7 @@ authenticator = Authenticators::IamAuthenticator.new(
 text_to_speech = TextToSpeechV1.new(
  authenticator: authenticator,
 )
-text_to_speech.service_url = "***REMOVED***/v1/synthesize?voice=en-US_AllisonV3Voice"
+text_to_speech.service_url = "***REMOVED***"
 text_to_speech.configure_http_client(disable_ssl_verification: true)
 
 ActiveAdmin.register_page "Dashboard" do
