@@ -28,11 +28,10 @@
 
 /config/database.yml
 
-
 # Ignore application configuration
 /config/application.yml
-
 
 #dotenv
 /config/local_env.yml
 .env.local
+

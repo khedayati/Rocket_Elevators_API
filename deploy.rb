@@ -1,13 +1,10 @@
-# frozen_string_literal: true
-
 # config valid for current version and patch releases of Capistrano
-lock '~> 3.16.0'
+lock "~> 3.11.0"
 
 before 'deploy', 'rvm1:install:ruby'
-set :rvm_map_bins, %w[rake gem bundle ruby puma pumactl]
-set :application, '***REMOVED***'
-
-set :repo_url, '***REMOVED***'
+set :rvm_map_bins, [ 'rake', 'gem', 'bundle', 'ruby', 'puma', 'pumactl' ]
+set :application, "YOUR_FULL_NAME"
+set :repo_url, "https://github.com/khedayati/Rocket_Elevators_API"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
