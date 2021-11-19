@@ -22,7 +22,7 @@ ActiveAdmin.register_page "Dashboard" do
      response = text_to_speech.synthesize(
        text: get_text_to_speech_text,
        accept: "audio/wav",
-       voice: "en-US_MichealV3Voice",
+       voice: "en-US_MichaelV3Voice",
      )
      audio_file.write(response.result)
    end
