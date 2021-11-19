@@ -12,7 +12,7 @@ authenticator = Authenticators::IamAuthenticator.new(
 text_to_speech = TextToSpeechV1.new(
  authenticator: authenticator,
 )
-text_to_speech.service_url = "***REMOVED***"
+text_to_speech.service_url = "***REMOVED***/v1/synthezise"
 text_to_speech.configure_http_client(disable_ssl_verification: true)
 
 
