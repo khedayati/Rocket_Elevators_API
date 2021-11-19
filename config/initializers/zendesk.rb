@@ -9,8 +9,8 @@ def initialize
     config.username = "tsken010@outlook.com"
 
     # Choose one of the following depending on your authentication choice
-    config.token = "xcRYePPbKwA6Mad8hQkVLE35K8hxu73WOGR6Y7vW"
-    config.password = "dallas900!"
+    config.token = ENV['ZENDESK_API_KEY']
+    config.password = ENV['ZENDESK_ACCOUNT_PW']
 
     # OAuth Authentication
     # config.access_token = "your OAuth access token"
