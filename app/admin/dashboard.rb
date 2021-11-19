@@ -142,4 +142,8 @@ ActiveAdmin.register_page 'Dashboard' do
       end
    
   end
+<<<<<<< HEAD
 end>>>>>>> map in dashboard
+=======
+end
+>>>>>>> 7c13fc468598eda31f821410804bdadbe2d3485b

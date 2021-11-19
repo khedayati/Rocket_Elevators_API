@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 require File.expand_path(File.dirname(__FILE__) + '/../../config/environment.rb')
 require 'pg'
 
@@ -33,6 +34,8 @@ namespace :wh do
         Rake::Task["wh:populate:customer"].invoke
     end
 =======
+=======
+>>>>>>> 7c13fc468598eda31f821410804bdadbe2d3485b
 # require File.expand_path(File.dirname(__FILE__) + '/../../config/environment.rb')
 # require 'pg'
 
@@ -66,6 +69,7 @@ namespace :wh do
 #         Rake::Task["wh:populate:elevator"].invoke
 #         Rake::Task["wh:populate:customer"].invoke
 #     end
+<<<<<<< HEAD
 >>>>>>> map api
 
 
@@ -104,6 +108,12 @@ namespace :wh do
             print "CREATE FACT ELEVATOR TABLE: "
             puts "\e[0;32mOK\e[0m"
 =======
+=======
+
+
+
+
+>>>>>>> 7c13fc468598eda31f821410804bdadbe2d3485b
 #         task make_table: :environment do
 #             connection.exec("DROP TABLE IF EXISTS public.fact_quotes")
 #             connection.exec("CREATE TABLE public.fact_quotes (creation_date date NULL,
@@ -135,7 +145,10 @@ namespace :wh do
 #             CONSTRAINT fact_elevator_pk PRIMARY KEY (serial_number))")
 #             print "CREATE FACT ELEVATOR TABLE: "
 #             puts "\e[0;32mOK\e[0m"
+<<<<<<< HEAD
 >>>>>>> map api
+=======
+>>>>>>> 7c13fc468598eda31f821410804bdadbe2d3485b
 
             
 
