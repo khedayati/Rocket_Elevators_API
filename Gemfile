@@ -110,4 +110,10 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'ibm_watson'
 gem 'twilio-ruby'
 
+<<<<<<< HEAD
+=======
+
+gem 'twilio-ruby'
+
+>>>>>>> 7c13fc468598eda31f821410804bdadbe2d3485b
 gem 'gmaps4rails'
