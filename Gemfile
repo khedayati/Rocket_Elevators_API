@@ -16,7 +16,7 @@ gem 'jquery-ui-rails'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 # Use Puma as the app server
-gem 'puma', '~> 5.5'
+gem 'puma', '4.3.5'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -59,13 +59,11 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
-  # For deployment
-#  gem 'capistrano', '~> 3.10', require: false
-#  gem 'capistrano-rails', '~> 1.4', require: false
-#  gem 'capistrano-bundler', '>= 1.1.0'
-#  gem 'rvm1-capistrano3', require: false
-#  gem 'capistrano3-puma'
-
+  gem 'capistrano', '~> 3.10', require: false
+  gem 'capistrano-rails', '~> 1.4', require: false
+  gem 'capistrano-bundler', '>= 1.1.0'
+  gem 'rvm1-capistrano3', require: false
+  gem 'capistrano3-puma'
 end
 
 group :test do
@@ -92,11 +90,6 @@ gem "json"
 gem "highcharts-rails"
 
 
-gem 'capistrano', require: false
-gem 'capistrano3-puma'
-gem 'capistrano-bundler', '>= 1.1.0'
-gem 'capistrano-rails', '~> 1.4', require: false
-gem 'rvm1-capistrano3', require: false
 
 gem 'arbre'
 
@@ -111,10 +104,12 @@ gem 'inherited_resources'
 gem 'has_scope'
 gem 'responders'
 
+
+gem 'sendgrid-ruby'
 gem 'dropbox_api'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'ibm_watson'
-
-
 gem 'twilio-ruby'
+
 gem 'zendesk_api'
+gem 'gmaps4rails'
