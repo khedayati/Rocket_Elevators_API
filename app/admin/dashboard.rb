@@ -140,12 +140,6 @@ ActiveAdmin.register_page 'Dashboard' do
       panel "Third Question" do
         line_chart [{name: "Amount Of Elevator Per Customer", data: make_data_gebp_graph(connection)}]
       end
-
-      panel "Google Map" do
-      
-        render 'map'
-
-      end
+   
   end
-end
->>>>>>> map in dashboard
+end>>>>>>> map in dashboard
