@@ -1,0 +1,60 @@
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP'] %>&callback=initMap&libraries=&v=weekly" type="text/javascript"></script>
+<div id="map" style="width: 1400px; height: 700px;"></div>
+<div class="testing"></div>
+<script type="text/javascript">
+// Empty arrays of the components
+    locations = [];
+    floors = [];
+    names = [];
+    nb_batteries = [];
+    nb_columns = [];
+    nb_elevators = [];
+    tech_names = [];
+    <% Building.all.each do |building| %>
+        var floor=0, num_batteries=0, num_columns=0, num_elevators=0;
+        locations.push(<%= raw(building.address.to_json) %>);
+        names.push(<%= raw(building.customer.to_json) %>);
+        tech_names.push(<%= raw(building.to_json) %>)
+        num_batteries = num_batteries + <%= building.batteries.count %>;
+        <% building.batteries.all.each do |battery| %>
+            num_columns = num_columns + <%= battery.columns.count %>;
+            <% battery.columns.all.each do |column| %>
+                floor = floor + <%= column.number_of_floors_served %>;
+                num_elevators = num_elevators + <%= column.elevators.count %>;
+            <% end %>
+        <% end %>
+        // Adding everything into the empty arrays
+        floors.push(floor);
+        nb_batteries.push(num_batteries);
+        nb_columns.push(num_columns);
+        nb_elevators.push(num_elevators);
+    <% end %>
+    
+    // initialize Google Map
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 4,
+        center: new google.maps.LatLng(44.99, -98.5),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+    var infowindow = new google.maps.InfoWindow();
+    var marker, i;
+    for (i = 0; i < locations.length; i++) {  
+        marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i].latitude, locations[i].longitude),
+        map: map
+        });
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+            //Statistics of the building
+            infowindow.setContent('<b>' + locations[i].number_and_street + '</b>' 
+            + '<br>' + names[i].company_name
+            + '<br> <br>' + 'floors: ' + floors[i]
+            + '<br>' + 'batteries: ' + nb_batteries[i]
+            + '<br>' + 'columns: ' + nb_columns[i]
+            + '<br>' + 'elevators: ' + nb_elevators[i]
+            + '<br>' + 'technical contact: ' + tech_names[i].full_name_of_the_technical_contact_for_the_building);
+            infowindow.open(map, marker);
+        }
+        })(marker, i));
+    }
+</script>
