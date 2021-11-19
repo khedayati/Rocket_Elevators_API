@@ -22,7 +22,7 @@ ActiveAdmin.register_page "Dashboard" do
      response = text_to_speech.synthesize(
        text: get_text_to_speech_text,
        accept: "audio/wav",
-       voice: "en-US_HenryV3Voice",
+       voice: "en-US_MichealV3Voice",
      )
      audio_file.write(response.result)
    end
@@ -59,6 +59,9 @@ ActiveAdmin.register_page "Dashboard" do
 
     audio controls: true do
      source src: audio_path("/dashboard_audio.wav"), type: "audio/wav"
+    end
+    audio controls: true do
+      source src: audio_path("/starwars_suck.wav"), type: "audio/wav"
     end
     panel "First and Second Question" do
      first_2_question
