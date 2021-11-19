@@ -9,8 +9,8 @@ def initialize
     config.username = "***REMOVED***"
 
     # Choose one of the following depending on your authentication choice
-    config.token = "***REMOVED***"
-    config.password = "***REMOVED***"
+    config.token = ENV['ZENDESK_API_KEY']
+    config.password = ENV['ZENDESK_ACCOUNT_PW']
 
     # OAuth Authentication
     # config.access_token = "your OAuth access token"
