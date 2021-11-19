@@ -110,3 +110,5 @@ gem 'dropbox_api'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'ibm_watson'
 gem 'twilio-ruby'
+
+gem 'gmaps4rails'
