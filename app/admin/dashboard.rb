@@ -12,7 +12,7 @@ authenticator = Authenticators::IamAuthenticator.new(
 text_to_speech = TextToSpeechV1.new(
  authenticator: authenticator,
 )
-text_to_speech.service_url = "https://api.us-south.text-to-speech.watson.cloud.ibm.com/instances/7f2c902d-90d8-4f11-a376-94d16980a974"
+text_to_speech.service_url = "https://api.us-east.text-to-speech.watson.cloud.ibm.com/instances/4a765487-f171-4f1d-9e6b-1b5f3cccd0b1/v1/synthezise"
 text_to_speech.configure_http_client(disable_ssl_verification: true)
 
 
