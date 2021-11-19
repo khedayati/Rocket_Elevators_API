@@ -17,6 +17,7 @@ set :deploy_to, "/home/ubuntu/apps/#{app}"
 set :linked_dirs, %w{tmp/pids tmp/sockets log}
 set :linked_files, %w{config/database.yml config/.env.local config/local_env.yml}
 
+
 # role-based syntax
 # ==================
 

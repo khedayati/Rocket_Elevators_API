@@ -4,7 +4,7 @@ class Lead < ApplicationRecord
     after_create :upload_dropbox
     
     def attachment_path
-        
+
     end
 
     def to_s
