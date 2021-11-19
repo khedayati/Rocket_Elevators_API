@@ -33,7 +33,6 @@ class QuotesController < ApplicationController
       end
     end
 
-
     ZendeskAPI::Ticket.create!(@client,
     :subject => "#{@quote.company_name}",
     :comment => { :value =>
