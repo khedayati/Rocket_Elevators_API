@@ -1,48 +1,57 @@
-<head>
-    <style type="text/css">
-      /* Set the size of the div element that contains the map */
-      #map {
-        height: 400px;
-        /* The height is 400 pixels */
-        width: 100%;
-        /* The width is the width of the web page */
-        
-      }
-    </style>
-</head>
-
-  <body>
-    <h3>My Google Maps</h3>
-    <!--The div element for the map -->
-    <div id="map"></div>
-     <script>
-      // Initialize and add the map
-      function initMap() {
-        
-        let num = 250
-
-        // The location of United States
-        const usa = { lat: 37.090240, lng: -95.712891 };
-        // The map, centered at United States
-        const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 4,
-          center: usa,
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP'] %>&callback=initMap&libraries=&v=weekly" type="text/javascript"></script>
+<div id="map" style="width: 1400px; height: 700px;"></div>
+<div class="testing"></div>
+<script type="text/javascript">
+    locations = [];
+    floors = [];
+    names = [];
+    nb_batteries = [];
+    nb_columns = [];
+    nb_elevators = [];
+    tech_names = [];
+    <% Building.all.each do |building| %>
+        var f=0, x=0, y=0, z=0;
+        locations.push(<%= raw(building.address.to_json) %>);
+        names.push(<%= raw(building.customer.to_json) %>);
+        tech_names.push(<%= raw(building.to_json) %>)
+        x = x + <%= building.batteries.count %>;
+        <% building.batteries.all.each do |battery| %>
+            y = y + <%= battery.columns.count %>;
+            <% battery.columns.all.each do |column| %>
+                f = f + <%= column.number_of_floors_served %>;
+                z = z + <%= column.elevators.count %>;
+            <% end %>
+        <% end %>
+        floors.push(f);
+        nb_batteries.push(x);
+        nb_columns.push(y);
+        nb_elevators.push(z);
+    <% end %>
+    
+    
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 4,
+        center: new google.maps.LatLng(44.99, -98.5),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+    var infowindow = new google.maps.InfoWindow();
+    var marker, i;
+    for (i = 0; i < locations.length; i++) {  
+        marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i].lat, locations[i].long),
+        map: map
         });
-        // The marker of the address
-        for (let i = 0; i < num; i++) { 
-          const marker = new google.maps.Marker({
-          position: usa,
-          map: map,
-
-          });
-
-          console.log('hi')
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+            infowindow.setContent('<b>' + locations[i].number_n_street + '</b>' 
+            + '<br>' + names[i].company_name
+            + '<br> <br>' + 'floors: ' + floors[i]
+            + '<br>' + 'batteries: ' + nb_batteries[i]
+            + '<br>' + 'columns: ' + nb_columns[i]
+            + '<br>' + 'elevators: ' + nb_elevators[i]
+            + '<br>' + 'technical contact: ' + tech_names[i].tech_full_name);
+            infowindow.open(map, marker);
         }
-
-      }
-    </script>
-  </body>
-  <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFLFIkZx3fXh_g3CwAqhEdeFk8H2eWrhk&callback=initMap&libraries=&v=weekly"
-      async
-    ></script>
+        })(marker, i));
+    }
+</script>
