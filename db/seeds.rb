@@ -3775,8 +3775,9 @@ while $i < 300 do
     city: data_hash.addresses[$i].city,
     postal_code: data_hash.addresses[$i].postalCode,
     country: "United States",
-    notes: Faker::Lorem.unique.sentence
-
+    notes: Faker::Lorem.unique.sentence,
+    longitude: data_hash.addresses[$i].coordinates.lng,
+    latitude: data_hash.addresses[$i].coordinates.lat
   )
 
   $i += 1

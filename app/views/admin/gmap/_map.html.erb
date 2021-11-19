@@ -2,6 +2,7 @@
 <div id="map" style="width: 1400px; height: 700px;"></div>
 <div class="testing"></div>
 <script type="text/javascript">
+// Empty arrays of the components
     locations = [];
     floors = [];
     names = [];
@@ -10,25 +11,26 @@
     nb_elevators = [];
     tech_names = [];
     <% Building.all.each do |building| %>
-        var f=0, x=0, y=0, z=0;
+        var floor=0, num_batteries=0, num_columns=0, num_elevators=0;
         locations.push(<%= raw(building.address.to_json) %>);
         names.push(<%= raw(building.customer.to_json) %>);
         tech_names.push(<%= raw(building.to_json) %>)
-        x = x + <%= building.batteries.count %>;
+        num_batteries = num_batteries + <%= building.batteries.count %>;
         <% building.batteries.all.each do |battery| %>
-            y = y + <%= battery.columns.count %>;
+            num_columns = num_columns + <%= battery.columns.count %>;
             <% battery.columns.all.each do |column| %>
-                f = f + <%= column.number_of_floors_served %>;
-                z = z + <%= column.elevators.count %>;
+                floor = floor + <%= column.number_of_floors_served %>;
+                num_elevators = num_elevators + <%= column.elevators.count %>;
             <% end %>
         <% end %>
-        floors.push(f);
-        nb_batteries.push(x);
-        nb_columns.push(y);
-        nb_elevators.push(z);
+        // Adding everything into the empty arrays
+        floors.push(floor);
+        nb_batteries.push(num_batteries);
+        nb_columns.push(num_columns);
+        nb_elevators.push(num_elevators);
     <% end %>
     
-    
+    // initialize Google Map
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 4,
         center: new google.maps.LatLng(44.99, -98.5),
@@ -38,18 +40,19 @@
     var marker, i;
     for (i = 0; i < locations.length; i++) {  
         marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i].lat, locations[i].long),
+        position: new google.maps.LatLng(locations[i].latitude, locations[i].longitude),
         map: map
         });
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
-            infowindow.setContent('<b>' + locations[i].number_n_street + '</b>' 
+            //Statistics of the building
+            infowindow.setContent('<b>' + locations[i].number_and_street + '</b>' 
             + '<br>' + names[i].company_name
             + '<br> <br>' + 'floors: ' + floors[i]
             + '<br>' + 'batteries: ' + nb_batteries[i]
             + '<br>' + 'columns: ' + nb_columns[i]
             + '<br>' + 'elevators: ' + nb_elevators[i]
-            + '<br>' + 'technical contact: ' + tech_names[i].tech_full_name);
+            + '<br>' + 'technical contact: ' + tech_names[i].full_name_of_the_technical_contact_for_the_building);
             infowindow.open(map, marker);
         }
         })(marker, i));
