@@ -6,20 +6,20 @@ require "ibm_watson/text_to_speech_v1"
 include IBMWatson
 
 
-authenticator = Authenticators::IamAuthenticator.new(
- apikey: ENV["IBM_API_TOKEN"],
-)
-text_to_speech = TextToSpeechV1.new(
- authenticator: authenticator,
-)
-text_to_speech.service_url = "***REMOVED***"
-text_to_speech.configure_http_client(disable_ssl_verification: true)
+# authenticator = Authenticators::IamAuthenticator.new(
+#  apikey: ENV["IBM_API_TOKEN"],
+# )
+# text_to_speech = TextToSpeechV1.new(
+#  authenticator: authenticator,
+# )
+# text_to_speech.service_url = "***REMOVED***"
+# text_to_speech.configure_http_client(disable_ssl_verification: true)
 
-next_text = TextToSpeechV1.new(
-  authenticator: authenticator,
-)
-next_text.service_url = "***REMOVED***"
-next_text.configure_http_client(disable_ssl_verification: true)
+# next_text = TextToSpeechV1.new(
+#   authenticator: authenticator,
+# )
+# next_text.service_url = "***REMOVED***"
+# next_text.configure_http_client(disable_ssl_verification: true)
 
 
 ActiveAdmin.register_page "Dashboard" do
@@ -27,24 +27,24 @@ ActiveAdmin.register_page "Dashboard" do
 
   content title: proc { I18n.t("active_admin.dashboard") } do
 
-   File.open("public/dashboard_audio.wav", "wb") do |audio_file|
-     response = text_to_speech.synthesize(
-       text: get_text_to_speech_text,
-       accept: "audio/wav",
-       voice: "en-US_MichaelV3Voice",
-     )
-     audio_file.write(response.result)
-   end
-   File.open("public/starwars_suck.wav", "wb") do |audio_file2|
-     response2 = next_text.synthesize(
-       text: "Liam Neeson was so eager to be in the film that he signed on without having read the script. 
-        During filming, Ewan McGregor made lightsaber noises as he dueled. George Lucas explained many times that the sound effects would be added in by the special effects people later on. Ewan said 'I kept getting carried away.'
-         Qui-Gon Jinn's communicator is a redecorated Gillette Sensor Excel Razor for Women. ",
-       accept: "audio/wav",
-       voice: "en-US_MichaelV3Voice",
-     )
-     audio_file2.write(response2.result)
-   end
+  #  File.open("public/dashboard_audio.wav", "wb") do |audio_file|
+  #    response = text_to_speech.synthesize(
+  #      text: get_text_to_speech_text,
+  #      accept: "audio/wav",
+  #      voice: "en-US_MichaelV3Voice",
+  #    )
+  #    audio_file.write(response.result)
+  #  end
+  #  File.open("public/starwars_suck.wav", "wb") do |audio_file2|
+  #    response2 = next_text.synthesize(
+  #      text: "Liam Neeson was so eager to be in the film that he signed on without having read the script. 
+  #       During filming, Ewan McGregor made lightsaber noises as he dueled. George Lucas explained many times that the sound effects would be added in by the special effects people later on. Ewan said 'I kept getting carried away.'
+  #        Qui-Gon Jinn's communicator is a redecorated Gillette Sensor Excel Razor for Women. ",
+  #      accept: "audio/wav",
+  #      voice: "en-US_MichaelV3Voice",
+  #    )
+  #    audio_file2.write(response2.result)
+  #  end
 
 
     connection = PG::Connection.new(host: ENV['POSTGRESQL_DATABASE_HOST'], port: "5432", dbname: ENV['POSTGRESQL_DATABASE_DBNAME'], user: ENV['POSTGRESQL_DATABASE_USER'], password: ENV['POSTGRESQL_DATABASE_PASSWORD'])
