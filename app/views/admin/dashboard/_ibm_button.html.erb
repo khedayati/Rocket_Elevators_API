@@ -1,0 +1,25 @@
+<button type="button" class="btn btn" id="ibm_button"> Refresh API Audio</button>
+
+<script>
+    $("#ibm_button").click(function() {
+        loadDoc();
+    })
+
+    function loadDoc() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200 && this.responseText == "They free trial key has been fully used") {
+        document.getElementById("ibm_button").innerHTML = this.responseText;
+        document.getElementById("ibm_button").style.background = "#f44336";
+
+        } else {
+            document.getElementById("ibm_button").innerHTML = this.responseText;
+            document.getElementById("ibm_button").style.background = "#4CAF50";
+        }
+    };
+    xhttp.open("GET", "ibm_call", true);
+    xhttp.send();
+    }
+
+
+</script>
