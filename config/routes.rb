@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get 'dropbox/auth_callback' => 'dropbox#auth_callback'
   # get '/audio', to: 'admin/dashboard#file'
 
-  get 'ibm_call' => 'admin/dashboard#ibm_call'
+  get 'admin/ibm_call' => 'admin/dashboard#ibm_call'
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
