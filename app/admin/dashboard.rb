@@ -19,10 +19,10 @@ ActiveAdmin.register_page "Dashboard" do
       next_text = TextToSpeechV1.new(
         authenticator: authenticator,
       )
-      next_text.service_url = "https://api.us-east.text-to-speech.watson.cloud.ibm.com/instances/4a765487-f171-4f1d-9e6b-1b5f3cccd0b1"
+      next_text.service_url = ENV["IBM_URL"]
       next_text.configure_http_client(disable_ssl_verification: true)
 
-      text_to_speech.service_url = "https://api.us-east.text-to-speech.watson.cloud.ibm.com/instances/4a765487-f171-4f1d-9e6b-1b5f3cccd0b1"
+      text_to_speech.service_url = ENV["IBM_URL"]
       text_to_speech.configure_http_client(disable_ssl_verification: true)
 
       begin
