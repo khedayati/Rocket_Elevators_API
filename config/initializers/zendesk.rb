@@ -14,7 +14,6 @@ def initialize
 
     # OAuth Authentication
     # config.access_token = "your OAuth access token"
-
     # Optional:
 
     # Retry uses middleware to notify the user
