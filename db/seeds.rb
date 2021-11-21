@@ -3524,8 +3524,8 @@ last_names = Array['Genest', 'Fortier', 'Chantal', 'Houde', 'Tibault', 'Boutin',
 functions = Array['CEO', 'Director', 'Assistant Director', 'Captain', 'Captain', 'Engineer', 'Engineer', 'Engineer',
                   'Engineer', 'Engineer', 'Engineer', 'Engineer', 'Engineer', 'Engineer', 'Engineer', 'Developer', 'Developer', 'Developer', 'Developer', 'Developer', 'Developer']
 #Array of all employees' email
-emails = Array['nicolas.genest@***REMOVED***.biz', 'nadya.fortier@***REMOVED***.biz', 'martin.chantal@***REMOVED***.biz',
-               'mathieu.houde@***REMOVED***.biz', 'patrick.thibault@***REMOVED***.biz', 'david.boutin@***REMOVED***.biz', 'mathieu.lortie@***REMOVED***.biz', 'thomas.carrier@***REMOVED***.biz', 'serge.savoie@***REMOVED***.biz', 'francis.patry-jessop@***REMOVED***.biz', 'mathieu.lefrancois@***REMOVED***.biz', 'david.larochelle@***REMOVED***.biz', 'nicolas.pineault@***REMOVED***.biz', 'david.amyot@***REMOVED***.biz', 'remi.gagnon@***REMOVED***.biz', 'timothy.wever@***REMOVED***.biz', 'kiril.kleinerman@***REMOVED***.biz', 'emmanuela.derilus@***REMOVED***.biz', 'abdul.akeeb@***REMOVED***.biz', 'krista.sheely@***REMOVED***.biz', 'jonathan.murray@***REMOVED***.biz']
+emails = Array['nicolas.genest@codeboxx.biz', 'nadya.fortier@codeboxx.biz', 'martin.chantal@codeboxx.biz',
+               'mathieu.houde@codeboxx.biz', 'patrick.thibault@codeboxx.biz', 'david.boutin@codeboxx.biz', 'mathieu.lortie@codeboxx.biz', 'thomas.carrier@codeboxx.biz', 'serge.savoie@codeboxx.biz', 'francis.patry-jessop@codeboxx.biz', 'mathieu.lefrancois@codeboxx.biz', 'david.larochelle@codeboxx.biz', 'nicolas.pineault@codeboxx.biz', 'david.amyot@codeboxx.biz', 'remi.gagnon@codeboxx.biz', 'timothy.wever@codeboxx.biz', 'kiril.kleinerman@codeboxx.biz', 'emmanuela.derilus@codeboxx.biz', 'abdul.akeeb@codeboxx.biz', 'krista.sheely@codeboxx.biz', 'jonathan.murray@codeboxx.biz']
 
 # for i in 0...first_name.length()
 #     @user = User.create!(email: email[i], password: 'password', password_confirmation: 'password', first_name:first_name[i], last_name:last_name[i], function:function[i])

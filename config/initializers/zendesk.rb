@@ -6,7 +6,7 @@ def initialize
     config.url = "https://codeboxmtl.zendesk.com/api/v2" # e.g. https://yoursubdomain.zendesk.com/api/v2
 
     # Basic / Token Authentication
-    config.username = "***REMOVED***"
+    config.username = "tsken010@outlook.com"
 
     # Choose one of the following depending on your authentication choice
     config.token = ENV['ZENDESK_API_KEY']
