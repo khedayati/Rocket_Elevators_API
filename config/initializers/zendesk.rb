@@ -6,7 +6,7 @@ def initialize
     config.url = "***REMOVED***" # e.g. https://yoursubdomain.zendesk.com/api/v2
 
     # Basic / Token Authentication
-    config.username = "***REMOVED***"
+    config.username = ENV['ZENDESK_EMAIL'] 
 
     # Choose one of the following depending on your authentication choice
     config.token = ENV['ZENDESK_API_KEY']
