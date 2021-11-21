@@ -19,10 +19,10 @@ ActiveAdmin.register_page "Dashboard" do
       next_text = TextToSpeechV1.new(
         authenticator: authenticator,
       )
-      next_text.service_url = "***REMOVED***"
+      next_text.service_url = ENV["IBM_URL"]
       next_text.configure_http_client(disable_ssl_verification: true)
 
-      text_to_speech.service_url = "***REMOVED***"
+      text_to_speech.service_url = ENV["IBM_URL"]
       text_to_speech.configure_http_client(disable_ssl_verification: true)
 
       begin
