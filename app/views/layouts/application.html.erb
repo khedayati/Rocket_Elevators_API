@@ -15,7 +15,7 @@
     <%= render "layouts/header" %>
     <%= yield %>
     <%= render "layouts/footer" %>
-    <script async defer src="//maps.googleapis.com/maps/api/js?key=***REMOVED***&callback"></script>
+    <script async defer src="//maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP'] %>&callback"></script>
     		<script>
 			// function initMap() {} // now it IS a function and it is in global
 
