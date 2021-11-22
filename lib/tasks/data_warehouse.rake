@@ -78,6 +78,23 @@ namespace :wh do
             customer_city varchar NULL)")
             print "CREATE DIM CUSTOMER TABLE: "
             puts "\e[0;32mOK\e[0m"
+
+
+            connection.exec("DROP TABLE IF EXISTS fact_intervention")
+            connection.exec("CREATE TABLE fact_intervention (creation_date date NULL,
+            employeeID serial NOT NULL,
+            buildingID serial NOT NULL,
+            batteryID NULL,
+            columnID NULL,
+            elevatorID NULL,
+            intervention_start time(HH:MI),
+            intervention_end NULL,
+            resultat varchar (success, fail, Incomplete),
+            report NULL,
+            statut varchar (pending, in_progress, interrupted, resumed, complete),
+            CONSTRAINT fact_intervention_pk")
+            print "CREATE FACT INTERVENTION TABLE: "
+            puts "\e[0;32mOK\e[0m"
         end
 
         namespace :populate do
