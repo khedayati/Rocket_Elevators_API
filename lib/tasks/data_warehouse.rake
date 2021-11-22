@@ -80,8 +80,8 @@ namespace :wh do
             puts "\e[0;32mOK\e[0m"
 
 
-            connection.exec("DROP TABLE IF EXISTS fact_intervention")
-            connection.exec("CREATE TABLE fact_intervention (creation_date date NULL,
+            connection.exec("DROP TABLE IF EXISTS fact_interventions")
+            connection.exec("CREATE TABLE fact_interventions (creation_date date NULL,
             employeeID serial NOT NULL,
             buildingID serial NOT NULL,
             batteryID NULL,
@@ -92,8 +92,8 @@ namespace :wh do
             resultat varchar (success, fail, Incomplete),
             report NULL,
             statut varchar (pending, in_progress, interrupted, resumed, complete),
-            CONSTRAINT fact_intervention_pk")
-            print "CREATE FACT INTERVENTION TABLE: "
+            CONSTRAINT fact_interventions_pk")
+            print "CREATE FACT INTERVENTIONS TABLE: "
             puts "\e[0;32mOK\e[0m"
         end
 
