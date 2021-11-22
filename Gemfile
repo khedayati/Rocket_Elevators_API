@@ -113,3 +113,6 @@ gem 'twilio-ruby'
 
 gem 'zendesk_api'
 gem 'gmaps4rails'
+
+gem 'graphql'
+gem 'graphiql-rails', group: :development
