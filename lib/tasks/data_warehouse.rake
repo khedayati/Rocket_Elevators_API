@@ -2,10 +2,9 @@ require File.expand_path(File.dirname(__FILE__) + '/../../config/environment.rb'
 require 'pg'
 
 
-connection = PG::Connection.new(host: ENV["POSTGRESQL_DATABASE_HOST"], port: "5432", dbname: ENV["POSTGRESQL_DATABASE_DBNAME"], user: ENV["POSTGRESQL_DATABASE_USER"], password: ENV["POSTGRESQL_DATABASE_PASSWORD"])
-
+PsqlQuery = PgConnection::MyConnection
 puts "\e[0;36mCurrently connected to:\e[0m '" + ActiveRecord::Base.connection.current_database + "'"
-puts "\e[0;36mCurrently connected for PG to:\e[0m '" + connection.db + "'"
+puts "\e[0;36mCurrently connected for PG to:\e[0m '" + PsqlQuery.dbname + "'"
 
 
 def get_total_ele( customer_id)
@@ -36,8 +35,8 @@ namespace :wh do
 
 
         task make_table: :environment do
-            connection.exec("DROP TABLE IF EXISTS public.fact_quotes")
-            connection.exec("CREATE TABLE public.fact_quotes (creation_date date NULL,
+            PsqlQuery.execute("DROP TABLE IF EXISTS public.fact_quotes")
+            PsqlQuery.execute("CREATE TABLE public.fact_quotes (creation_date date NULL,
             company_name varchar NULL,
             email varchar NULL,
             nb_elevator int4 NULL,
@@ -46,8 +45,8 @@ namespace :wh do
             print "CREATE FACT QUOTE TABLE: "
             puts "\e[0;32mOK\e[0m"
 
-            connection.exec("DROP TABLE IF EXISTS public.fact_contacts")
-            connection.exec("CREATE TABLE public.fact_contacts (creation_date date NULL,
+            PsqlQuery.execute("DROP TABLE IF EXISTS public.fact_contacts")
+            PsqlQuery.execute("CREATE TABLE public.fact_contacts (creation_date date NULL,
             company_name varchar NULL,
             email varchar NULL,
             project_name varchar NULL,
@@ -57,8 +56,8 @@ namespace :wh do
             puts "\e[0;32mOK\e[0m"
 
 
-            connection.exec("DROP TABLE IF EXISTS public.fact_elevators")
-            connection.exec("CREATE TABLE public.fact_elevators (date_of_commissionig date NULL,
+            PsqlQuery.execute("DROP TABLE IF EXISTS public.fact_elevators")
+            PsqlQuery.execute("CREATE TABLE public.fact_elevators (date_of_commissionig date NULL,
             building_city varchar NULL,
             customer_id serial NOT NULL,
             building_id serial NOT NULL,
@@ -69,8 +68,8 @@ namespace :wh do
 
             
 
-            connection.exec("DROP TABLE IF EXISTS public.dim_customers")
-            connection.exec("CREATE TABLE public.dim_customers (creation_date date NULL,
+            PsqlQuery.execute("DROP TABLE IF EXISTS public.dim_customers")
+            PsqlQuery.execute("CREATE TABLE public.dim_customers (creation_date date NULL,
             company_name varchar NULL,
             email varchar NULL,
             full_name varchar NULL,
@@ -80,8 +79,8 @@ namespace :wh do
             puts "\e[0;32mOK\e[0m"
 
 
-            connection.exec("DROP TABLE IF EXISTS public.fact_interventions")
-            connection.exec("CREATE TABLE public.fact_interventions (
+            PsqlQuery.execute("DROP TABLE IF EXISTS public.fact_interventions")
+            PsqlQuery.execute("CREATE TABLE public.fact_interventions (
             employee_id serial NOT NULL,
             building_id serial NOT NULL,
             battery_id int8,
@@ -99,8 +98,8 @@ namespace :wh do
         namespace :populate do
             task quote: :environment do
                 Quote.all.each do |quote|
-                    query = "insert into fact_quotes(quote_id,creation_date , company_name, email, nb_elevator ) values('#{quote.id}', '#{quote.created_at}',' #{quote.email}', '#{quote.company_name.gsub("'", "''")}', '#{quote.amount_elevators}')"
-                connection.exec(query)
+                    query = "insert into fact_quotes(quote_id,creation_date , company_name, email, nb_elevator ) values('#{quote.id}', '#{quote.created_at}','#{quote.company_name.gsub("'", "''")}', ' #{quote.email}',  '#{quote.amount_elevators}')"
+                PsqlQuery.execute(query)
                 end
                 puts "POPULATE FACT QUOTE: " + "\e[0;32mOK\e[0m"
             end
@@ -109,7 +108,7 @@ namespace :wh do
         task contact: :environment do
             Lead.all.each do |contact|
                 query = "insert into fact_contacts(contact_id, creation_date, company_name, email, project_name) values('#{contact.id}', '#{contact.date_of_creation}', '#{contact.company_name}', '#{contact.email}', '#{contact.project_name}')"
-                connection.exec(query)
+                PsqlQuery.execute(query)
             end
             puts "POPULATE FACT CONTACT: " + "\e[0;32mOK\e[0m"
         end
@@ -122,7 +121,7 @@ namespace :wh do
                     battery.columns.all.each do |column|
                         column.elevators.all.each do |elevator|
                             query = "insert into fact_elevators(serial_number, date_of_commissionig, building_city, customer_id, building_id) values('#{elevator.id}', '#{elevator.Date_of_commissioning}', '#{@address.city}', '#{building.customer.id}', '#{building.id}')"
-                            connection.exec(query)
+                            PsqlQuery.execute(query)
                         end
                     end
                 end
@@ -133,7 +132,7 @@ namespace :wh do
         task customer: :environment do
             Customer.all.each do |customer|
                 query = "insert into dim_customers(creation_date, company_name, full_name, email, nb_elevator, customer_city) values('#{customer.customer_creation_date}', '#{customer.company_name.gsub("'", "''")}', '#{customer.full_name_of_the_company_contact.gsub("'", "''")}', '#{customer.email_of_the_company_contact}', '#{get_total_ele(customer.id)}', '#{customer.address.city}')"
-                connection.exec(query)
+                PsqlQuery.execute(query)
             end
             puts "POPULATE DIM CUSTOMER: " + "\e[0;32mOK\e[0m"
         end
