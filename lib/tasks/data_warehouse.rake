@@ -80,19 +80,18 @@ namespace :wh do
             puts "\e[0;32mOK\e[0m"
 
 
-            connection.exec("DROP TABLE IF EXISTS fact_interventions")
-            connection.exec("CREATE TABLE fact_interventions (creation_date date NULL,
-            employeeID serial NOT NULL,
-            buildingID serial NOT NULL,
-            batteryID NULL,
-            columnID NULL,
-            elevatorID NULL,
-            intervention_start time(HH:MI),
-            intervention_end NULL,
-            resultat varchar (success, fail, Incomplete),
-            report NULL,
-            statut varchar (pending, in_progress, interrupted, resumed, complete),
-            CONSTRAINT fact_interventions_pk")
+            connection.exec("DROP TABLE IF EXISTS public.fact_interventions")
+            connection.exec("CREATE TABLE public.fact_interventions (
+            employee_id serial NOT NULL,
+            building_id serial NOT NULL,
+            battery_id int8,
+            column_id int8,
+            elevator_id int8,
+            intervention_start timestamp NOT NULL,
+            intervention_end timestamp NULL,
+            result varchar NOT NULL,
+            report varchar NULL,
+            status varchar NOT NULL)")
             print "CREATE FACT INTERVENTIONS TABLE: "
             puts "\e[0;32mOK\e[0m"
         end
