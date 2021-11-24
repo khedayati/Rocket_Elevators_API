@@ -30,15 +30,15 @@ module ActiveAdmin::DashboardHelper
   # ---------------------- DASHBOARD GRAPHS HELPERS METHOD ----------------------
   def gapm(connection, month, table)
     # Get amount per month
-    connection.exec("SELECT * FROM #{table} WHERE extract(month FROM creation_date) = #{month}").ntuples
+    connection.execute("SELECT * FROM #{table} WHERE extract(month FROM creation_date) = #{month}").ntuples
   end
 
   def make_data_gebp_graph(connection)
     @data = {}
     @total = 0
-    @amount_customers = connection.exec("SELECT * FROM dim_customers").count
+    @amount_customers = connection.execute("SELECT * FROM dim_customers").count
     i = 1
-    connection.exec("SELECT nb_elevator FROM dim_customers").each do |nb_elevator|
+    connection.execute("SELECT nb_elevator FROM dim_customers").each do |nb_elevator|
       @data["customer#{i}"] = nb_elevator["nb_elevator"]
       @total += nb_elevator["nb_elevator"].to_i
       i += 1

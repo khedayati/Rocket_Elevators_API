@@ -25,5 +25,7 @@ module App
         ENV[key.to_s] = value
       end if File.exists?(env_file)
     end
+    config.eager_load_paths << Rails.root.join('lib')
+
   end
 end
