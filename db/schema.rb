@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_19_200642) do
+ActiveRecord::Schema.define(version: 2021_11_26_150959) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "namespace"
@@ -163,7 +163,6 @@ ActiveRecord::Schema.define(version: 2021_11_19_200642) do
     t.string "full_name"
     t.string "company_name"
     t.string "email"
-    t.integer "phone"
     t.string "project_name"
     t.text "project_description"
     t.string "department_in_charge_of_the_elevators"
@@ -172,6 +171,7 @@ ActiveRecord::Schema.define(version: 2021_11_19_200642) do
     t.date "date_of_creation"
     t.bigint "customer_id"
     t.binary "attachment"
+    t.string "phone"
     t.index ["customer_id"], name: "index_leads_on_customer_id"
   end
 

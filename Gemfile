@@ -113,3 +113,4 @@ gem 'twilio-ruby'
 
 gem 'zendesk_api'
 gem 'gmaps4rails'
+gem "ruby-progressbar", "~> 1.11"

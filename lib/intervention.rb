@@ -97,27 +97,23 @@ module Intervention
     end
 
     def create(
-      employee_id: nil,
-      building_id: nil,
+      params,
+      employee_id,
+      building_id,
       battery_id: nil,
       column_id: nil,
-      elevator_id: nil,
-      intervention_start: nil,
-      intervention_end: nil,
-      result: nil,
-      report: nil,
-      status: nil
+      elevator_id: nil
     )
       data = { "employee_id" => employee_id,
                "building_id" => building_id,
                "battery_id" => battery_id,
                "column_id" => column_id,
                "elevator_id" => elevator_id,
-               "intervention_start" => intervention_start,
-               "intervention_end" => intervention_end,
-               "result" => result,
-               "report" => report,
-               "status" => status }
+               "intervention_start" => params["intervention_start"],
+               "intervention_end" => params["intervention_end"],
+               "result" => params["result"],
+               "report" => params["report"],
+               "status" => params["status"], }
       insert(data)
     end
   end

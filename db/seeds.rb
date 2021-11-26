@@ -3563,8 +3563,9 @@ product_line = Array['Standard', 'Premium', 'Excelium']
 $j = 0
 #loop to create 250 fake quotes. Normal data is generated randomly. 
 #normal data are generated randomly, however, the price and the elevator shafts are calculated.
+puts "Making Quotes"
+quote_progressbar = ProgressBar.create(:total => 250)
 while $j < 250 do
-    puts "Making quote #{$j}"
     random_product_line = product_line[rand(0..2)]
     random_building_type = address_type[rand(0..3)]
     random_amount_floors = rand(10..50)
@@ -3713,11 +3714,15 @@ while $j < 250 do
         )
     end
     $j += 1
+    quote_progressbar.increment
 end
 
 $i = 0
 $num = 250
 #for loop to generate leads
+
+puts "Making Leads"
+lead_progressbar = ProgressBar.create(:total => $num)
 while $i < $num do
   if $i == 146
     Faker::UniqueGenerator.clear  
@@ -3749,6 +3754,7 @@ while $i < $num do
   )
   $i += 1
   leads.save
+  lead_progressbar.increment
 end
 
 
@@ -3760,6 +3766,8 @@ address_status = Array["Active", "Inactive"]
 entity = Array["Operational Building", "Billing Address", "Home Address"]
 
 #while loop to create addresses based on the array given.
+puts "Making Adress"
+address_progressbar = ProgressBar.create(:total => 300)
 while $i < 300 do
   random_num = rand(0..3)
   random_num_status = rand(0..1)
@@ -3782,7 +3790,7 @@ while $i < 300 do
 
   $i += 1
   addresses.save
-
+  address_progressbar.increment
 end
 
 $i = 0
@@ -3791,8 +3799,9 @@ $j = 0
 values_type = Array["Residential", "Commercial", "Corporate", "Hybrid"]
 model = Array['Standard', 'Premium', 'Excelium']
 #while loop to create user using fake data
+puts "Making Users and what descend from it (Customer, building , battery ....)"
+user_progressbar = ProgressBar.create
 while $i < 100 do
-    puts "working on shit #{$i}"
     @users = User.create!(
         first_name: Faker::Name.unique.first_name,
         last_name: Faker::Name.unique.last_name,
@@ -3954,6 +3963,7 @@ while $i < 100 do
         
     end
     $i += 1;
+    user_progressbar.increment
 end
 
 

@@ -484,6 +484,7 @@ DEPENDENCIES
   rails (~> 5.2.6)
   responders
   rubocop
+  ruby-progressbar (~> 1.11)
   rvm1-capistrano3
   sass-rails (~> 5.0)
   selenium-webdriver
