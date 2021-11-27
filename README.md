@@ -4,7 +4,7 @@ rake wh:make_table  => drop if exist and create tables in psql database
 
 rake wh:populate:* => populate psql tables with data from mysql database 
 
-* = quote, elevator, contact, customer
+* = quote, elevator, contact, customer, intervention
 
 rake wh:reset => Does all the previous rake command in order
 
