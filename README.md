@@ -19,3 +19,6 @@ It is integrated into the rake wh:make_table command.
 ## Fake Data for fact_intervention
 Also made found in data_warehouse.rake under the namespace wh:populate in the task intervention from line 209 to 270.
 It is intergrated in the rake final:setup as is the wh:make_table.
+### Where to see the data
+They can be seen on the database named LEVY_POSTGRES in the postgres server we have been using
+
