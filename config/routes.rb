@@ -19,7 +19,8 @@ Rails.application.routes.draw do
   get '/update_battery/:building_id', to: 'interventions#updateBattery'
   get '/update_column/:battery_id', to: 'interventions#updateColumn'
   get '/update_elevator/:column_id', to: 'interventions#updateElevator'
-  post '/create_intervention', to: 'interventions#submit'
+  post '/intervention/create_intervention', to: 'interventions#submit'
+  resource :intervention
 
   get 'dropbox/auth' => 'dropbox#auth'
   get 'dropbox/auth_callback' => 'dropbox#auth_callback'

@@ -5,9 +5,9 @@ lock '~> 3.16.0'
 
 before 'deploy', 'rvm1:install:ruby'
 set :rvm_map_bins, %w[rake gem bundle ruby puma pumactl]
-set :application, 'KhashayarHedayati'
+set :application, 'AlexandreGagne'
 
-set :repo_url, 'https://github.com/khedayati/Rocket_Elevators_API.git'
+set :repo_url, 'https://github.com/Namial/Rocket_Elevator_Foundation/tree/Consolidation'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
