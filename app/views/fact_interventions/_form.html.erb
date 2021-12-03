@@ -1,0 +1,77 @@
+<%= form_with(model: fact_intervention, local: true) do |form| %>
+  <% if fact_intervention.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(fact_intervention.errors.count, "error") %> prohibited this fact_intervention from being saved:</h2>
+
+      <ul>
+      <% fact_intervention.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :author %>
+    <%= form.text_field :author %>
+  </div>
+
+  <div class="field">
+    <%= form.label :customer_id %>
+    <%= form.text_field :customer_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :building_id %>
+    <%= form.text_field :building_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :battery_id %>
+    <%= form.text_field :battery_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :column_id %>
+    <%= form.text_field :column_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :elevator_id %>
+    <%= form.text_field :elevator_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :employee_id %>
+    <%= form.text_field :employee_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :intervention_start %>
+    <%= form.time_select :intervention_start %>
+  </div>
+
+  <div class="field">
+    <%= form.label :intervention_end %>
+    <%= form.time_select :intervention_end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :result %>
+    <%= form.text_field :result %>
+  </div>
+
+  <div class="field">
+    <%= form.label :report %>
+    <%= form.text_field :report %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -9,11 +9,17 @@ Rails.application.routes.draw do
   get '/commercial', to: 'home#commercial'
   get '/quote', to: 'home#quote'
   get '/index', to: 'home#index'
+  get '/intervention', to: 'home#intervention' 
   post '/create_quotes' =>'quotes#create'
   post '/create_leads' => 'leads#create'
   get '/users/:id' , to: 'users#show'
   get '/users/:id/edit', to: 'users#edit', :as => :user
   patch '/users/:id/edit' => 'users#update'
+  get '/update_building/:customer_id', to: 'interventions#updateBuildings'
+  get '/update_battery/:building_id', to: 'interventions#updateBattery'
+  get '/update_column/:battery_id', to: 'interventions#updateColumn'
+  get '/update_elevator/:column_id', to: 'interventions#updateElevator'
+  post '/create_intervention', to: 'interventions#submit'
 
   get 'dropbox/auth' => 'dropbox#auth'
   get 'dropbox/auth_callback' => 'dropbox#auth_callback'

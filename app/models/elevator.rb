@@ -1,5 +1,6 @@
 class Elevator < ApplicationRecord
   belongs_to :column
+  has_many :intervention
 
   def to_s
     "Elevator #" + self.id.to_s

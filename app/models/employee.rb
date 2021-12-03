@@ -3,6 +3,7 @@
 class Employee < ApplicationRecord
     belongs_to :user 
     has_many :batteries, dependent: :destroy
+    has_many :intervention
 
         def to_s
         "Employee #" + self.id.to_s

@@ -1,0 +1,40 @@
+<h1>New Fact Intervention</h1>
+<script>
+    $("#Building").prop("disabled", true); # second dropdown is disable while first dropdown is empty
+    $("#Customer").change(function(){
+        var project = $(this).val();
+        if(project == ''){
+            $("#Building").prop("disabled", true);
+        }else{
+            $("#Building").prop("disabled", false);
+        }
+        $.ajax({
+            url: "/getBuildings",
+            // method: "GET",  
+            // dataType: "json",
+            data: {
+                customer_id: $(this).find("option:selected").val(),
+                building_id: $(this).find("option:selected").val(),
+                battery: $(this).find("option:selected").val(),
+            
+            },
+            error: function (xhr, status, error) {
+                console.error('AJAX Error: ' + status + error);
+            },
+            success: function (response) {
+                console.log('response',response);
+                var tasks = response["tasks"];
+                $("#Building").empty();
+
+                $("#Building").append('<option>Select Task</option>');
+                for(var i = 0; i < tasks.length; i++){
+                    $("#Building").append('<option value="' + tasks[i]["id"] + '">' +tasks[i]["name"] + '</option>');
+                }
+            }
+        });
+    });
+</script>
+
+<%= render 'form', fact_intervention: @fact_intervention %>
+
+<%= link_to 'Back', fact_interventions_path %>

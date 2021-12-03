@@ -3,7 +3,7 @@ def initialize
   @client = ZendeskAPI::Client.new do |config|
     # Mandatory:
 
-    config.url = "https://codeboxmtl.zendesk.com/api/v2" # e.g. https://yoursubdomain.zendesk.com/api/v2
+    config.url = "https://rocketelevatorag.zendesk.com/api/v2" # e.g. https://yoursubdomain.zendesk.com/api/v2
 
     # Basic / Token Authentication
     config.username = ENV['ZENDESK_EMAIL'] 

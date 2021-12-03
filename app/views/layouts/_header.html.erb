@@ -70,6 +70,13 @@
 											CONTACT
 										</a>
 									</li>
+									<% if user_signed_in?%>
+									<li>
+										<a href="intervention.html" id="intervention-nav">
+										INTERVENTION
+										</a>
+									<% end %>
+									</li>
 									<% if user_signed_in?%> 
 										<li class="nav-item dropdown">
 										<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
