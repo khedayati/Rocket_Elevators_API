@@ -23,7 +23,7 @@ class InterventionsController < InheritedResources::Base
   end
 
   def submit
-    @intervention = Intervention.create(
+    @intevention = Intervention.new(
       author: params[:author],
       customer_id: params[:customer_id], 
       building_id: params[:building_id],
@@ -84,19 +84,23 @@ class InterventionsController < InheritedResources::Base
     render json: {elevators: @elevator_list}
   end
 
-  def create
-    @intervention = Intervention.new(fact_intervention_params)
+  # def create
+  #   @intervention = Intervention.new(fact_intervention_params)
+  # end
 
-    respond_to do |format|
-      if @intervention.save
-        format.html { redirect_to @intervention, notice: 'Employee was successfully created.' }
-        format.json { render :show, status: :created, location: @intervention }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @intervention.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # def create
+  #   @intervention = Intevention.new(fact_intervention_params)
+
+  #   respond_to do |format|
+  #     if @intervention.save
+  #       format.html { redirect_to @intervention, notice: 'Employee was successfully created.' }
+  #       format.json { render :show, status: :created, location: @intervention }
+  #     else
+  #       format.html { render :new, status: :unprocessable_entity }
+  #       format.json { render json: @intervention.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
     # respond_to do |format|
     #   if @quote.save

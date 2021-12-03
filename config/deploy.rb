@@ -7,7 +7,7 @@ before 'deploy', 'rvm1:install:ruby'
 set :rvm_map_bins, %w[rake gem bundle ruby puma pumactl]
 set :application, 'AlexandreGagne'
 
-set :repo_url, 'https://github.com/Namial/Rocket_Elevator_Foundation.git'
+set :repo_url, 'https://github.com/Namial/Rocket_Elevator_Foundation/tree/Consolidation'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
